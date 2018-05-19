@@ -23,11 +23,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/brave/neucore-api.git"
+      "url": "https://github.com/bravecollective/neucore-api.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "bravecollective/neucore-api": "*@dev"
   }
 }
 ```
@@ -39,7 +39,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/SwaggerClient-php/vendor/autoload.php');
+    require_once('/path/to/application/vendor/autoload.php');
 ```
 
 ## Tests
