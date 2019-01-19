@@ -1,6 +1,6 @@
 <?php
 /**
- * Corporation
+ * CorporationMember
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * Corporation Class Doc Comment
+ * CorporationMember Class Doc Comment
  *
  * @category Class
+ * @description The player property contains only id and name, character does not contain corporation.
  * @package  Brave\NeucoreApi
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Corporation implements ModelInterface, ArrayAccess
+class CorporationMember implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class Corporation implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Corporation';
+    protected static $swaggerModelName = 'CorporationMember';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +58,15 @@ class Corporation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'player' => '\Brave\NeucoreApi\Model\Player',
         'id' => 'int',
         'name' => 'string',
-        'ticker' => 'string',
-        'alliance' => '\Brave\NeucoreApi\Model\Alliance',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]'
+        'location_id' => 'int',
+        'logoff_date' => '\DateTime',
+        'logon_date' => '\DateTime',
+        'ship_type_id' => 'int',
+        'start_date' => '\DateTime',
+        'character' => '\Brave\NeucoreApi\Model\Character'
     ];
 
     /**
@@ -70,11 +75,15 @@ class Corporation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'player' => null,
         'id' => 'int64',
         'name' => null,
-        'ticker' => null,
-        'alliance' => null,
-        'groups' => null
+        'location_id' => null,
+        'logoff_date' => 'date-time',
+        'logon_date' => 'date-time',
+        'ship_type_id' => null,
+        'start_date' => 'date-time',
+        'character' => null
     ];
 
     /**
@@ -104,11 +113,15 @@ class Corporation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'player' => 'player',
         'id' => 'id',
         'name' => 'name',
-        'ticker' => 'ticker',
-        'alliance' => 'alliance',
-        'groups' => 'groups'
+        'location_id' => 'locationId',
+        'logoff_date' => 'logoffDate',
+        'logon_date' => 'logonDate',
+        'ship_type_id' => 'shipTypeId',
+        'start_date' => 'startDate',
+        'character' => 'character'
     ];
 
     /**
@@ -117,11 +130,15 @@ class Corporation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'player' => 'setPlayer',
         'id' => 'setId',
         'name' => 'setName',
-        'ticker' => 'setTicker',
-        'alliance' => 'setAlliance',
-        'groups' => 'setGroups'
+        'location_id' => 'setLocationId',
+        'logoff_date' => 'setLogoffDate',
+        'logon_date' => 'setLogonDate',
+        'ship_type_id' => 'setShipTypeId',
+        'start_date' => 'setStartDate',
+        'character' => 'setCharacter'
     ];
 
     /**
@@ -130,11 +147,15 @@ class Corporation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'player' => 'getPlayer',
         'id' => 'getId',
         'name' => 'getName',
-        'ticker' => 'getTicker',
-        'alliance' => 'getAlliance',
-        'groups' => 'getGroups'
+        'location_id' => 'getLocationId',
+        'logoff_date' => 'getLogoffDate',
+        'logon_date' => 'getLogonDate',
+        'ship_type_id' => 'getShipTypeId',
+        'start_date' => 'getStartDate',
+        'character' => 'getCharacter'
     ];
 
     /**
@@ -197,11 +218,15 @@ class Corporation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['player'] = isset($data['player']) ? $data['player'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['ticker'] = isset($data['ticker']) ? $data['ticker'] : null;
-        $this->container['alliance'] = isset($data['alliance']) ? $data['alliance'] : null;
-        $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
+        $this->container['location_id'] = isset($data['location_id']) ? $data['location_id'] : null;
+        $this->container['logoff_date'] = isset($data['logoff_date']) ? $data['logoff_date'] : null;
+        $this->container['logon_date'] = isset($data['logon_date']) ? $data['logon_date'] : null;
+        $this->container['ship_type_id'] = isset($data['ship_type_id']) ? $data['ship_type_id'] : null;
+        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
+        $this->container['character'] = isset($data['character']) ? $data['character'] : null;
     }
 
     /**
@@ -218,9 +243,6 @@ class Corporation implements ModelInterface, ArrayAccess
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['ticker'] === null) {
-            $invalidProperties[] = "'ticker' can't be null";
         }
         return $invalidProperties;
     }
@@ -240,12 +262,33 @@ class Corporation implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             return false;
         }
-        if ($this->container['ticker'] === null) {
-            return false;
-        }
         return true;
     }
 
+
+    /**
+     * Gets player
+     *
+     * @return \Brave\NeucoreApi\Model\Player
+     */
+    public function getPlayer()
+    {
+        return $this->container['player'];
+    }
+
+    /**
+     * Sets player
+     *
+     * @param \Brave\NeucoreApi\Model\Player $player player
+     *
+     * @return $this
+     */
+    public function setPlayer($player)
+    {
+        $this->container['player'] = $player;
+
+        return $this;
+    }
 
     /**
      * Gets id
@@ -260,7 +303,7 @@ class Corporation implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id EVE corporation ID.
+     * @param int $id EVE Character ID.
      *
      * @return $this
      */
@@ -284,7 +327,7 @@ class Corporation implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name EVE corporation name.
+     * @param string $name EVE Character name.
      *
      * @return $this
      */
@@ -296,73 +339,145 @@ class Corporation implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets ticker
+     * Gets location_id
      *
-     * @return string
+     * @return int
      */
-    public function getTicker()
+    public function getLocationId()
     {
-        return $this->container['ticker'];
+        return $this->container['location_id'];
     }
 
     /**
-     * Sets ticker
+     * Sets location_id
      *
-     * @param string $ticker Corporation ticker.
+     * @param int $location_id Corporation ticker.
      *
      * @return $this
      */
-    public function setTicker($ticker)
+    public function setLocationId($location_id)
     {
-        $this->container['ticker'] = $ticker;
+        $this->container['location_id'] = $location_id;
 
         return $this;
     }
 
     /**
-     * Gets alliance
+     * Gets logoff_date
      *
-     * @return \Brave\NeucoreApi\Model\Alliance
+     * @return \DateTime
      */
-    public function getAlliance()
+    public function getLogoffDate()
     {
-        return $this->container['alliance'];
+        return $this->container['logoff_date'];
     }
 
     /**
-     * Sets alliance
+     * Sets logoff_date
      *
-     * @param \Brave\NeucoreApi\Model\Alliance $alliance alliance
+     * @param \DateTime $logoff_date logoff_date
      *
      * @return $this
      */
-    public function setAlliance($alliance)
+    public function setLogoffDate($logoff_date)
     {
-        $this->container['alliance'] = $alliance;
+        $this->container['logoff_date'] = $logoff_date;
 
         return $this;
     }
 
     /**
-     * Gets groups
+     * Gets logon_date
      *
-     * @return \Brave\NeucoreApi\Model\Group[]
+     * @return \DateTime
      */
-    public function getGroups()
+    public function getLogonDate()
     {
-        return $this->container['groups'];
+        return $this->container['logon_date'];
     }
 
     /**
-     * Sets groups
+     * Sets logon_date
      *
-     * @param \Brave\NeucoreApi\Model\Group[] $groups Groups for automatic assignment (API: not included by default).
+     * @param \DateTime $logon_date logon_date
      *
      * @return $this
      */
-    public function setGroups($groups)
+    public function setLogonDate($logon_date)
     {
-        $this->container['groups'] = $groups;
+        $this->container['logon_date'] = $logon_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets ship_type_id
+     *
+     * @return int
+     */
+    public function getShipTypeId()
+    {
+        return $this->container['ship_type_id'];
+    }
+
+    /**
+     * Sets ship_type_id
+     *
+     * @param int $ship_type_id ship_type_id
+     *
+     * @return $this
+     */
+    public function setShipTypeId($ship_type_id)
+    {
+        $this->container['ship_type_id'] = $ship_type_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_date
+     *
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->container['start_date'];
+    }
+
+    /**
+     * Sets start_date
+     *
+     * @param \DateTime $start_date start_date
+     *
+     * @return $this
+     */
+    public function setStartDate($start_date)
+    {
+        $this->container['start_date'] = $start_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets character
+     *
+     * @return \Brave\NeucoreApi\Model\Character
+     */
+    public function getCharacter()
+    {
+        return $this->container['character'];
+    }
+
+    /**
+     * Sets character
+     *
+     * @param \Brave\NeucoreApi\Model\Character $character character
+     *
+     * @return $this
+     */
+    public function setCharacter($character)
+    {
+        $this->container['character'] = $character;
 
         return $this;
     }

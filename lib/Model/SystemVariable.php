@@ -1,6 +1,6 @@
 <?php
 /**
- * Corporation
+ * SystemVariable
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * Corporation Class Doc Comment
+ * SystemVariable Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Corporation implements ModelInterface, ArrayAccess
+class SystemVariable implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Corporation implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Corporation';
+    protected static $swaggerModelName = 'SystemVariable';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class Corporation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
         'name' => 'string',
-        'ticker' => 'string',
-        'alliance' => '\Brave\NeucoreApi\Model\Alliance',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]'
+        'value' => 'string'
     ];
 
     /**
@@ -70,11 +67,8 @@ class Corporation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int64',
         'name' => null,
-        'ticker' => null,
-        'alliance' => null,
-        'groups' => null
+        'value' => null
     ];
 
     /**
@@ -104,11 +98,8 @@ class Corporation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
-        'ticker' => 'ticker',
-        'alliance' => 'alliance',
-        'groups' => 'groups'
+        'value' => 'value'
     ];
 
     /**
@@ -117,11 +108,8 @@ class Corporation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
-        'ticker' => 'setTicker',
-        'alliance' => 'setAlliance',
-        'groups' => 'setGroups'
+        'value' => 'setValue'
     ];
 
     /**
@@ -130,11 +118,8 @@ class Corporation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
-        'ticker' => 'getTicker',
-        'alliance' => 'getAlliance',
-        'groups' => 'getGroups'
+        'value' => 'getValue'
     ];
 
     /**
@@ -197,11 +182,8 @@ class Corporation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['ticker'] = isset($data['ticker']) ? $data['ticker'] : null;
-        $this->container['alliance'] = isset($data['alliance']) ? $data['alliance'] : null;
-        $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -213,14 +195,15 @@ class Corporation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['ticker'] === null) {
-            $invalidProperties[] = "'ticker' can't be null";
+        if ((strlen($this->container['name']) > 255)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
+        }
+
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
         }
         return $invalidProperties;
     }
@@ -234,42 +217,18 @@ class Corporation implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['id'] === null) {
-            return false;
-        }
         if ($this->container['name'] === null) {
             return false;
         }
-        if ($this->container['ticker'] === null) {
+        if (strlen($this->container['name']) > 255) {
+            return false;
+        }
+        if ($this->container['value'] === null) {
             return false;
         }
         return true;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id EVE corporation ID.
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets name
@@ -284,85 +243,41 @@ class Corporation implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name EVE corporation name.
+     * @param string $name Variable name.
      *
      * @return $this
      */
     public function setName($name)
     {
+        if ((strlen($name) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling SystemVariable., must be smaller than or equal to 255.');
+        }
+
         $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets ticker
+     * Gets value
      *
      * @return string
      */
-    public function getTicker()
+    public function getValue()
     {
-        return $this->container['ticker'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets ticker
+     * Sets value
      *
-     * @param string $ticker Corporation ticker.
+     * @param string $value Variable value.
      *
      * @return $this
      */
-    public function setTicker($ticker)
+    public function setValue($value)
     {
-        $this->container['ticker'] = $ticker;
-
-        return $this;
-    }
-
-    /**
-     * Gets alliance
-     *
-     * @return \Brave\NeucoreApi\Model\Alliance
-     */
-    public function getAlliance()
-    {
-        return $this->container['alliance'];
-    }
-
-    /**
-     * Sets alliance
-     *
-     * @param \Brave\NeucoreApi\Model\Alliance $alliance alliance
-     *
-     * @return $this
-     */
-    public function setAlliance($alliance)
-    {
-        $this->container['alliance'] = $alliance;
-
-        return $this;
-    }
-
-    /**
-     * Gets groups
-     *
-     * @return \Brave\NeucoreApi\Model\Group[]
-     */
-    public function getGroups()
-    {
-        return $this->container['groups'];
-    }
-
-    /**
-     * Sets groups
-     *
-     * @param \Brave\NeucoreApi\Model\Group[] $groups Groups for automatic assignment (API: not included by default).
-     *
-     * @return $this
-     */
-    public function setGroups($groups)
-    {
-        $this->container['groups'] = $groups;
+        $this->container['value'] = $value;
 
         return $this;
     }
