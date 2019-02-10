@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**corpGroupsBulkV1**](ApplicationApi.md#corpGroupsBulkV1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations.
 [**corpGroupsV1**](ApplicationApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 [**corpGroupsV2**](ApplicationApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
+[**esiV1**](ApplicationApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI request and returns the result.
 [**groupsBulkV1**](ApplicationApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 [**groupsV1**](ApplicationApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
 [**groupsV2**](ApplicationApi.md#groupsV2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.
@@ -393,6 +394,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Brave\NeucoreApi\Model\Group[]**](../Model/Group.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **esiV1**
+> string esiV1($path, $datasource, $page)
+
+Makes an ESI request and returns the result.
+
+Needs role: app-esi      *                  Instead of the path parameter, you can also simply append it to the URL,                         but that does not work with OpenAPI clients since path parameters are always URL encoded.      *                  This supports the 'If-None-Match' header.      *                  The following headers from ESI are passed through to the response:                         Content-Type ETag Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Bearer
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$path = "path_example"; // string | The ESI path.
+$datasource = "datasource_example"; // string | The EVE character ID those token is used to make the ESI request
+$page = "page_example"; // string | Passed through to ESI
+
+try {
+    $result = $apiInstance->esiV1($path, $datasource, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->esiV1: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| The ESI path. |
+ **datasource** | **string**| The EVE character ID those token is used to make the ESI request |
+ **page** | **string**| Passed through to ESI | [optional]
+
+### Return type
+
+**string**
 
 ### Authorization
 

@@ -142,6 +142,16 @@ class ApplicationApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for esiV1
+     *
+     * Makes an ESI request and returns the result..
+     *
+     */
+    public function testEsiV1()
+    {
+    }
+
+    /**
      * Test case for groupsBulkV1
      *
      * Return groups of multiple players, identified by one of their character IDs..
