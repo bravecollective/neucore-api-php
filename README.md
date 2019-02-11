@@ -95,7 +95,7 @@ Class | Method | HTTP request | Description
 *ApplicationApi* | [**corpGroupsBulkV1**](docs/Api/ApplicationApi.md#corpgroupsbulkv1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations.
 *ApplicationApi* | [**corpGroupsV1**](docs/Api/ApplicationApi.md#corpgroupsv1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 *ApplicationApi* | [**corpGroupsV2**](docs/Api/ApplicationApi.md#corpgroupsv2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
-*ApplicationApi* | [**esiV1**](docs/Api/ApplicationApi.md#esiv1) | **GET** /app/v1/esi | Makes an ESI request and returns the result.
+*ApplicationApi* | [**esiV1**](docs/Api/ApplicationApi.md#esiv1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 *ApplicationApi* | [**groupsBulkV1**](docs/Api/ApplicationApi.md#groupsbulkv1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 *ApplicationApi* | [**groupsV1**](docs/Api/ApplicationApi.md#groupsv1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
 *ApplicationApi* | [**groupsV2**](docs/Api/ApplicationApi.md#groupsv2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.

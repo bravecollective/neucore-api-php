@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**corpGroupsBulkV1**](ApplicationApi.md#corpGroupsBulkV1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations.
 [**corpGroupsV1**](ApplicationApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 [**corpGroupsV2**](ApplicationApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
-[**esiV1**](ApplicationApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI request and returns the result.
+[**esiV1**](ApplicationApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 [**groupsBulkV1**](ApplicationApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 [**groupsV1**](ApplicationApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
 [**groupsV2**](ApplicationApi.md#groupsV2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.
@@ -407,11 +407,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **esiV1**
-> string esiV1($path, $datasource, $page)
+> string esiV1($esi_path_query, $datasource)
 
-Makes an ESI request and returns the result.
+Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi      *                  Instead of the path parameter, you can also simply append it to the URL,                         but that does not work with OpenAPI clients since path parameters are always URL encoded.      *                  This supports the 'If-None-Match' header.      *                  The following headers from ESI are passed through to the response:                         Content-Type ETag Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning
+Needs role: app-esi<br>      *                  This supports the 'If-None-Match' header, i. e. it is passed through to ESI.<br>      *                  The following headers from ESI are passed through to the response:                         Content-Type ETag Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning
 
 ### Example
 ```php
@@ -429,12 +429,11 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$path = "path_example"; // string | The ESI path.
-$datasource = "datasource_example"; // string | The EVE character ID those token is used to make the ESI request
-$page = "page_example"; // string | Passed through to ESI
+$esi_path_query = "esi_path_query_example"; // string | The ESI path and query string (without the datasource parameter).
+$datasource = "datasource_example"; // string | The EVE character ID those token should be used to make the ESI request
 
 try {
-    $result = $apiInstance->esiV1($path, $datasource, $page);
+    $result = $apiInstance->esiV1($esi_path_query, $datasource);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->esiV1: ', $e->getMessage(), PHP_EOL;
@@ -446,9 +445,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **string**| The ESI path. |
- **datasource** | **string**| The EVE character ID those token is used to make the ESI request |
- **page** | **string**| Passed through to ESI | [optional]
+ **esi_path_query** | **string**| The ESI path and query string (without the datasource parameter). |
+ **datasource** | **string**| The EVE character ID those token should be used to make the ESI request |
 
 ### Return type
 
@@ -470,7 +468,7 @@ Name | Type | Description  | Notes
 
 Return groups of multiple players, identified by one of their character IDs.
 
-Needs role: app.      *                  Returns only groups that have been added to the app as well.      *                  Skips characters that are not found in the local database.
+Needs role: app.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips characters that are not found in the local database.
 
 ### Example
 ```php

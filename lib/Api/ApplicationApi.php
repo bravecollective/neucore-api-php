@@ -1944,39 +1944,37 @@ class ApplicationApi
     /**
      * Operation esiV1
      *
-     * Makes an ESI request and returns the result.
+     * Makes an ESI GET request on behalf on an EVE character and returns the result.
      *
-     * @param  string $path The ESI path. (required)
-     * @param  string $datasource The EVE character ID those token is used to make the ESI request (required)
-     * @param  string $page Passed through to ESI (optional)
+     * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
+     * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function esiV1($path, $datasource, $page = null)
+    public function esiV1($esi_path_query, $datasource)
     {
-        list($response) = $this->esiV1WithHttpInfo($path, $datasource, $page);
+        list($response) = $this->esiV1WithHttpInfo($esi_path_query, $datasource);
         return $response;
     }
 
     /**
      * Operation esiV1WithHttpInfo
      *
-     * Makes an ESI request and returns the result.
+     * Makes an ESI GET request on behalf on an EVE character and returns the result.
      *
-     * @param  string $path The ESI path. (required)
-     * @param  string $datasource The EVE character ID those token is used to make the ESI request (required)
-     * @param  string $page Passed through to ESI (optional)
+     * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
+     * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function esiV1WithHttpInfo($path, $datasource, $page = null)
+    public function esiV1WithHttpInfo($esi_path_query, $datasource)
     {
         $returnType = 'string';
-        $request = $this->esiV1Request($path, $datasource, $page);
+        $request = $this->esiV1Request($esi_path_query, $datasource);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2040,18 +2038,17 @@ class ApplicationApi
     /**
      * Operation esiV1Async
      *
-     * Makes an ESI request and returns the result.
+     * Makes an ESI GET request on behalf on an EVE character and returns the result.
      *
-     * @param  string $path The ESI path. (required)
-     * @param  string $datasource The EVE character ID those token is used to make the ESI request (required)
-     * @param  string $page Passed through to ESI (optional)
+     * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
+     * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function esiV1Async($path, $datasource, $page = null)
+    public function esiV1Async($esi_path_query, $datasource)
     {
-        return $this->esiV1AsyncWithHttpInfo($path, $datasource, $page)
+        return $this->esiV1AsyncWithHttpInfo($esi_path_query, $datasource)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2062,19 +2059,18 @@ class ApplicationApi
     /**
      * Operation esiV1AsyncWithHttpInfo
      *
-     * Makes an ESI request and returns the result.
+     * Makes an ESI GET request on behalf on an EVE character and returns the result.
      *
-     * @param  string $path The ESI path. (required)
-     * @param  string $datasource The EVE character ID those token is used to make the ESI request (required)
-     * @param  string $page Passed through to ESI (optional)
+     * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
+     * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function esiV1AsyncWithHttpInfo($path, $datasource, $page = null)
+    public function esiV1AsyncWithHttpInfo($esi_path_query, $datasource)
     {
         $returnType = 'string';
-        $request = $this->esiV1Request($path, $datasource, $page);
+        $request = $this->esiV1Request($esi_path_query, $datasource);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2116,19 +2112,18 @@ class ApplicationApi
     /**
      * Create request for operation 'esiV1'
      *
-     * @param  string $path The ESI path. (required)
-     * @param  string $datasource The EVE character ID those token is used to make the ESI request (required)
-     * @param  string $page Passed through to ESI (optional)
+     * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
+     * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function esiV1Request($path, $datasource, $page = null)
+    protected function esiV1Request($esi_path_query, $datasource)
     {
-        // verify the required parameter 'path' is set
-        if ($path === null) {
+        // verify the required parameter 'esi_path_query' is set
+        if ($esi_path_query === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $path when calling esiV1'
+                'Missing the required parameter $esi_path_query when calling esiV1'
             );
         }
         // verify the required parameter 'datasource' is set
@@ -2146,16 +2141,12 @@ class ApplicationApi
         $multipart = false;
 
         // query params
-        if ($path !== null) {
-            $queryParams['path'] = ObjectSerializer::toQueryValue($path);
+        if ($esi_path_query !== null) {
+            $queryParams['esi-path-query'] = ObjectSerializer::toQueryValue($esi_path_query);
         }
         // query params
         if ($datasource !== null) {
             $queryParams['datasource'] = ObjectSerializer::toQueryValue($datasource);
-        }
-        // query params
-        if ($page !== null) {
-            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
         }
 
 

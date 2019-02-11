@@ -144,7 +144,7 @@ class ApplicationApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for esiV1
      *
-     * Makes an ESI request and returns the result..
+     * Makes an ESI GET request on behalf on an EVE character and returns the result..
      *
      */
     public function testEsiV1()
