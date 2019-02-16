@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**groupsBulkV1**](ApplicationApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 [**groupsV1**](ApplicationApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
 [**groupsV2**](ApplicationApi.md#groupsV2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.
+[**groupsWithFallbackV1**](ApplicationApi.md#groupsWithFallbackV1) | **GET** /app/v1/groups-with-fallback | Returns groups from the character&#39;s account, if available, or the corporation and alliance.
 [**mainV1**](ApplicationApi.md#mainV1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs.
 [**mainV2**](ApplicationApi.md#mainV2) | **GET** /app/v2/main/{cid} | Return the main character of the player account to which the character ID belongs.
 [**memberTrackingV1**](ApplicationApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
@@ -26,7 +27,7 @@ Method | HTTP request | Description
 
 Return groups of multiple alliances.
 
-Needs role: app.      *                  Returns only groups that have been added to the app as well.      *                  Skips alliances that are not found in the local database.
+Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips alliances that are not found in the local database.
 
 ### Example
 ```php
@@ -81,7 +82,7 @@ Name | Type | Description  | Notes
 
 Return groups of the alliance.
 
-Needs role: app<br>Returns only groups that have been added to the app as well.
+Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
 ```php
@@ -136,7 +137,7 @@ Name | Type | Description  | Notes
 
 Return groups of the alliance.
 
-Needs role: app<br>Returns only groups that have been added to the app as well.
+Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
 ```php
@@ -191,7 +192,7 @@ Name | Type | Description  | Notes
 
 Return all characters of the player account to which the character ID belongs.
 
-Needs role: app
+Needs role: app-chars.
 
 ### Example
 ```php
@@ -246,7 +247,7 @@ Name | Type | Description  | Notes
 
 Return groups of multiple corporations.
 
-Needs role: app.      *                  Returns only groups that have been added to the app as well.      *                  Skips corporations that are not found in the local database.
+Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips corporations that are not found in the local database.
 
 ### Example
 ```php
@@ -301,7 +302,7 @@ Name | Type | Description  | Notes
 
 Return groups of the corporation.
 
-Needs role: app<br>Returns only groups that have been added to the app as well.
+Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
 ```php
@@ -356,7 +357,7 @@ Name | Type | Description  | Notes
 
 Return groups of the corporation.
 
-Needs role: app<br>Returns only groups that have been added to the app as well.
+Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
 ```php
@@ -411,7 +412,7 @@ Name | Type | Description  | Notes
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi<br>      *                  This supports the 'If-None-Match' header, i. e. it is passed through to ESI.<br>      *                  The following headers from ESI are passed through to the response:                         Content-Type ETag Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning
+Needs role: app-esi<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.
 
 ### Example
 ```php
@@ -468,7 +469,7 @@ Name | Type | Description  | Notes
 
 Return groups of multiple players, identified by one of their character IDs.
 
-Needs role: app.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips characters that are not found in the local database.
+Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips characters that are not found in the local database.
 
 ### Example
 ```php
@@ -523,7 +524,7 @@ Name | Type | Description  | Notes
 
 Return groups of the character's player account.
 
-Needs role: app<br>Returns only groups that have been added to the app as well.
+Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
 ```php
@@ -578,7 +579,7 @@ Name | Type | Description  | Notes
 
 Return groups of the character's player account.
 
-Needs role: app<br>Returns only groups that have been added to the app as well.
+Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
 ```php
@@ -628,12 +629,71 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **groupsWithFallbackV1**
+> \Brave\NeucoreApi\Model\Group[] groupsWithFallbackV1($character, $corporation, $alliance)
+
+Returns groups from the character's account, if available, or the corporation and alliance.
+
+Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.<br>      *                  It is not checked if character, corporation and alliance match.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Bearer
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$character = 56; // int | EVE character ID.
+$corporation = 56; // int | EVE corporation ID.
+$alliance = 56; // int | EVE alliance ID.
+
+try {
+    $result = $apiInstance->groupsWithFallbackV1($character, $corporation, $alliance);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->groupsWithFallbackV1: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **character** | **int**| EVE character ID. |
+ **corporation** | **int**| EVE corporation ID. |
+ **alliance** | **int**| EVE alliance ID. | [optional]
+
+### Return type
+
+[**\Brave\NeucoreApi\Model\Group[]**](../Model/Group.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **mainV1**
 > \Brave\NeucoreApi\Model\Character mainV1($cid)
 
 Returns the main character of the player account to which the character ID belongs.
 
-Needs role: app<br>It is possible that an account has no main character.
+Needs role: app-chars.<br>It is possible that an account has no main character.
 
 ### Example
 ```php
@@ -688,7 +748,7 @@ Name | Type | Description  | Notes
 
 Return the main character of the player account to which the character ID belongs.
 
-Needs role: app<br>It is possible that an account has no main character.
+Needs role: app-chars.<br>It is possible that an account has no main character.
 
 ### Example
 ```php
