@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 Makes an ESI POST request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.
+Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.
 
 ### Example
 ```php
@@ -433,7 +433,7 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
 );
 $esi_path_query = "esi_path_query_example"; // string | The ESI path and query string (without the datasource parameter).
 $datasource = "datasource_example"; // string | The EVE character ID those token should be used to make the ESI request
-$data = new \Brave\NeucoreApi\Model\null(); //  | JSON encoded data.
+$data = "data_example"; // string | JSON encoded data.
 
 try {
     $result = $apiInstance->esiPostV1($esi_path_query, $datasource, $data);
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **esi_path_query** | **string**| The ESI path and query string (without the datasource parameter). |
  **datasource** | **string**| The EVE character ID those token should be used to make the ESI request |
- **data** | [****](../Model/.md)| JSON encoded data. |
+ **data** | **string**| JSON encoded data. |
 
 ### Return type
 
@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.
+Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.
 
 ### Example
 ```php

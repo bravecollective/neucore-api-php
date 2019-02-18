@@ -1948,7 +1948,7 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param   $data JSON encoded data. (required)
+     * @param  string $data JSON encoded data. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1967,7 +1967,7 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param   $data JSON encoded data. (required)
+     * @param  string $data JSON encoded data. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2100,7 +2100,7 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param   $data JSON encoded data. (required)
+     * @param  string $data JSON encoded data. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2122,7 +2122,7 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param   $data JSON encoded data. (required)
+     * @param  string $data JSON encoded data. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2174,7 +2174,7 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param   $data JSON encoded data. (required)
+     * @param  string $data JSON encoded data. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
