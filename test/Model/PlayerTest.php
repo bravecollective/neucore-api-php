@@ -92,6 +92,13 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+    }
+
+    /**
      * Test attribute "roles"
      */
     public function testPropertyRoles()

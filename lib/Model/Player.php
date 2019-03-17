@@ -59,6 +59,7 @@ class Player implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'int',
         'name' => 'string',
+        'status' => 'string',
         'roles' => '\Brave\NeucoreApi\Model\Role[]',
         'characters' => '\Brave\NeucoreApi\Model\Character[]',
         'applications' => '\Brave\NeucoreApi\Model\Group[]',
@@ -76,6 +77,7 @@ class Player implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'id' => null,
         'name' => null,
+        'status' => null,
         'roles' => null,
         'characters' => null,
         'applications' => null,
@@ -114,6 +116,7 @@ class Player implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'status' => 'status',
         'roles' => 'roles',
         'characters' => 'characters',
         'applications' => 'applications',
@@ -131,6 +134,7 @@ class Player implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'status' => 'setStatus',
         'roles' => 'setRoles',
         'characters' => 'setCharacters',
         'applications' => 'setApplications',
@@ -148,6 +152,7 @@ class Player implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'status' => 'getStatus',
         'roles' => 'getRoles',
         'characters' => 'getCharacters',
         'applications' => 'getApplications',
@@ -198,8 +203,23 @@ class Player implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const STATUS_STANDARD = 'standard';
+    const STATUS_MANAGED = 'managed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_STANDARD,
+            self::STATUS_MANAGED,
+        ];
+    }
     
 
     /**
@@ -219,6 +239,7 @@ class Player implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['characters'] = isset($data['characters']) ? $data['characters'] : null;
         $this->container['applications'] = isset($data['applications']) ? $data['applications'] : null;
@@ -243,6 +264,14 @@ class Player implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($this->container['status'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -259,6 +288,10 @@ class Player implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['name'] === null) {
+            return false;
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($this->container['status'], $allowedValues)) {
             return false;
         }
         return true;
@@ -309,6 +342,39 @@ class Player implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status Player account status.
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

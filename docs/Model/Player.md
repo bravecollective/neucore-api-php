@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
 **name** | **string** | A name for the player.  This is the EVE character name of the current main character or of the last main character if there is currently none. | 
+**status** | **string** | Player account status. | [optional] 
 **roles** | [**\Brave\NeucoreApi\Model\Role[]**](Role.md) | Roles for authorization. | [optional] 
 **characters** | [**\Brave\NeucoreApi\Model\Character[]**](Character.md) |  | [optional] 
 **applications** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Group applications. | [optional] 
