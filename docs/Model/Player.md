@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **status** | **string** | Player account status. | [optional] 
 **roles** | [**\Brave\NeucoreApi\Model\Role[]**](Role.md) | Roles for authorization. | [optional] 
 **characters** | [**\Brave\NeucoreApi\Model\Character[]**](Character.md) |  | [optional] 
-**applications** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Group applications. | [optional] 
 **groups** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Group membership. | [optional] 
 **manager_groups** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Manager of groups. | [optional] 
 **manager_apps** | [**\Brave\NeucoreApi\Model\App[]**](App.md) | Manager of apps. | [optional] 

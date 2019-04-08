@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 
 # **allianceGroupsBulkV1**
-> \Brave\NeucoreApi\Model\Alliance[] allianceGroupsBulkV1($ids)
+> \Brave\NeucoreApi\Model\Alliance[] allianceGroupsBulkV1($request_body)
 
 Return groups of multiple alliances.
 
@@ -46,10 +46,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ids = array(new \Brave\NeucoreApi\Model\int[]()); // int[] | EVE alliance IDs array.
+$request_body = array(new \Brave\NeucoreApi\Model\array()); // int[] | EVE alliance IDs array.
 
 try {
-    $result = $apiInstance->allianceGroupsBulkV1($ids);
+    $result = $apiInstance->allianceGroupsBulkV1($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->allianceGroupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -61,7 +61,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **int[]**| EVE alliance IDs array. |
+ **request_body** | [**int[]**](../Model/array.md)| EVE alliance IDs array. |
 
 ### Return type
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **corpGroupsBulkV1**
-> \Brave\NeucoreApi\Model\Corporation[] corpGroupsBulkV1($ids)
+> \Brave\NeucoreApi\Model\Corporation[] corpGroupsBulkV1($request_body)
 
 Return groups of multiple corporations.
 
@@ -266,10 +266,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ids = array(new \Brave\NeucoreApi\Model\int[]()); // int[] | EVE corporation IDs array.
+$request_body = array(new \Brave\NeucoreApi\Model\array()); // int[] | EVE corporation IDs array.
 
 try {
-    $result = $apiInstance->corpGroupsBulkV1($ids);
+    $result = $apiInstance->corpGroupsBulkV1($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->corpGroupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -281,7 +281,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **int[]**| EVE corporation IDs array. |
+ **request_body** | [**int[]**](../Model/array.md)| EVE corporation IDs array. |
 
 ### Return type
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **esiPostV1**
-> string esiPostV1($esi_path_query, $datasource, $data)
+> string esiPostV1($esi_path_query, $datasource, $body)
 
 Makes an ESI POST request on behalf on an EVE character and returns the result.
 
@@ -431,12 +431,12 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$esi_path_query = "esi_path_query_example"; // string | The ESI path and query string (without the datasource parameter).
-$datasource = "datasource_example"; // string | The EVE character ID those token should be used to make the ESI request
-$data = "data_example"; // string | JSON encoded data.
+$esi_path_query = 'esi_path_query_example'; // string | The ESI path and query string (without the datasource parameter).
+$datasource = 'datasource_example'; // string | The EVE character ID those token should be used to make the ESI request
+$body = 'body_example'; // string | JSON encoded data.
 
 try {
-    $result = $apiInstance->esiPostV1($esi_path_query, $datasource, $data);
+    $result = $apiInstance->esiPostV1($esi_path_query, $datasource, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->esiPostV1: ', $e->getMessage(), PHP_EOL;
@@ -450,7 +450,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **esi_path_query** | **string**| The ESI path and query string (without the datasource parameter). |
  **datasource** | **string**| The EVE character ID those token should be used to make the ESI request |
- **data** | **string**| JSON encoded data. |
+ **body** | **string**| JSON encoded data. |
 
 ### Return type
 
@@ -490,8 +490,8 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$esi_path_query = "esi_path_query_example"; // string | The ESI path and query string (without the datasource parameter).
-$datasource = "datasource_example"; // string | The EVE character ID those token should be used to make the ESI request
+$esi_path_query = 'esi_path_query_example'; // string | The ESI path and query string (without the datasource parameter).
+$datasource = 'datasource_example'; // string | The EVE character ID those token should be used to make the ESI request
 
 try {
     $result = $apiInstance->esiV1($esi_path_query, $datasource);
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **groupsBulkV1**
-> \Brave\NeucoreApi\Model\CharacterGroups[] groupsBulkV1($ids)
+> \Brave\NeucoreApi\Model\CharacterGroups[] groupsBulkV1($request_body)
 
 Return groups of multiple players, identified by one of their character IDs.
 
@@ -547,10 +547,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ids = array(new \Brave\NeucoreApi\Model\int[]()); // int[] | EVE character IDs array.
+$request_body = array(new \Brave\NeucoreApi\Model\array()); // int[] | EVE character IDs array.
 
 try {
-    $result = $apiInstance->groupsBulkV1($ids);
+    $result = $apiInstance->groupsBulkV1($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->groupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -562,7 +562,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | **int[]**| EVE character IDs array. |
+ **request_body** | [**int[]**](../Model/array.md)| EVE character IDs array. |
 
 ### Return type
 
