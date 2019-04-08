@@ -1,6 +1,6 @@
 <?php
 /**
- * CharacterTest
+ * GroupApplicationTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@
 namespace Brave\NeucoreApi;
 
 /**
- * CharacterTest Class Doc Comment
+ * GroupApplicationTest Class Doc Comment
  *
  * @category    Class
- * @description Character
+ * @description The player property contains only id and name.
  * @package     Brave\NeucoreApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CharacterTest extends \PHPUnit_Framework_TestCase
+class GroupApplicationTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Character"
+     * Test "GroupApplication"
      */
-    public function testCharacter()
+    public function testGroupApplication()
     {
     }
 
@@ -84,37 +84,30 @@ class CharacterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "player"
      */
-    public function testPropertyName()
+    public function testPropertyPlayer()
     {
     }
 
     /**
-     * Test attribute "main"
+     * Test attribute "group"
      */
-    public function testPropertyMain()
+    public function testPropertyGroup()
     {
     }
 
     /**
-     * Test attribute "valid_token"
+     * Test attribute "created"
      */
-    public function testPropertyValidToken()
+    public function testPropertyCreated()
     {
     }
 
     /**
-     * Test attribute "last_update"
+     * Test attribute "status"
      */
-    public function testPropertyLastUpdate()
-    {
-    }
-
-    /**
-     * Test attribute "corporation"
-     */
-    public function testPropertyCorporation()
+    public function testPropertyStatus()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Character
+ * GroupApplication
  *
  * PHP version 5
  *
@@ -33,14 +33,15 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * Character Class Doc Comment
+ * GroupApplication Class Doc Comment
  *
  * @category Class
+ * @description The player property contains only id and name.
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Character implements ModelInterface, ArrayAccess
+class GroupApplication implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class Character implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Character';
+    protected static $openAPIModelName = 'GroupApplication';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +59,10 @@ class Character implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string',
-        'main' => 'bool',
-        'valid_token' => 'bool',
-        'last_update' => '\DateTime',
-        'corporation' => '\Brave\NeucoreApi\Model\Corporation'
+        'player' => '\Brave\NeucoreApi\Model\Player',
+        'group' => '\Brave\NeucoreApi\Model\Group',
+        'created' => '\DateTime',
+        'status' => 'string'
     ];
 
     /**
@@ -71,12 +71,11 @@ class Character implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'name' => null,
-        'main' => null,
-        'valid_token' => null,
-        'last_update' => 'date-time',
-        'corporation' => null
+        'id' => null,
+        'player' => null,
+        'group' => null,
+        'created' => 'date-time',
+        'status' => null
     ];
 
     /**
@@ -107,11 +106,10 @@ class Character implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'main' => 'main',
-        'valid_token' => 'validToken',
-        'last_update' => 'lastUpdate',
-        'corporation' => 'corporation'
+        'player' => 'player',
+        'group' => 'group',
+        'created' => 'created',
+        'status' => 'status'
     ];
 
     /**
@@ -121,11 +119,10 @@ class Character implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'main' => 'setMain',
-        'valid_token' => 'setValidToken',
-        'last_update' => 'setLastUpdate',
-        'corporation' => 'setCorporation'
+        'player' => 'setPlayer',
+        'group' => 'setGroup',
+        'created' => 'setCreated',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -135,11 +132,10 @@ class Character implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'main' => 'getMain',
-        'valid_token' => 'getValidToken',
-        'last_update' => 'getLastUpdate',
-        'corporation' => 'getCorporation'
+        'player' => 'getPlayer',
+        'group' => 'getGroup',
+        'created' => 'getCreated',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -183,8 +179,25 @@ class Character implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_PENDING = 'pending';
+    const STATUS_ACCEPTED = 'accepted';
+    const STATUS_DENIED = 'denied';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_PENDING,
+            self::STATUS_ACCEPTED,
+            self::STATUS_DENIED,
+        ];
+    }
     
 
     /**
@@ -203,11 +216,10 @@ class Character implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['main'] = isset($data['main']) ? $data['main'] : null;
-        $this->container['valid_token'] = isset($data['valid_token']) ? $data['valid_token'] : null;
-        $this->container['last_update'] = isset($data['last_update']) ? $data['last_update'] : null;
-        $this->container['corporation'] = isset($data['corporation']) ? $data['corporation'] : null;
+        $this->container['player'] = isset($data['player']) ? $data['player'] : null;
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
+        $this->container['created'] = isset($data['created']) ? $data['created'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -222,9 +234,23 @@ class Character implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['player'] === null) {
+            $invalidProperties[] = "'player' can't be null";
         }
+        if ($this->container['group'] === null) {
+            $invalidProperties[] = "'group' can't be null";
+        }
+        if ($this->container['created'] === null) {
+            $invalidProperties[] = "'created' can't be null";
+        }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -253,7 +279,7 @@ class Character implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id EVE character ID.
+     * @param int $id id
      *
      * @return $this
      */
@@ -265,121 +291,106 @@ class Character implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets player
      *
-     * @return string
+     * @return \Brave\NeucoreApi\Model\Player
      */
-    public function getName()
+    public function getPlayer()
     {
-        return $this->container['name'];
+        return $this->container['player'];
     }
 
     /**
-     * Sets name
+     * Sets player
      *
-     * @param string $name EVE character name.
+     * @param \Brave\NeucoreApi\Model\Player $player player
      *
      * @return $this
      */
-    public function setName($name)
+    public function setPlayer($player)
     {
-        $this->container['name'] = $name;
+        $this->container['player'] = $player;
 
         return $this;
     }
 
     /**
-     * Gets main
+     * Gets group
      *
-     * @return bool|null
+     * @return \Brave\NeucoreApi\Model\Group
      */
-    public function getMain()
+    public function getGroup()
     {
-        return $this->container['main'];
+        return $this->container['group'];
     }
 
     /**
-     * Sets main
+     * Sets group
      *
-     * @param bool|null $main main
+     * @param \Brave\NeucoreApi\Model\Group $group group
      *
      * @return $this
      */
-    public function setMain($main)
+    public function setGroup($group)
     {
-        $this->container['main'] = $main;
+        $this->container['group'] = $group;
 
         return $this;
     }
 
     /**
-     * Gets valid_token
+     * Gets created
      *
-     * @return bool|null
+     * @return \DateTime
      */
-    public function getValidToken()
+    public function getCreated()
     {
-        return $this->container['valid_token'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets valid_token
+     * Sets created
      *
-     * @param bool|null $valid_token Shows if character's refresh token is valid or not.  If there is no refresh token this is null.
+     * @param \DateTime $created created
      *
      * @return $this
      */
-    public function setValidToken($valid_token)
+    public function setCreated($created)
     {
-        $this->container['valid_token'] = $valid_token;
+        $this->container['created'] = $created;
 
         return $this;
     }
 
     /**
-     * Gets last_update
+     * Gets status
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getLastUpdate()
+    public function getStatus()
     {
-        return $this->container['last_update'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets last_update
+     * Sets status
      *
-     * @param \DateTime|null $last_update Last ESI update.
+     * @param string|null $status Group application status.
      *
      * @return $this
      */
-    public function setLastUpdate($last_update)
+    public function setStatus($status)
     {
-        $this->container['last_update'] = $last_update;
-
-        return $this;
-    }
-
-    /**
-     * Gets corporation
-     *
-     * @return \Brave\NeucoreApi\Model\Corporation|null
-     */
-    public function getCorporation()
-    {
-        return $this->container['corporation'];
-    }
-
-    /**
-     * Sets corporation
-     *
-     * @param \Brave\NeucoreApi\Model\Corporation|null $corporation corporation
-     *
-     * @return $this
-     */
-    public function setCorporation($corporation)
-    {
-        $this->container['corporation'] = $corporation;
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
