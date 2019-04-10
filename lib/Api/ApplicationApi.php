@@ -2419,7 +2419,7 @@ class ApplicationApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 
