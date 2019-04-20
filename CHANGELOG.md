@@ -1,7 +1,7 @@
 
 The version numbers correspond to the Neucore version numbers.
 
-## next
+## 0.8.0
 
 - small BC-Break: Switched to OpenAPI generator
 - Generated with OpenAPI generator 3.3.4

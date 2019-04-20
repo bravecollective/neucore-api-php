@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**mainV1**](ApplicationApi.md#mainV1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs.
 [**mainV2**](ApplicationApi.md#mainV2) | **GET** /app/v2/main/{cid} | Return the main character of the player account to which the character ID belongs.
 [**memberTrackingV1**](ApplicationApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
+[**removedCharactersV1**](ApplicationApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Return all characters that were removed from the player account to which the character ID belongs.
 [**showV1**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information.
 
 
@@ -905,6 +906,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Brave\NeucoreApi\Model\CorporationMember[]**](../Model/CorporationMember.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **removedCharactersV1**
+> \Brave\NeucoreApi\Model\RemovedCharacter[] removedCharactersV1($character_id)
+
+Return all characters that were removed from the player account to which the character ID belongs.
+
+Needs role: app-chars.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Bearer
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$character_id = 56; // int | EVE character ID.
+
+try {
+    $result = $apiInstance->removedCharactersV1($character_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->removedCharactersV1: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **character_id** | **int**| EVE character ID. |
+
+### Return type
+
+[**\Brave\NeucoreApi\Model\RemovedCharacter[]**](../Model/RemovedCharacter.md)
 
 ### Authorization
 
