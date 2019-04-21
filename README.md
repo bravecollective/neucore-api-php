@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
 *ApplicationApi* | [**mainV1**](docs/Api/ApplicationApi.md#mainv1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs.
 *ApplicationApi* | [**mainV2**](docs/Api/ApplicationApi.md#mainv2) | **GET** /app/v2/main/{cid} | Return the main character of the player account to which the character ID belongs.
 *ApplicationApi* | [**memberTrackingV1**](docs/Api/ApplicationApi.md#membertrackingv1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
+*ApplicationApi* | [**playerV1**](docs/Api/ApplicationApi.md#playerv1) | **GET** /app/v1/player/{characterId} | Return the player account to which the character ID belongs.
 *ApplicationApi* | [**removedCharactersV1**](docs/Api/ApplicationApi.md#removedcharactersv1) | **GET** /app/v1/removed-characters/{characterId} | Return all characters that were removed from the player account to which the character ID belongs.
 *ApplicationApi* | [**showV1**](docs/Api/ApplicationApi.md#showv1) | **GET** /app/v1/show | Show app information.
 
