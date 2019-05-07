@@ -1,3 +1,5 @@
+[Changelog](CHANGELOG.md)
+
 # OpenAPIClient-php
 Client library of Neucore API
 
