@@ -1,6 +1,7 @@
-# Player
+# # Player
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
@@ -13,6 +14,6 @@ Name | Type | Description | Notes
 **manager_apps** | [**\Brave\NeucoreApi\Model\App[]**](App.md) | Manager of apps. | [optional] 
 **removed_characters** | [**\Brave\NeucoreApi\Model\RemovedCharacter[]**](RemovedCharacter.md) | Characters that were removed from a player (API: not included by default). | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

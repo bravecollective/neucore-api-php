@@ -25,22 +25,27 @@ Method | HTTP request | Description
 [**showV1**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information.
 
 
-# **allianceGroupsBulkV1**
-> \Brave\NeucoreApi\Model\Alliance[] allianceGroupsBulkV1($request_body)
+
+## allianceGroupsBulkV1
+
+> \Brave\NeucoreApi\Model\Alliance[] allianceGroupsBulkV1($ids)
 
 Return groups of multiple alliances.
 
 Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips alliances that are not found in the local database.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -48,10 +53,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_body = array(new \Brave\NeucoreApi\Model\array()); // int[] | EVE alliance IDs array.
+$ids = array(56); // int[] | EVE alliance IDs array.
 
 try {
-    $result = $apiInstance->allianceGroupsBulkV1($request_body);
+    $result = $apiInstance->allianceGroupsBulkV1($ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->allianceGroupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -61,9 +66,10 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request_body** | [**int[]**](../Model/array.md)| EVE alliance IDs array. |
+ **ids** | [**int[]**](../Model/int.md)| EVE alliance IDs array. |
 
 ### Return type
 
@@ -75,12 +81,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **allianceGroupsV1**
+
+## allianceGroupsV1
+
 > \Brave\NeucoreApi\Model\Group[] allianceGroupsV1($aid)
 
 Return groups of the alliance.
@@ -88,14 +98,17 @@ Return groups of the alliance.
 Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -116,6 +129,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aid** | **int**| EVE alliance ID. |
@@ -130,12 +144,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **allianceGroupsV2**
+
+## allianceGroupsV2
+
 > \Brave\NeucoreApi\Model\Group[] allianceGroupsV2($aid)
 
 Return groups of the alliance.
@@ -143,14 +161,17 @@ Return groups of the alliance.
 Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -171,6 +192,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **aid** | **int**| EVE alliance ID. |
@@ -185,12 +207,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **charactersV1**
+
+## charactersV1
+
 > \Brave\NeucoreApi\Model\Character[] charactersV1($character_id)
 
 Return all characters of the player account to which the character ID belongs.
@@ -198,14 +224,17 @@ Return all characters of the player account to which the character ID belongs.
 Needs role: app-chars.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -226,6 +255,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| EVE character ID. |
@@ -240,27 +270,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **corpGroupsBulkV1**
-> \Brave\NeucoreApi\Model\Corporation[] corpGroupsBulkV1($request_body)
+
+## corpGroupsBulkV1
+
+> \Brave\NeucoreApi\Model\Corporation[] corpGroupsBulkV1($ids)
 
 Return groups of multiple corporations.
 
 Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips corporations that are not found in the local database.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -268,10 +305,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_body = array(new \Brave\NeucoreApi\Model\array()); // int[] | EVE corporation IDs array.
+$ids = array(56); // int[] | EVE corporation IDs array.
 
 try {
-    $result = $apiInstance->corpGroupsBulkV1($request_body);
+    $result = $apiInstance->corpGroupsBulkV1($ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->corpGroupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -281,9 +318,10 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request_body** | [**int[]**](../Model/array.md)| EVE corporation IDs array. |
+ **ids** | [**int[]**](../Model/int.md)| EVE corporation IDs array. |
 
 ### Return type
 
@@ -295,12 +333,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **corpGroupsV1**
+
+## corpGroupsV1
+
 > \Brave\NeucoreApi\Model\Group[] corpGroupsV1($cid)
 
 Return groups of the corporation.
@@ -308,14 +350,17 @@ Return groups of the corporation.
 Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -336,6 +381,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **int**| EVE corporation ID. |
@@ -350,12 +396,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **corpGroupsV2**
+
+## corpGroupsV2
+
 > \Brave\NeucoreApi\Model\Group[] corpGroupsV2($cid)
 
 Return groups of the corporation.
@@ -363,14 +413,17 @@ Return groups of the corporation.
 Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -391,6 +444,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **int**| EVE corporation ID. |
@@ -405,27 +459,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **esiPostV1**
-> string esiPostV1($esi_path_query, $datasource, $body)
+
+## esiPostV1
+
+> string esiPostV1($esi_path_query, $datasource, $data)
 
 Makes an ESI POST request on behalf on an EVE character and returns the result.
 
 Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                see doc/app-esi-examples.php for more.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -435,10 +496,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
 );
 $esi_path_query = 'esi_path_query_example'; // string | The ESI path and query string (without the datasource parameter).
 $datasource = 'datasource_example'; // string | The EVE character ID those token should be used to make the ESI request
-$body = 'body_example'; // string | JSON encoded data.
+$data = 'data_example'; // string | JSON encoded data.
 
 try {
-    $result = $apiInstance->esiPostV1($esi_path_query, $datasource, $body);
+    $result = $apiInstance->esiPostV1($esi_path_query, $datasource, $data);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->esiPostV1: ', $e->getMessage(), PHP_EOL;
@@ -448,11 +509,12 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **esi_path_query** | **string**| The ESI path and query string (without the datasource parameter). |
  **datasource** | **string**| The EVE character ID those token should be used to make the ESI request |
- **body** | **string**| JSON encoded data. |
+ **data** | **string**| JSON encoded data. |
 
 ### Return type
 
@@ -464,12 +526,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
- - **Accept**: application/json
+- **Content-Type**: text/plain
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **esiV1**
+
+## esiV1
+
 > string esiV1($esi_path_query, $datasource)
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
@@ -477,14 +543,17 @@ Makes an ESI GET request on behalf on an EVE character and returns the result.
 Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                see doc/app-esi-examples.php for more.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -506,6 +575,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **esi_path_query** | **string**| The ESI path and query string (without the datasource parameter). |
@@ -521,27 +591,34 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **groupsBulkV1**
-> \Brave\NeucoreApi\Model\CharacterGroups[] groupsBulkV1($request_body)
+
+## groupsBulkV1
+
+> \Brave\NeucoreApi\Model\CharacterGroups[] groupsBulkV1($ids)
 
 Return groups of multiple players, identified by one of their character IDs.
 
 Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips characters that are not found in the local database.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -549,10 +626,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_body = array(new \Brave\NeucoreApi\Model\array()); // int[] | EVE character IDs array.
+$ids = array(56); // int[] | EVE character IDs array.
 
 try {
-    $result = $apiInstance->groupsBulkV1($request_body);
+    $result = $apiInstance->groupsBulkV1($ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->groupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -562,9 +639,10 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request_body** | [**int[]**](../Model/array.md)| EVE character IDs array. |
+ **ids** | [**int[]**](../Model/int.md)| EVE character IDs array. |
 
 ### Return type
 
@@ -576,12 +654,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **groupsV1**
+
+## groupsV1
+
 > \Brave\NeucoreApi\Model\Group[] groupsV1($cid)
 
 Return groups of the character's player account.
@@ -589,14 +671,17 @@ Return groups of the character's player account.
 Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -617,6 +702,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **int**| EVE character ID. |
@@ -631,12 +717,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **groupsV2**
+
+## groupsV2
+
 > \Brave\NeucoreApi\Model\Group[] groupsV2($cid)
 
 Return groups of the character's player account.
@@ -644,14 +734,17 @@ Return groups of the character's player account.
 Needs role: app-groups.<br>Returns only groups that have been added to the app as well.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -672,6 +765,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **int**| EVE character ID. |
@@ -686,12 +780,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **groupsWithFallbackV1**
+
+## groupsWithFallbackV1
+
 > \Brave\NeucoreApi\Model\Group[] groupsWithFallbackV1($character, $corporation, $alliance)
 
 Returns groups from the character's account, if available, or the corporation and alliance.
@@ -699,14 +797,17 @@ Returns groups from the character's account, if available, or the corporation an
 Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.<br>      *                  It is not checked if character, corporation and alliance match.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -729,6 +830,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character** | **int**| EVE character ID. |
@@ -745,12 +847,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **mainV1**
+
+## mainV1
+
 > \Brave\NeucoreApi\Model\Character mainV1($cid)
 
 Returns the main character of the player account to which the character ID belongs.
@@ -758,14 +864,17 @@ Returns the main character of the player account to which the character ID belon
 Needs role: app-chars.<br>It is possible that an account has no main character.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -786,6 +895,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **int**| EVE character ID. |
@@ -800,12 +910,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **mainV2**
+
+## mainV2
+
 > \Brave\NeucoreApi\Model\Character mainV2($cid)
 
 Return the main character of the player account to which the character ID belongs.
@@ -813,14 +927,17 @@ Return the main character of the player account to which the character ID belong
 Needs role: app-chars.<br>It is possible that an account has no main character.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -841,6 +958,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **int**| EVE character ID. |
@@ -855,12 +973,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **memberTrackingV1**
+
+## memberTrackingV1
+
 > \Brave\NeucoreApi\Model\CorporationMember[] memberTrackingV1($id, $inactive, $active)
 
 Return corporation member tracking data.
@@ -868,14 +990,17 @@ Return corporation member tracking data.
 Needs role: app-tracking
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -898,6 +1023,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| EVE corporation ID. |
@@ -914,12 +1040,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **playerV1**
+
+## playerV1
+
 > \Brave\NeucoreApi\Model\Player playerV1($character_id)
 
 Return the player account to which the character ID belongs.
@@ -927,14 +1057,17 @@ Return the player account to which the character ID belongs.
 Needs role: app-chars.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -955,6 +1088,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| EVE character ID. |
@@ -969,12 +1103,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **removedCharactersV1**
+
+## removedCharactersV1
+
 > \Brave\NeucoreApi\Model\RemovedCharacter[] removedCharactersV1($character_id)
 
 Return all characters that were removed from the player account to which the character ID belongs.
@@ -982,14 +1120,17 @@ Return all characters that were removed from the player account to which the cha
 Needs role: app-chars.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1010,6 +1151,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **character_id** | **int**| EVE character ID. |
@@ -1024,12 +1166,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **showV1**
+
+## showV1
+
 > \Brave\NeucoreApi\Model\App showV1()
 
 Show app information.
@@ -1037,14 +1183,17 @@ Show app information.
 Needs role: app
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: Bearer
 $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -1063,6 +1212,7 @@ try {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1075,8 +1225,10 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

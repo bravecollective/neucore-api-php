@@ -1,6 +1,7 @@
-# GroupApplication
+# # GroupApplication
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
@@ -9,6 +10,6 @@ Name | Type | Description | Notes
 **created** | [**\DateTime**](\DateTime.md) |  | 
 **status** | **string** | Group application status. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

@@ -1,6 +1,7 @@
-# Character
+# # Character
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | EVE character ID. | 
@@ -10,6 +11,6 @@ Name | Type | Description | Notes
 **last_update** | [**\DateTime**](\DateTime.md) | Last ESI update. | [optional] 
 **corporation** | [**\Brave\NeucoreApi\Model\Corporation**](Corporation.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

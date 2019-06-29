@@ -1,6 +1,7 @@
-# RemovedCharacter
+# # RemovedCharacter
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **new_player_id** | **int** |  | [optional] 
@@ -10,6 +11,6 @@ Name | Type | Description | Notes
 **removed_date** | [**\DateTime**](\DateTime.md) | Date of removal. | 
 **reason** | **string** | How it was removed (deleted or moved to another account). | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 
