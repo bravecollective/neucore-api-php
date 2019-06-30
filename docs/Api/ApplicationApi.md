@@ -983,7 +983,7 @@ Name | Type | Description  | Notes
 
 ## memberTrackingV1
 
-> \Brave\NeucoreApi\Model\CorporationMember[] memberTrackingV1($id, $inactive, $active)
+> \Brave\NeucoreApi\Model\CorporationMember[] memberTrackingV1($id, $inactive, $active, $account)
 
 Return corporation member tracking data.
 
@@ -1011,9 +1011,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
 $id = 56; // int | EVE corporation ID.
 $inactive = 56; // int | Limit to members who have been inactive for x days or longer.
 $active = 56; // int | Limit to members who were active in the last x days.
+$account = 'account_example'; // string | Limit to members with (true) or without (false) an account.
 
 try {
-    $result = $apiInstance->memberTrackingV1($id, $inactive, $active);
+    $result = $apiInstance->memberTrackingV1($id, $inactive, $active, $account);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->memberTrackingV1: ', $e->getMessage(), PHP_EOL;
@@ -1029,6 +1030,7 @@ Name | Type | Description  | Notes
  **id** | **int**| EVE corporation ID. |
  **inactive** | **int**| Limit to members who have been inactive for x days or longer. | [optional]
  **active** | **int**| Limit to members who were active in the last x days. | [optional]
+ **account** | **string**| Limit to members with (true) or without (false) an account. | [optional]
 
 ### Return type
 
