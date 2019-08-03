@@ -102,15 +102,17 @@ Class | Method | HTTP request | Description
 *ApplicationApi* | [**corpGroupsBulkV1**](docs/Api/ApplicationApi.md#corpgroupsbulkv1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations.
 *ApplicationApi* | [**corpGroupsV1**](docs/Api/ApplicationApi.md#corpgroupsv1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 *ApplicationApi* | [**corpGroupsV2**](docs/Api/ApplicationApi.md#corpgroupsv2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
+*ApplicationApi* | [**corporationPlayersV1**](docs/Api/ApplicationApi.md#corporationplayersv1) | **GET** /app/v1/corp-players/{corporationId} | Return a list of all player IDs that have a character in the corporation.
 *ApplicationApi* | [**esiPostV1**](docs/Api/ApplicationApi.md#esipostv1) | **POST** /app/v1/esi | Makes an ESI POST request on behalf on an EVE character and returns the result.
 *ApplicationApi* | [**esiV1**](docs/Api/ApplicationApi.md#esiv1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 *ApplicationApi* | [**groupsBulkV1**](docs/Api/ApplicationApi.md#groupsbulkv1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 *ApplicationApi* | [**groupsV1**](docs/Api/ApplicationApi.md#groupsv1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
 *ApplicationApi* | [**groupsV2**](docs/Api/ApplicationApi.md#groupsv2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.
 *ApplicationApi* | [**groupsWithFallbackV1**](docs/Api/ApplicationApi.md#groupswithfallbackv1) | **GET** /app/v1/groups-with-fallback | Returns groups from the character&#39;s account, if available, or the corporation and alliance.
-*ApplicationApi* | [**mainV1**](docs/Api/ApplicationApi.md#mainv1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs.
+*ApplicationApi* | [**mainV1**](docs/Api/ApplicationApi.md#mainv1) | **GET** /app/v1/main/{cid} | Return the main character of the player account to which the character ID belongs.
 *ApplicationApi* | [**mainV2**](docs/Api/ApplicationApi.md#mainv2) | **GET** /app/v2/main/{cid} | Return the main character of the player account to which the character ID belongs.
 *ApplicationApi* | [**memberTrackingV1**](docs/Api/ApplicationApi.md#membertrackingv1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
+*ApplicationApi* | [**playerCharactersV1**](docs/Api/ApplicationApi.md#playercharactersv1) | **GET** /app/v1/player-chars/{playerId} | Return all characters from the player account.
 *ApplicationApi* | [**playerV1**](docs/Api/ApplicationApi.md#playerv1) | **GET** /app/v1/player/{characterId} | Return the player account to which the character ID belongs.
 *ApplicationApi* | [**removedCharactersV1**](docs/Api/ApplicationApi.md#removedcharactersv1) | **GET** /app/v1/removed-characters/{characterId} | Return all characters that were removed from the player account to which the character ID belongs.
 *ApplicationApi* | [**showV1**](docs/Api/ApplicationApi.md#showv1) | **GET** /app/v1/show | Show app information.

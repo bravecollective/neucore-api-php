@@ -11,15 +11,17 @@ Method | HTTP request | Description
 [**corpGroupsBulkV1**](ApplicationApi.md#corpGroupsBulkV1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations.
 [**corpGroupsV1**](ApplicationApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 [**corpGroupsV2**](ApplicationApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
+[**corporationPlayersV1**](ApplicationApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Return a list of all player IDs that have a character in the corporation.
 [**esiPostV1**](ApplicationApi.md#esiPostV1) | **POST** /app/v1/esi | Makes an ESI POST request on behalf on an EVE character and returns the result.
 [**esiV1**](ApplicationApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 [**groupsBulkV1**](ApplicationApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 [**groupsV1**](ApplicationApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
 [**groupsV2**](ApplicationApi.md#groupsV2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.
 [**groupsWithFallbackV1**](ApplicationApi.md#groupsWithFallbackV1) | **GET** /app/v1/groups-with-fallback | Returns groups from the character&#39;s account, if available, or the corporation and alliance.
-[**mainV1**](ApplicationApi.md#mainV1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs.
+[**mainV1**](ApplicationApi.md#mainV1) | **GET** /app/v1/main/{cid} | Return the main character of the player account to which the character ID belongs.
 [**mainV2**](ApplicationApi.md#mainV2) | **GET** /app/v2/main/{cid} | Return the main character of the player account to which the character ID belongs.
 [**memberTrackingV1**](ApplicationApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
+[**playerCharactersV1**](ApplicationApi.md#playerCharactersV1) | **GET** /app/v1/player-chars/{playerId} | Return all characters from the player account.
 [**playerV1**](ApplicationApi.md#playerV1) | **GET** /app/v1/player/{characterId} | Return the player account to which the character ID belongs.
 [**removedCharactersV1**](ApplicationApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Return all characters that were removed from the player account to which the character ID belongs.
 [**showV1**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information.
@@ -467,6 +469,69 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
+## corporationPlayersV1
+
+> \Brave\NeucoreApi\Model\Player[] corporationPlayersV1($corporation_id)
+
+Return a list of all player IDs that have a character in the corporation.
+
+Needs role: app-chars.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Bearer
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$corporation_id = 56; // int | EVE corporation ID.
+
+try {
+    $result = $apiInstance->corporationPlayersV1($corporation_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->corporationPlayersV1: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **corporation_id** | **int**| EVE corporation ID. |
+
+### Return type
+
+[**\Brave\NeucoreApi\Model\Player[]**](../Model/Player.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## esiPostV1
 
 > string esiPostV1($esi_path_query, $datasource, $data)
@@ -859,7 +924,7 @@ Name | Type | Description  | Notes
 
 > \Brave\NeucoreApi\Model\Character mainV1($cid)
 
-Returns the main character of the player account to which the character ID belongs.
+Return the main character of the player account to which the character ID belongs.
 
 Needs role: app-chars.<br>It is possible that an account has no main character.
 
@@ -1035,6 +1100,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Brave\NeucoreApi\Model\CorporationMember[]**](../Model/CorporationMember.md)
+
+### Authorization
+
+[Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## playerCharactersV1
+
+> \Brave\NeucoreApi\Model\Character[] playerCharactersV1($player_id)
+
+Return all characters from the player account.
+
+Needs role: app-chars.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Bearer
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$player_id = 56; // int | Player ID.
+
+try {
+    $result = $apiInstance->playerCharactersV1($player_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->playerCharactersV1: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **player_id** | **int**| Player ID. |
+
+### Return type
+
+[**\Brave\NeucoreApi\Model\Character[]**](../Model/Character.md)
 
 ### Authorization
 
