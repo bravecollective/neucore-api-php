@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 ## allianceGroupsBulkV1
 
-> \Brave\NeucoreApi\Model\Alliance[] allianceGroupsBulkV1($ids)
+> \Brave\NeucoreApi\Model\Alliance[] allianceGroupsBulkV1($request_body)
 
 Return groups of multiple alliances.
 
@@ -43,10 +43,8 @@ Needs role: app-groups.<br>      *                  Returns only groups that hav
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -55,10 +53,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ids = array(56); // int[] | EVE alliance IDs array.
+$request_body = array(56); // int[] | EVE alliance IDs array.
 
 try {
-    $result = $apiInstance->allianceGroupsBulkV1($ids);
+    $result = $apiInstance->allianceGroupsBulkV1($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->allianceGroupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -71,7 +69,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**int[]**](../Model/int.md)| EVE alliance IDs array. |
+ **request_body** | [**int[]**](../Model/int.md)| EVE alliance IDs array. |
 
 ### Return type
 
@@ -79,11 +77,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -106,10 +104,8 @@ Needs role: app-groups.<br>Returns only groups that have been added to the app a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -142,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -169,10 +165,8 @@ Needs role: app-groups.<br>Returns only groups that have been added to the app a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -205,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -232,10 +226,8 @@ Needs role: app-chars.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -268,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -282,7 +274,7 @@ Name | Type | Description  | Notes
 
 ## corpGroupsBulkV1
 
-> \Brave\NeucoreApi\Model\Corporation[] corpGroupsBulkV1($ids)
+> \Brave\NeucoreApi\Model\Corporation[] corpGroupsBulkV1($request_body)
 
 Return groups of multiple corporations.
 
@@ -295,10 +287,8 @@ Needs role: app-groups.<br>      *                  Returns only groups that hav
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -307,10 +297,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ids = array(56); // int[] | EVE corporation IDs array.
+$request_body = array(56); // int[] | EVE corporation IDs array.
 
 try {
-    $result = $apiInstance->corpGroupsBulkV1($ids);
+    $result = $apiInstance->corpGroupsBulkV1($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->corpGroupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -323,7 +313,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**int[]**](../Model/int.md)| EVE corporation IDs array. |
+ **request_body** | [**int[]**](../Model/int.md)| EVE corporation IDs array. |
 
 ### Return type
 
@@ -331,11 +321,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -358,10 +348,8 @@ Needs role: app-groups.<br>Returns only groups that have been added to the app a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -394,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -421,10 +409,8 @@ Needs role: app-groups.<br>Returns only groups that have been added to the app a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -457,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -484,10 +470,8 @@ Needs role: app-chars.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -520,7 +504,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -534,7 +518,7 @@ Name | Type | Description  | Notes
 
 ## esiPostV1
 
-> string esiPostV1($esi_path_query, $datasource, $data)
+> string esiPostV1($esi_path_query, $datasource, $body)
 
 Makes an ESI POST request on behalf on an EVE character and returns the result.
 
@@ -547,10 +531,8 @@ Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>   
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -561,10 +543,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
 );
 $esi_path_query = 'esi_path_query_example'; // string | The ESI path and query string (without the datasource parameter).
 $datasource = 'datasource_example'; // string | The EVE character ID those token should be used to make the ESI request
-$data = 'data_example'; // string | JSON encoded data.
+$body = 'body_example'; // string | JSON encoded data.
 
 try {
-    $result = $apiInstance->esiPostV1($esi_path_query, $datasource, $data);
+    $result = $apiInstance->esiPostV1($esi_path_query, $datasource, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->esiPostV1: ', $e->getMessage(), PHP_EOL;
@@ -579,7 +561,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **esi_path_query** | **string**| The ESI path and query string (without the datasource parameter). |
  **datasource** | **string**| The EVE character ID those token should be used to make the ESI request |
- **data** | **string**| JSON encoded data. |
+ **body** | **string**| JSON encoded data. |
 
 ### Return type
 
@@ -587,7 +569,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -614,10 +596,8 @@ Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>   
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -652,7 +632,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -666,7 +646,7 @@ Name | Type | Description  | Notes
 
 ## groupsBulkV1
 
-> \Brave\NeucoreApi\Model\CharacterGroups[] groupsBulkV1($ids)
+> \Brave\NeucoreApi\Model\CharacterGroups[] groupsBulkV1($request_body)
 
 Return groups of multiple players, identified by one of their character IDs.
 
@@ -679,10 +659,8 @@ Needs role: app-groups.<br>      *                  Returns only groups that hav
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -691,10 +669,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ids = array(56); // int[] | EVE character IDs array.
+$request_body = array(56); // int[] | EVE character IDs array.
 
 try {
-    $result = $apiInstance->groupsBulkV1($ids);
+    $result = $apiInstance->groupsBulkV1($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->groupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -707,7 +685,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**int[]**](../Model/int.md)| EVE character IDs array. |
+ **request_body** | [**int[]**](../Model/int.md)| EVE character IDs array. |
 
 ### Return type
 
@@ -715,11 +693,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -742,10 +720,8 @@ Needs role: app-groups.<br>Returns only groups that have been added to the app a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -778,7 +754,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -805,10 +781,8 @@ Needs role: app-groups.<br>Returns only groups that have been added to the app a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -841,7 +815,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -868,10 +842,8 @@ Needs role: app-groups.<br>      *                  Returns only groups that hav
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -908,7 +880,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -935,10 +907,8 @@ Needs role: app-chars.<br>It is possible that an account has no main character.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -971,7 +941,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -998,10 +968,8 @@ Needs role: app-chars.<br>It is possible that an account has no main character.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -1034,7 +1002,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1061,10 +1029,8 @@ Needs role: app-tracking
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -1103,7 +1069,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1130,10 +1096,8 @@ Needs role: app-chars.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -1166,7 +1130,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1193,10 +1157,8 @@ Needs role: app-chars.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -1229,7 +1191,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1256,10 +1218,8 @@ Needs role: app-chars.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -1292,7 +1252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -1319,10 +1279,8 @@ Needs role: app
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -1351,7 +1309,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Bearer](../../README.md#Bearer)
+[BearerAuth](../../README.md#BearerAuth)
 
 ### HTTP request headers
 

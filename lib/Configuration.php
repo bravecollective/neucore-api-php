@@ -438,10 +438,6 @@ class Configuration
           array(
             "url" => "https://localhost/api",
             "description" => "No description provided",
-          ),
-          array(
-            "url" => "http://localhost/api",
-            "description" => "No description provided",
           )
         );
     }

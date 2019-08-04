@@ -120,15 +120,15 @@ class ApplicationApi
      *
      * Return groups of multiple alliances.
      *
-     * @param  int[] $ids EVE alliance IDs array. (required)
+     * @param  int[] $request_body EVE alliance IDs array. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Brave\NeucoreApi\Model\Alliance[]
      */
-    public function allianceGroupsBulkV1($ids)
+    public function allianceGroupsBulkV1($request_body)
     {
-        list($response) = $this->allianceGroupsBulkV1WithHttpInfo($ids);
+        list($response) = $this->allianceGroupsBulkV1WithHttpInfo($request_body);
         return $response;
     }
 
@@ -137,15 +137,15 @@ class ApplicationApi
      *
      * Return groups of multiple alliances.
      *
-     * @param  int[] $ids EVE alliance IDs array. (required)
+     * @param  int[] $request_body EVE alliance IDs array. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Brave\NeucoreApi\Model\Alliance[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function allianceGroupsBulkV1WithHttpInfo($ids)
+    public function allianceGroupsBulkV1WithHttpInfo($request_body)
     {
-        $request = $this->allianceGroupsBulkV1Request($ids);
+        $request = $this->allianceGroupsBulkV1Request($request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -225,14 +225,14 @@ class ApplicationApi
      *
      * Return groups of multiple alliances.
      *
-     * @param  int[] $ids EVE alliance IDs array. (required)
+     * @param  int[] $request_body EVE alliance IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function allianceGroupsBulkV1Async($ids)
+    public function allianceGroupsBulkV1Async($request_body)
     {
-        return $this->allianceGroupsBulkV1AsyncWithHttpInfo($ids)
+        return $this->allianceGroupsBulkV1AsyncWithHttpInfo($request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -245,15 +245,15 @@ class ApplicationApi
      *
      * Return groups of multiple alliances.
      *
-     * @param  int[] $ids EVE alliance IDs array. (required)
+     * @param  int[] $request_body EVE alliance IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function allianceGroupsBulkV1AsyncWithHttpInfo($ids)
+    public function allianceGroupsBulkV1AsyncWithHttpInfo($request_body)
     {
         $returnType = '\Brave\NeucoreApi\Model\Alliance[]';
-        $request = $this->allianceGroupsBulkV1Request($ids);
+        $request = $this->allianceGroupsBulkV1Request($request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -292,17 +292,17 @@ class ApplicationApi
     /**
      * Create request for operation 'allianceGroupsBulkV1'
      *
-     * @param  int[] $ids EVE alliance IDs array. (required)
+     * @param  int[] $request_body EVE alliance IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function allianceGroupsBulkV1Request($ids)
+    protected function allianceGroupsBulkV1Request($request_body)
     {
-        // verify the required parameter 'ids' is set
-        if ($ids === null || (is_array($ids) && count($ids) === 0)) {
+        // verify the required parameter 'request_body' is set
+        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ids when calling allianceGroupsBulkV1'
+                'Missing the required parameter $request_body when calling allianceGroupsBulkV1'
             );
         }
 
@@ -317,8 +317,8 @@ class ApplicationApi
 
         // body params
         $_tempBody = null;
-        if (isset($ids)) {
-            $_tempBody = $ids;
+        if (isset($request_body)) {
+            $_tempBody = $request_body;
         }
 
         if ($multipart) {
@@ -328,7 +328,7 @@ class ApplicationApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
@@ -361,10 +361,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -638,10 +637,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -915,10 +913,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1192,10 +1189,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1223,15 +1219,15 @@ class ApplicationApi
      *
      * Return groups of multiple corporations.
      *
-     * @param  int[] $ids EVE corporation IDs array. (required)
+     * @param  int[] $request_body EVE corporation IDs array. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Brave\NeucoreApi\Model\Corporation[]
      */
-    public function corpGroupsBulkV1($ids)
+    public function corpGroupsBulkV1($request_body)
     {
-        list($response) = $this->corpGroupsBulkV1WithHttpInfo($ids);
+        list($response) = $this->corpGroupsBulkV1WithHttpInfo($request_body);
         return $response;
     }
 
@@ -1240,15 +1236,15 @@ class ApplicationApi
      *
      * Return groups of multiple corporations.
      *
-     * @param  int[] $ids EVE corporation IDs array. (required)
+     * @param  int[] $request_body EVE corporation IDs array. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Brave\NeucoreApi\Model\Corporation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function corpGroupsBulkV1WithHttpInfo($ids)
+    public function corpGroupsBulkV1WithHttpInfo($request_body)
     {
-        $request = $this->corpGroupsBulkV1Request($ids);
+        $request = $this->corpGroupsBulkV1Request($request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1328,14 +1324,14 @@ class ApplicationApi
      *
      * Return groups of multiple corporations.
      *
-     * @param  int[] $ids EVE corporation IDs array. (required)
+     * @param  int[] $request_body EVE corporation IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function corpGroupsBulkV1Async($ids)
+    public function corpGroupsBulkV1Async($request_body)
     {
-        return $this->corpGroupsBulkV1AsyncWithHttpInfo($ids)
+        return $this->corpGroupsBulkV1AsyncWithHttpInfo($request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1348,15 +1344,15 @@ class ApplicationApi
      *
      * Return groups of multiple corporations.
      *
-     * @param  int[] $ids EVE corporation IDs array. (required)
+     * @param  int[] $request_body EVE corporation IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function corpGroupsBulkV1AsyncWithHttpInfo($ids)
+    public function corpGroupsBulkV1AsyncWithHttpInfo($request_body)
     {
         $returnType = '\Brave\NeucoreApi\Model\Corporation[]';
-        $request = $this->corpGroupsBulkV1Request($ids);
+        $request = $this->corpGroupsBulkV1Request($request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1395,17 +1391,17 @@ class ApplicationApi
     /**
      * Create request for operation 'corpGroupsBulkV1'
      *
-     * @param  int[] $ids EVE corporation IDs array. (required)
+     * @param  int[] $request_body EVE corporation IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function corpGroupsBulkV1Request($ids)
+    protected function corpGroupsBulkV1Request($request_body)
     {
-        // verify the required parameter 'ids' is set
-        if ($ids === null || (is_array($ids) && count($ids) === 0)) {
+        // verify the required parameter 'request_body' is set
+        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ids when calling corpGroupsBulkV1'
+                'Missing the required parameter $request_body when calling corpGroupsBulkV1'
             );
         }
 
@@ -1420,8 +1416,8 @@ class ApplicationApi
 
         // body params
         $_tempBody = null;
-        if (isset($ids)) {
-            $_tempBody = $ids;
+        if (isset($request_body)) {
+            $_tempBody = $request_body;
         }
 
         if ($multipart) {
@@ -1431,7 +1427,7 @@ class ApplicationApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
@@ -1464,10 +1460,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1741,10 +1736,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -2018,10 +2012,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -2295,10 +2288,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -2328,15 +2320,15 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param  string $data JSON encoded data. (required)
+     * @param  string $body JSON encoded data. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string|string|string|string|string|string|string|string|string
      */
-    public function esiPostV1($esi_path_query, $datasource, $data)
+    public function esiPostV1($esi_path_query, $datasource, $body)
     {
-        list($response) = $this->esiPostV1WithHttpInfo($esi_path_query, $datasource, $data);
+        list($response) = $this->esiPostV1WithHttpInfo($esi_path_query, $datasource, $body);
         return $response;
     }
 
@@ -2347,15 +2339,15 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param  string $data JSON encoded data. (required)
+     * @param  string $body JSON encoded data. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string|string|string|string|string|string|string|string|string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function esiPostV1WithHttpInfo($esi_path_query, $datasource, $data)
+    public function esiPostV1WithHttpInfo($esi_path_query, $datasource, $body)
     {
-        $request = $this->esiPostV1Request($esi_path_query, $datasource, $data);
+        $request = $this->esiPostV1Request($esi_path_query, $datasource, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2597,14 +2589,14 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param  string $data JSON encoded data. (required)
+     * @param  string $body JSON encoded data. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function esiPostV1Async($esi_path_query, $datasource, $data)
+    public function esiPostV1Async($esi_path_query, $datasource, $body)
     {
-        return $this->esiPostV1AsyncWithHttpInfo($esi_path_query, $datasource, $data)
+        return $this->esiPostV1AsyncWithHttpInfo($esi_path_query, $datasource, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2619,15 +2611,15 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param  string $data JSON encoded data. (required)
+     * @param  string $body JSON encoded data. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function esiPostV1AsyncWithHttpInfo($esi_path_query, $datasource, $data)
+    public function esiPostV1AsyncWithHttpInfo($esi_path_query, $datasource, $body)
     {
         $returnType = 'string';
-        $request = $this->esiPostV1Request($esi_path_query, $datasource, $data);
+        $request = $this->esiPostV1Request($esi_path_query, $datasource, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2668,12 +2660,12 @@ class ApplicationApi
      *
      * @param  string $esi_path_query The ESI path and query string (without the datasource parameter). (required)
      * @param  string $datasource The EVE character ID those token should be used to make the ESI request (required)
-     * @param  string $data JSON encoded data. (required)
+     * @param  string $body JSON encoded data. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function esiPostV1Request($esi_path_query, $datasource, $data)
+    protected function esiPostV1Request($esi_path_query, $datasource, $body)
     {
         // verify the required parameter 'esi_path_query' is set
         if ($esi_path_query === null || (is_array($esi_path_query) && count($esi_path_query) === 0)) {
@@ -2687,10 +2679,10 @@ class ApplicationApi
                 'Missing the required parameter $datasource when calling esiPostV1'
             );
         }
-        // verify the required parameter 'data' is set
-        if ($data === null || (is_array($data) && count($data) === 0)) {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $data when calling esiPostV1'
+                'Missing the required parameter $body when calling esiPostV1'
             );
         }
 
@@ -2713,8 +2705,8 @@ class ApplicationApi
 
         // body params
         $_tempBody = null;
-        if (isset($data)) {
-            $_tempBody = $data;
+        if (isset($body)) {
+            $_tempBody = $body;
         }
 
         if ($multipart) {
@@ -2757,10 +2749,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -3205,10 +3196,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -3236,15 +3226,15 @@ class ApplicationApi
      *
      * Return groups of multiple players, identified by one of their character IDs.
      *
-     * @param  int[] $ids EVE character IDs array. (required)
+     * @param  int[] $request_body EVE character IDs array. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Brave\NeucoreApi\Model\CharacterGroups[]
      */
-    public function groupsBulkV1($ids)
+    public function groupsBulkV1($request_body)
     {
-        list($response) = $this->groupsBulkV1WithHttpInfo($ids);
+        list($response) = $this->groupsBulkV1WithHttpInfo($request_body);
         return $response;
     }
 
@@ -3253,15 +3243,15 @@ class ApplicationApi
      *
      * Return groups of multiple players, identified by one of their character IDs.
      *
-     * @param  int[] $ids EVE character IDs array. (required)
+     * @param  int[] $request_body EVE character IDs array. (required)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Brave\NeucoreApi\Model\CharacterGroups[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function groupsBulkV1WithHttpInfo($ids)
+    public function groupsBulkV1WithHttpInfo($request_body)
     {
-        $request = $this->groupsBulkV1Request($ids);
+        $request = $this->groupsBulkV1Request($request_body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3341,14 +3331,14 @@ class ApplicationApi
      *
      * Return groups of multiple players, identified by one of their character IDs.
      *
-     * @param  int[] $ids EVE character IDs array. (required)
+     * @param  int[] $request_body EVE character IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupsBulkV1Async($ids)
+    public function groupsBulkV1Async($request_body)
     {
-        return $this->groupsBulkV1AsyncWithHttpInfo($ids)
+        return $this->groupsBulkV1AsyncWithHttpInfo($request_body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3361,15 +3351,15 @@ class ApplicationApi
      *
      * Return groups of multiple players, identified by one of their character IDs.
      *
-     * @param  int[] $ids EVE character IDs array. (required)
+     * @param  int[] $request_body EVE character IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function groupsBulkV1AsyncWithHttpInfo($ids)
+    public function groupsBulkV1AsyncWithHttpInfo($request_body)
     {
         $returnType = '\Brave\NeucoreApi\Model\CharacterGroups[]';
-        $request = $this->groupsBulkV1Request($ids);
+        $request = $this->groupsBulkV1Request($request_body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3408,17 +3398,17 @@ class ApplicationApi
     /**
      * Create request for operation 'groupsBulkV1'
      *
-     * @param  int[] $ids EVE character IDs array. (required)
+     * @param  int[] $request_body EVE character IDs array. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function groupsBulkV1Request($ids)
+    protected function groupsBulkV1Request($request_body)
     {
-        // verify the required parameter 'ids' is set
-        if ($ids === null || (is_array($ids) && count($ids) === 0)) {
+        // verify the required parameter 'request_body' is set
+        if ($request_body === null || (is_array($request_body) && count($request_body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $ids when calling groupsBulkV1'
+                'Missing the required parameter $request_body when calling groupsBulkV1'
             );
         }
 
@@ -3433,8 +3423,8 @@ class ApplicationApi
 
         // body params
         $_tempBody = null;
-        if (isset($ids)) {
-            $_tempBody = $ids;
+        if (isset($request_body)) {
+            $_tempBody = $request_body;
         }
 
         if ($multipart) {
@@ -3444,7 +3434,7 @@ class ApplicationApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
@@ -3477,10 +3467,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -3754,10 +3743,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -4031,10 +4019,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -4328,10 +4315,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -4605,10 +4591,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -4882,10 +4867,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -5186,10 +5170,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -5463,10 +5446,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -5740,10 +5722,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -6017,10 +5998,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -6275,10 +6255,9 @@ class ApplicationApi
             }
         }
 
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
+        // this endpoint requires Bearer authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];

@@ -3,6 +3,13 @@ The version numbers correspond to the Neucore version numbers.
 When updating, check the generator version in .openapi-generator/VERSION, 
 a new version may break backwards compatibility.
 
+**Breaking changes**
+
+- 1.4.0:  
+  Generated from OpenAPI v3 definition file.  
+  The authorization configuration changed, use `setAccessToken()` instead of `setApiKey()`, see below. 
+  
+
 # OpenAPIClient-php
 
 Client library of Neucore API
@@ -65,10 +72,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure API key authorization: Bearer
-$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
@@ -77,10 +82,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ids = array(56); // int[] | EVE alliance IDs array.
+$request_body = array(56); // int[] | EVE alliance IDs array.
 
 try {
-    $result = $apiInstance->allianceGroupsBulkV1($ids);
+    $result = $apiInstance->allianceGroupsBulkV1($request_body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->allianceGroupsBulkV1: ', $e->getMessage(), PHP_EOL;
@@ -138,13 +143,10 @@ Class | Method | HTTP request | Description
 
 
 
-## Bearer
+## BearerAuth
 
 
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
+- **Type**: Bearer authentication
 
 
 ## Author
