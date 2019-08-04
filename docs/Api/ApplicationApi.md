@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**corpGroupsBulkV1**](ApplicationApi.md#corpGroupsBulkV1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations.
 [**corpGroupsV1**](ApplicationApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 [**corpGroupsV2**](ApplicationApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
-[**corporationPlayersV1**](ApplicationApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Return a list of all player IDs that have a character in the corporation.
+[**corporationPlayersV1**](ApplicationApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Return a list of all players that have a character in the corporation.
 [**esiPostV1**](ApplicationApi.md#esiPostV1) | **POST** /app/v1/esi | Makes an ESI POST request on behalf on an EVE character and returns the result.
 [**esiV1**](ApplicationApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 [**groupsBulkV1**](ApplicationApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 
 > \Brave\NeucoreApi\Model\Player[] corporationPlayersV1($corporation_id)
 
-Return a list of all player IDs that have a character in the corporation.
+Return a list of all players that have a character in the corporation.
 
 Needs role: app-chars.
 

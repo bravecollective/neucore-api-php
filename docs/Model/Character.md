@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | EVE character name. | 
 **main** | **bool** |  | [optional] 
 **valid_token** | **bool** | Shows if character&#39;s refresh token is valid or not.  If there is no refresh token this is null. | [optional] 
+**valid_token_time** | [**\DateTime**](\DateTime.md) | Date and time when that valid token property was last changed. | [optional] 
 **last_update** | [**\DateTime**](\DateTime.md) | Last ESI update. | [optional] 
 **corporation** | [**\Brave\NeucoreApi\Model\Corporation**](Corporation.md) |  | [optional] 
 
