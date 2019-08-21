@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **character_name** | **string** | EVE character name. | 
 **removed_date** | [**\DateTime**](\DateTime.md) | Date of removal. | 
 **reason** | **string** | How it was removed (deleted or moved to another account). | 
+**deleted_by** | [**\Brave\NeucoreApi\Model\Player**](Player.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
