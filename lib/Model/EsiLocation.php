@@ -1,6 +1,6 @@
 <?php
 /**
- * App
+ * EsiLocation
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * App Class Doc Comment
+ * EsiLocation Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class App implements ModelInterface, ArrayAccess
+class EsiLocation implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class App implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'App';
+    protected static $openAPIModelName = 'EsiLocation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class App implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string',
-        'roles' => '\Brave\NeucoreApi\Model\Role[]',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]'
+        'category' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -69,10 +68,9 @@ class App implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'roles' => null,
-        'groups' => null
+        'id' => 'int64',
+        'category' => null,
+        'name' => null
     ];
 
     /**
@@ -103,9 +101,8 @@ class App implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'roles' => 'roles',
-        'groups' => 'groups'
+        'category' => 'category',
+        'name' => 'name'
     ];
 
     /**
@@ -115,9 +112,8 @@ class App implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'roles' => 'setRoles',
-        'groups' => 'setGroups'
+        'category' => 'setCategory',
+        'name' => 'setName'
     ];
 
     /**
@@ -127,9 +123,8 @@ class App implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'roles' => 'getRoles',
-        'groups' => 'getGroups'
+        'category' => 'getCategory',
+        'name' => 'getName'
     ];
 
     /**
@@ -173,8 +168,25 @@ class App implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CATEGORY_SYSTEM = 'system';
+    const CATEGORY_STATION = 'station';
+    const CATEGORY_STRUCTURE = 'structure';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCategoryAllowableValues()
+    {
+        return [
+            self::CATEGORY_SYSTEM,
+            self::CATEGORY_STATION,
+            self::CATEGORY_STRUCTURE,
+        ];
+    }
     
 
     /**
@@ -193,9 +205,8 @@ class App implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['category'] = isset($data['category']) ? $data['category'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
-        $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
     }
 
     /**
@@ -210,13 +221,20 @@ class App implements ModelInterface, ArrayAccess
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
+        if ($this->container['category'] === null) {
+            $invalidProperties[] = "'category' can't be null";
+        }
+        $allowedValues = $this->getCategoryAllowableValues();
+        if (!is_null($this->container['category']) && !in_array($this->container['category'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'category', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['name']) > 255)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
-        }
-
         return $invalidProperties;
     }
 
@@ -245,13 +263,46 @@ class App implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id App ID
+     * @param int $id id
      *
      * @return $this
      */
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param string $category category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $allowedValues = $this->getCategoryAllowableValues();
+        if (!in_array($category, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'category', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['category'] = $category;
 
         return $this;
     }
@@ -269,65 +320,13 @@ class App implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name App name
+     * @param string $name name
      *
      * @return $this
      */
     public function setName($name)
     {
-        if ((mb_strlen($name) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling App., must be smaller than or equal to 255.');
-        }
-
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets roles
-     *
-     * @return \Brave\NeucoreApi\Model\Role[]|null
-     */
-    public function getRoles()
-    {
-        return $this->container['roles'];
-    }
-
-    /**
-     * Sets roles
-     *
-     * @param \Brave\NeucoreApi\Model\Role[]|null $roles Roles for authorization.
-     *
-     * @return $this
-     */
-    public function setRoles($roles)
-    {
-        $this->container['roles'] = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets groups
-     *
-     * @return \Brave\NeucoreApi\Model\Group[]|null
-     */
-    public function getGroups()
-    {
-        return $this->container['groups'];
-    }
-
-    /**
-     * Sets groups
-     *
-     * @param \Brave\NeucoreApi\Model\Group[]|null $groups Groups the app can see.
-     *
-     * @return $this
-     */
-    public function setGroups($groups)
-    {
-        $this->container['groups'] = $groups;
 
         return $this;
     }

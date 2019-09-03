@@ -1,6 +1,6 @@
 <?php
 /**
- * App
+ * EsiType
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * App Class Doc Comment
+ * EsiType Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class App implements ModelInterface, ArrayAccess
+class EsiType implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class App implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'App';
+    protected static $openAPIModelName = 'EsiType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class App implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'int',
-        'name' => 'string',
-        'roles' => '\Brave\NeucoreApi\Model\Role[]',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]'
+        'name' => 'string'
     ];
 
     /**
@@ -69,10 +67,8 @@ class App implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'roles' => null,
-        'groups' => null
+        'id' => 'int64',
+        'name' => null
     ];
 
     /**
@@ -103,9 +99,7 @@ class App implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'roles' => 'roles',
-        'groups' => 'groups'
+        'name' => 'name'
     ];
 
     /**
@@ -115,9 +109,7 @@ class App implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'roles' => 'setRoles',
-        'groups' => 'setGroups'
+        'name' => 'setName'
     ];
 
     /**
@@ -127,9 +119,7 @@ class App implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'roles' => 'getRoles',
-        'groups' => 'getGroups'
+        'name' => 'getName'
     ];
 
     /**
@@ -194,8 +184,6 @@ class App implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
-        $this->container['groups'] = isset($data['groups']) ? $data['groups'] : null;
     }
 
     /**
@@ -213,10 +201,6 @@ class App implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['name']) > 255)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
-        }
-
         return $invalidProperties;
     }
 
@@ -245,7 +229,7 @@ class App implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id App ID
+     * @param int $id id
      *
      * @return $this
      */
@@ -269,65 +253,13 @@ class App implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name App name
+     * @param string $name name
      *
      * @return $this
      */
     public function setName($name)
     {
-        if ((mb_strlen($name) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling App., must be smaller than or equal to 255.');
-        }
-
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets roles
-     *
-     * @return \Brave\NeucoreApi\Model\Role[]|null
-     */
-    public function getRoles()
-    {
-        return $this->container['roles'];
-    }
-
-    /**
-     * Sets roles
-     *
-     * @param \Brave\NeucoreApi\Model\Role[]|null $roles Roles for authorization.
-     *
-     * @return $this
-     */
-    public function setRoles($roles)
-    {
-        $this->container['roles'] = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets groups
-     *
-     * @return \Brave\NeucoreApi\Model\Group[]|null
-     */
-    public function getGroups()
-    {
-        return $this->container['groups'];
-    }
-
-    /**
-     * Sets groups
-     *
-     * @param \Brave\NeucoreApi\Model\Group[]|null $groups Groups the app can see.
-     *
-     * @return $this
-     */
-    public function setGroups($groups)
-    {
-        $this->container['groups'] = $groups;
 
         return $this;
     }
