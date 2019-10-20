@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **new_player_id** | **int** |  | [optional] 
 **new_player_name** | **string** |  | [optional] 
+**player** | [**\Brave\NeucoreApi\Model\Player**](Player.md) |  | [optional] 
 **character_id** | **int** | EVE character ID. | 
 **character_name** | **string** | EVE character name. | 
 **removed_date** | [**\DateTime**](\DateTime.md) | Date of removal. | 
