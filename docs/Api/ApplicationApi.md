@@ -12,12 +12,13 @@ Method | HTTP request | Description
 [**corpGroupsV1**](ApplicationApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 [**corpGroupsV2**](ApplicationApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
 [**corporationPlayersV1**](ApplicationApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Return a list of all players that have a character in the corporation.
-[**esiPostV1**](ApplicationApi.md#esiPostV1) | **POST** /app/v1/esi | Makes an ESI POST request on behalf on an EVE character and returns the result.
+[**esiPostV1**](ApplicationApi.md#esiPostV1) | **POST** /app/v1/esi | Same as GET ​/app​/v1​/esi, but for POST requests.
 [**esiV1**](ApplicationApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 [**groupsBulkV1**](ApplicationApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 [**groupsV1**](ApplicationApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
 [**groupsV2**](ApplicationApi.md#groupsV2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.
 [**groupsWithFallbackV1**](ApplicationApi.md#groupsWithFallbackV1) | **GET** /app/v1/groups-with-fallback | Returns groups from the character&#39;s account, if available, or the corporation and alliance.
+[**incomingCharactersV1**](ApplicationApi.md#incomingCharactersV1) | **GET** /app/v1/incoming-characters/{characterId} | Return all characters that were moved from another account to the player account to which the                     ID belongs.
 [**mainV1**](ApplicationApi.md#mainV1) | **GET** /app/v1/main/{cid} | Return the main character of the player account to which the character ID belongs.
 [**mainV2**](ApplicationApi.md#mainV2) | **GET** /app/v2/main/{cid} | Return the main character of the player account to which the character ID belongs.
 [**memberTrackingV1**](ApplicationApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
@@ -520,9 +521,7 @@ Name | Type | Description  | Notes
 
 > string esiPostV1($esi_path_query, $datasource, $body)
 
-Makes an ESI POST request on behalf on an EVE character and returns the result.
-
-Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                see doc/app-esi-examples.php for more.
+Same as GET ​/app​/v1​/esi, but for POST requests.
 
 ### Example
 
@@ -587,7 +586,7 @@ Name | Type | Description  | Notes
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                see doc/app-esi-examples.php for more.
+Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                this allows to use OpenAPI clients that were generated for the ESI API,                see doc/app-esi-examples.php for more.
 
 ### Example
 
@@ -877,6 +876,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Brave\NeucoreApi\Model\Group[]**](../Model/Group.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## incomingCharactersV1
+
+> \Brave\NeucoreApi\Model\RemovedCharacter[] incomingCharactersV1($character_id)
+
+Return all characters that were moved from another account to the player account to which the                     ID belongs.
+
+Needs role: app-chars.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$character_id = 56; // int | EVE character ID.
+
+try {
+    $result = $apiInstance->incomingCharactersV1($character_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->incomingCharactersV1: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **character_id** | **int**| EVE character ID. |
+
+### Return type
+
+[**\Brave\NeucoreApi\Model\RemovedCharacter[]**](../Model/RemovedCharacter.md)
 
 ### Authorization
 
