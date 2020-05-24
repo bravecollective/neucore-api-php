@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**corpGroupsV1**](ApplicationApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
 [**corpGroupsV2**](ApplicationApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
 [**corporationPlayersV1**](ApplicationApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Return a list of all players that have a character in the corporation.
-[**esiPostV1**](ApplicationApi.md#esiPostV1) | **POST** /app/v1/esi | Same as GET ​/app​/v1​/esi, but for POST requests.
+[**esiPostV1**](ApplicationApi.md#esiPostV1) | **POST** /app/v1/esi | Same as GET​/app/v1/esi, but for POST requests.
 [**esiV1**](ApplicationApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 [**groupsBulkV1**](ApplicationApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
 [**groupsV1**](ApplicationApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**memberTrackingV1**](ApplicationApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
 [**playerCharactersV1**](ApplicationApi.md#playerCharactersV1) | **GET** /app/v1/player-chars/{playerId} | Return all characters from the player account.
 [**playerV1**](ApplicationApi.md#playerV1) | **GET** /app/v1/player/{characterId} | Return the player account to which the character ID belongs.
+[**playerWithCharactersV1**](ApplicationApi.md#playerWithCharactersV1) | **GET** /app/v1/player-with-characters/{characterId} | Return the player account to which the character ID belongs with all characters.
 [**removedCharactersV1**](ApplicationApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Return all characters that were removed from the player account to which the character ID belongs.
 [**showV1**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information.
 
@@ -521,7 +522,7 @@ Name | Type | Description  | Notes
 
 > string esiPostV1($esi_path_query, $datasource, $body)
 
-Same as GET ​/app​/v1​/esi, but for POST requests.
+Same as GET​/app/v1/esi, but for POST requests.
 
 ### Example
 
@@ -586,7 +587,7 @@ Name | Type | Description  | Notes
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                this allows to use OpenAPI clients that were generated for the ESI API,                see doc/app-esi-examples.php for more.
+Needs role: app-esi<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response if they exist:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning, Warning<br>      *         The HTTP status code from ESI is also passed through, so maybe there's more than the documented.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                this allows to use OpenAPI clients that were generated for the ESI API,                see doc/app-esi-examples.php for more.
 
 ### Example
 
@@ -1234,6 +1235,67 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->playerV1: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **character_id** | **int**| EVE character ID. |
+
+### Return type
+
+[**\Brave\NeucoreApi\Model\Player**](../Model/Player.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## playerWithCharactersV1
+
+> \Brave\NeucoreApi\Model\Player playerWithCharactersV1($character_id)
+
+Return the player account to which the character ID belongs with all characters.
+
+Needs role: app-chars.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$character_id = 56; // int | EVE character ID.
+
+try {
+    $result = $apiInstance->playerWithCharactersV1($character_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationApi->playerWithCharactersV1: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

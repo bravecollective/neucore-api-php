@@ -1,6 +1,6 @@
 <?php
 /**
- * EsiType
+ * Watchlist
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * EsiType Class Doc Comment
+ * Watchlist Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class EsiType implements ModelInterface, ArrayAccess
+class Watchlist implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EsiType implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EsiType';
+    protected static $openAPIModelName = 'Watchlist';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -67,7 +67,7 @@ class EsiType implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
+        'id' => null,
         'name' => null
     ];
 
