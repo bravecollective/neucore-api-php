@@ -1,6 +1,6 @@
 <?php
 /**
- * ApplicationApi
+ * ApplicationTrackingApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Brave\NeucoreApi\HeaderSelector;
 use Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * ApplicationApi Class Doc Comment
+ * ApplicationTrackingApi Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ApplicationApi
+class ApplicationTrackingApi
 {
     /**
      * @var ClientInterface
@@ -116,34 +116,42 @@ class ApplicationApi
     }
 
     /**
-     * Operation showV1
+     * Operation memberTrackingV1
      *
-     * Show app information.
+     * Return corporation member tracking data.
      *
+     * @param  int $id EVE corporation ID. (required)
+     * @param  int $inactive Limit to members who have been inactive for x days or longer. (optional)
+     * @param  int $active Limit to members who were active in the last x days. (optional)
+     * @param  string $account Limit to members with (true) or without (false) an account. (optional)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Brave\NeucoreApi\Model\App
+     * @return \Brave\NeucoreApi\Model\CorporationMember[]
      */
-    public function showV1()
+    public function memberTrackingV1($id, $inactive = null, $active = null, $account = null)
     {
-        list($response) = $this->showV1WithHttpInfo();
+        list($response) = $this->memberTrackingV1WithHttpInfo($id, $inactive, $active, $account);
         return $response;
     }
 
     /**
-     * Operation showV1WithHttpInfo
+     * Operation memberTrackingV1WithHttpInfo
      *
-     * Show app information.
+     * Return corporation member tracking data.
      *
+     * @param  int $id EVE corporation ID. (required)
+     * @param  int $inactive Limit to members who have been inactive for x days or longer. (optional)
+     * @param  int $active Limit to members who were active in the last x days. (optional)
+     * @param  string $account Limit to members with (true) or without (false) an account. (optional)
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Brave\NeucoreApi\Model\App, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Brave\NeucoreApi\Model\CorporationMember[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function showV1WithHttpInfo()
+    public function memberTrackingV1WithHttpInfo($id, $inactive = null, $active = null, $account = null)
     {
-        $request = $this->showV1Request();
+        $request = $this->memberTrackingV1Request($id, $inactive, $active, $account);
 
         try {
             $options = $this->createHttpClientOption();
@@ -176,20 +184,20 @@ class ApplicationApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Brave\NeucoreApi\Model\App' === '\SplFileObject') {
+                    if ('\Brave\NeucoreApi\Model\CorporationMember[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Brave\NeucoreApi\Model\App', []),
+                        ObjectSerializer::deserialize($content, '\Brave\NeucoreApi\Model\CorporationMember[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Brave\NeucoreApi\Model\App';
+            $returnType = '\Brave\NeucoreApi\Model\CorporationMember[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -208,7 +216,7 @@ class ApplicationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Brave\NeucoreApi\Model\App',
+                        '\Brave\NeucoreApi\Model\CorporationMember[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -219,17 +227,21 @@ class ApplicationApi
     }
 
     /**
-     * Operation showV1Async
+     * Operation memberTrackingV1Async
      *
-     * Show app information.
+     * Return corporation member tracking data.
      *
+     * @param  int $id EVE corporation ID. (required)
+     * @param  int $inactive Limit to members who have been inactive for x days or longer. (optional)
+     * @param  int $active Limit to members who were active in the last x days. (optional)
+     * @param  string $account Limit to members with (true) or without (false) an account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function showV1Async()
+    public function memberTrackingV1Async($id, $inactive = null, $active = null, $account = null)
     {
-        return $this->showV1AsyncWithHttpInfo()
+        return $this->memberTrackingV1AsyncWithHttpInfo($id, $inactive, $active, $account)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -238,18 +250,22 @@ class ApplicationApi
     }
 
     /**
-     * Operation showV1AsyncWithHttpInfo
+     * Operation memberTrackingV1AsyncWithHttpInfo
      *
-     * Show app information.
+     * Return corporation member tracking data.
      *
+     * @param  int $id EVE corporation ID. (required)
+     * @param  int $inactive Limit to members who have been inactive for x days or longer. (optional)
+     * @param  int $active Limit to members who were active in the last x days. (optional)
+     * @param  string $account Limit to members with (true) or without (false) an account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function showV1AsyncWithHttpInfo()
+    public function memberTrackingV1AsyncWithHttpInfo($id, $inactive = null, $active = null, $account = null)
     {
-        $returnType = '\Brave\NeucoreApi\Model\App';
-        $request = $this->showV1Request();
+        $returnType = '\Brave\NeucoreApi\Model\CorporationMember[]';
+        $request = $this->memberTrackingV1Request($id, $inactive, $active, $account);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -286,24 +302,75 @@ class ApplicationApi
     }
 
     /**
-     * Create request for operation 'showV1'
+     * Create request for operation 'memberTrackingV1'
      *
+     * @param  int $id EVE corporation ID. (required)
+     * @param  int $inactive Limit to members who have been inactive for x days or longer. (optional)
+     * @param  int $active Limit to members who were active in the last x days. (optional)
+     * @param  string $account Limit to members with (true) or without (false) an account. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function showV1Request()
+    protected function memberTrackingV1Request($id, $inactive = null, $active = null, $account = null)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling memberTrackingV1'
+            );
+        }
 
-        $resourcePath = '/app/v1/show';
+        $resourcePath = '/app/v1/corporation/{id}/member-tracking';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($inactive !== null) {
+            if('form' === 'form' && is_array($inactive)) {
+                foreach($inactive as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['inactive'] = $inactive;
+            }
+        }
+        // query params
+        if ($active !== null) {
+            if('form' === 'form' && is_array($active)) {
+                foreach($active as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['active'] = $active;
+            }
+        }
+        // query params
+        if ($account !== null) {
+            if('form' === 'form' && is_array($account)) {
+                foreach($account as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['account'] = $account;
+            }
+        }
 
 
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
