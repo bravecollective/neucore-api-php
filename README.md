@@ -12,6 +12,10 @@ a new version may break backwards compatibility.
   Generated from OpenAPI v3 definition file.  
   The authorization configuration changed, use `setAccessToken()` instead of `setApiKey()`, see below. 
 
+**Patches**
+
+- Allow Guzzle v7.2.
+
 # OpenAPIClient-php
 
 Client library of Neucore API
