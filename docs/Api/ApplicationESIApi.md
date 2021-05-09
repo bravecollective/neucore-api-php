@@ -1,17 +1,18 @@
 # Brave\NeucoreApi\ApplicationESIApi
 
-All URIs are relative to *https://localhost/api*
+All URIs are relative to https://localhost/api.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**esiPostV1**](ApplicationESIApi.md#esiPostV1) | **POST** /app/v1/esi | Same as GET /app/v1/esi, but for POST requests.
-[**esiV1**](ApplicationESIApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
+[**esiPostV1()**](ApplicationESIApi.md#esiPostV1) | **POST** /app/v1/esi | Same as GET /app/v1/esi, but for POST requests.
+[**esiV1()**](ApplicationESIApi.md#esiV1) | **GET** /app/v1/esi | Makes an ESI GET request on behalf on an EVE character and returns the result.
 
 
+## `esiPostV1()`
 
-## esiPostV1
-
-> string esiPostV1($esi_path_query, $datasource, $body)
+```php
+esiPostV1($esi_path_query, $datasource, $body): string
+```
 
 Same as GET /app/v1/esi, but for POST requests.
 
@@ -42,11 +43,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationESIApi->esiPostV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -64,17 +63,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: text/plain
-- **Accept**: application/json
+- **Content-Type**: `text/plain`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `esiV1()`
 
-## esiV1
-
-> string esiV1($esi_path_query, $datasource)
+```php
+esiV1($esi_path_query, $datasource): string
+```
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
@@ -106,11 +106,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationESIApi->esiV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -128,9 +126,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

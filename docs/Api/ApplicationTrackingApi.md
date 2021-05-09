@@ -1,16 +1,17 @@
 # Brave\NeucoreApi\ApplicationTrackingApi
 
-All URIs are relative to *https://localhost/api*
+All URIs are relative to https://localhost/api.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**memberTrackingV1**](ApplicationTrackingApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
+[**memberTrackingV1()**](ApplicationTrackingApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
 
 
+## `memberTrackingV1()`
 
-## memberTrackingV1
-
-> \Brave\NeucoreApi\Model\CorporationMember[] memberTrackingV1($id, $inactive, $active, $account)
+```php
+memberTrackingV1($id, $inactive, $active, $account): \Brave\NeucoreApi\Model\CorporationMember[]
+```
 
 Return corporation member tracking data.
 
@@ -44,11 +45,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationTrackingApi->memberTrackingV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -68,9 +67,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

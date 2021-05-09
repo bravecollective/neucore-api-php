@@ -1,26 +1,28 @@
 # Brave\NeucoreApi\ApplicationCharactersApi
 
-All URIs are relative to *https://localhost/api*
+All URIs are relative to https://localhost/api.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**characterListV1**](ApplicationCharactersApi.md#characterListV1) | **POST** /app/v1/character-list | Returns all known characters from the parameter list.
-[**charactersV1**](ApplicationCharactersApi.md#charactersV1) | **GET** /app/v1/characters/{characterId} | Returns all characters of the player account to which the character ID belongs.
-[**corporationCharactersV1**](ApplicationCharactersApi.md#corporationCharactersV1) | **GET** /app/v1/corp-characters/{corporationId} | Returns a list of all known characters from the corporation.
-[**corporationPlayersV1**](ApplicationCharactersApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Returns a list of all players that have a character in the corporation.
-[**incomingCharactersV1**](ApplicationCharactersApi.md#incomingCharactersV1) | **GET** /app/v1/incoming-characters/{characterId} | Returns all characters that were moved from another account to the player account to which the                     ID belongs.
-[**mainV1**](ApplicationCharactersApi.md#mainV1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs.
-[**mainV2**](ApplicationCharactersApi.md#mainV2) | **GET** /app/v2/main/{cid} | Returns the main character of the player account to which the character ID belongs.
-[**playerCharactersV1**](ApplicationCharactersApi.md#playerCharactersV1) | **GET** /app/v1/player-chars/{playerId} | Returns all characters from the player account.
-[**playerV1**](ApplicationCharactersApi.md#playerV1) | **GET** /app/v1/player/{characterId} | Returns the player account to which the character ID belongs.
-[**playerWithCharactersV1**](ApplicationCharactersApi.md#playerWithCharactersV1) | **GET** /app/v1/player-with-characters/{characterId} | Returns the player account to which the character ID belongs with all characters.
-[**removedCharactersV1**](ApplicationCharactersApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Returns all characters that were removed from the player account to which the character ID                     belongs.
+[**characterListV1()**](ApplicationCharactersApi.md#characterListV1) | **POST** /app/v1/character-list | Returns all known characters from the parameter list.
+[**charactersBulkV1()**](ApplicationCharactersApi.md#charactersBulkV1) | **POST** /app/v1/characters | Returns all characters from multiple player accounts identified by character IDs.
+[**charactersV1()**](ApplicationCharactersApi.md#charactersV1) | **GET** /app/v1/characters/{characterId} | Returns all characters of the player account to which the character ID belongs.
+[**corporationCharactersV1()**](ApplicationCharactersApi.md#corporationCharactersV1) | **GET** /app/v1/corp-characters/{corporationId} | Returns a list of all known characters from the corporation.
+[**corporationPlayersV1()**](ApplicationCharactersApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Returns a list of all players that have a character in the corporation.
+[**incomingCharactersV1()**](ApplicationCharactersApi.md#incomingCharactersV1) | **GET** /app/v1/incoming-characters/{characterId} | Returns all characters that were moved from another account to the player account to which the                     ID belongs.
+[**mainV1()**](ApplicationCharactersApi.md#mainV1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs.
+[**mainV2()**](ApplicationCharactersApi.md#mainV2) | **GET** /app/v2/main/{cid} | Returns the main character of the player account to which the character ID belongs.
+[**playerCharactersV1()**](ApplicationCharactersApi.md#playerCharactersV1) | **GET** /app/v1/player-chars/{playerId} | Returns all characters from the player account.
+[**playerV1()**](ApplicationCharactersApi.md#playerV1) | **GET** /app/v1/player/{characterId} | Returns the player account to which the character ID belongs.
+[**playerWithCharactersV1()**](ApplicationCharactersApi.md#playerWithCharactersV1) | **GET** /app/v1/player-with-characters/{characterId} | Returns the player account to which the character ID belongs with all characters.
+[**removedCharactersV1()**](ApplicationCharactersApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Returns all characters that were removed from the player account to which the character ID                     belongs.
 
 
+## `characterListV1()`
 
-## characterListV1
-
-> \Brave\NeucoreApi\Model\Character[] characterListV1($request_body)
+```php
+characterListV1($request_body): \Brave\NeucoreApi\Model\Character[]
+```
 
 Returns all known characters from the parameter list.
 
@@ -51,11 +53,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->characterListV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -71,17 +71,78 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `charactersBulkV1()`
 
-## charactersV1
+```php
+charactersBulkV1($request_body): int[][]
+```
 
-> \Brave\NeucoreApi\Model\Character[] charactersV1($character_id)
+Returns all characters from multiple player accounts identified by character IDs.
+
+Needs role: app-chars.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationCharactersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$request_body = array(56); // int[] | EVE character IDs array.
+
+try {
+    $result = $apiInstance->charactersBulkV1($request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationCharactersApi->charactersBulkV1: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request_body** | [**int[]**](../Model/int.md)| EVE character IDs array. |
+
+### Return type
+
+[**int[][]**](../Model/array.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `charactersV1()`
+
+```php
+charactersV1($character_id): \Brave\NeucoreApi\Model\Character[]
+```
 
 Returns all characters of the player account to which the character ID belongs.
 
@@ -112,11 +173,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->charactersV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -133,16 +192,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `corporationCharactersV1()`
 
-## corporationCharactersV1
-
-> \Brave\NeucoreApi\Model\Character[] corporationCharactersV1($corporation_id)
+```php
+corporationCharactersV1($corporation_id): \Brave\NeucoreApi\Model\Character[]
+```
 
 Returns a list of all known characters from the corporation.
 
@@ -173,11 +233,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->corporationCharactersV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -194,16 +252,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `corporationPlayersV1()`
 
-## corporationPlayersV1
-
-> \Brave\NeucoreApi\Model\Player[] corporationPlayersV1($corporation_id)
+```php
+corporationPlayersV1($corporation_id): \Brave\NeucoreApi\Model\Player[]
+```
 
 Returns a list of all players that have a character in the corporation.
 
@@ -234,11 +293,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->corporationPlayersV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -255,16 +312,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `incomingCharactersV1()`
 
-## incomingCharactersV1
-
-> \Brave\NeucoreApi\Model\RemovedCharacter[] incomingCharactersV1($character_id)
+```php
+incomingCharactersV1($character_id): \Brave\NeucoreApi\Model\RemovedCharacter[]
+```
 
 Returns all characters that were moved from another account to the player account to which the                     ID belongs.
 
@@ -295,11 +353,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->incomingCharactersV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -316,16 +372,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `mainV1()`
 
-## mainV1
-
-> \Brave\NeucoreApi\Model\Character mainV1($cid)
+```php
+mainV1($cid): \Brave\NeucoreApi\Model\Character
+```
 
 Returns the main character of the player account to which the character ID belongs.
 
@@ -356,11 +413,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->mainV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -377,16 +432,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `mainV2()`
 
-## mainV2
-
-> \Brave\NeucoreApi\Model\Character mainV2($cid)
+```php
+mainV2($cid): \Brave\NeucoreApi\Model\Character
+```
 
 Returns the main character of the player account to which the character ID belongs.
 
@@ -417,11 +473,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->mainV2: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -438,16 +492,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `playerCharactersV1()`
 
-## playerCharactersV1
-
-> \Brave\NeucoreApi\Model\Character[] playerCharactersV1($player_id)
+```php
+playerCharactersV1($player_id): \Brave\NeucoreApi\Model\Character[]
+```
 
 Returns all characters from the player account.
 
@@ -478,11 +533,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->playerCharactersV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -499,16 +552,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `playerV1()`
 
-## playerV1
-
-> \Brave\NeucoreApi\Model\Player playerV1($character_id)
+```php
+playerV1($character_id): \Brave\NeucoreApi\Model\Player
+```
 
 Returns the player account to which the character ID belongs.
 
@@ -539,11 +593,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->playerV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -560,16 +612,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `playerWithCharactersV1()`
 
-## playerWithCharactersV1
-
-> \Brave\NeucoreApi\Model\Player playerWithCharactersV1($character_id)
+```php
+playerWithCharactersV1($character_id): \Brave\NeucoreApi\Model\Player
+```
 
 Returns the player account to which the character ID belongs with all characters.
 
@@ -600,11 +653,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->playerWithCharactersV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -621,16 +672,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `removedCharactersV1()`
 
-## removedCharactersV1
-
-> \Brave\NeucoreApi\Model\RemovedCharacter[] removedCharactersV1($character_id)
+```php
+removedCharactersV1($character_id): \Brave\NeucoreApi\Model\RemovedCharacter[]
+```
 
 Returns all characters that were removed from the player account to which the character ID                     belongs.
 
@@ -661,11 +713,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationCharactersApi->removedCharactersV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -682,9 +732,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

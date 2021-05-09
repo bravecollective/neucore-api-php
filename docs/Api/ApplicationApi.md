@@ -1,16 +1,17 @@
 # Brave\NeucoreApi\ApplicationApi
 
-All URIs are relative to *https://localhost/api*
+All URIs are relative to https://localhost/api.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**showV1**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information.
+[**showV1()**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information.
 
 
+## `showV1()`
 
-## showV1
-
-> \Brave\NeucoreApi\Model\App showV1()
+```php
+showV1(): \Brave\NeucoreApi\Model\App
+```
 
 Show app information.
 
@@ -40,7 +41,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationApi->showV1: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -58,9 +58,8 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
