@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 ## `groupMembersV1()`
 
 ```php
-groupMembersV1($group_id): int[]
+groupMembersV1($group_id, $corporation): int[]
 ```
 
 Returns the main character IDs from all group members.
@@ -405,9 +405,10 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationGroupsApi(
     $config
 );
 $group_id = 56; // int | Group ID.
+$corporation = 56; // int | Limit to characters that are a member of this corporation.
 
 try {
-    $result = $apiInstance->groupMembersV1($group_id);
+    $result = $apiInstance->groupMembersV1($group_id, $corporation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationGroupsApi->groupMembersV1: ', $e->getMessage(), PHP_EOL;
@@ -419,6 +420,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **int**| Group ID. |
+ **corporation** | **int**| Limit to characters that are a member of this corporation. | [optional]
 
 ### Return type
 
