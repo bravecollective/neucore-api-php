@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_accounts** | [**\Brave\NeucoreApi\Model\ServiceAccount[]**](ServiceAccount.md) | External service accounts (API: not included by default) | [optional]
+**corporation_name** | **string** | Corporation of main character (API: not included by default) | [optional]
 **id** | **int** |  |
 **name** | **string** | A name for the player.  This is the EVE character name of the current main character or of the last main character if there is currently none. |
 **status** | **string** | Player account status. | [optional]
