@@ -1,6 +1,6 @@
 <?php
 /**
- * CorporationMemberTest
+ * EveLoginTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Brave\NeucoreApi\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CorporationMemberTest Class Doc Comment
+ * EveLoginTest Class Doc Comment
  *
  * @category    Class
- * @description The player property contains only id and name, character does not contain corporation.
+ * @description EveLogin
  * @package     Brave\NeucoreApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CorporationMemberTest extends TestCase
+class EveLoginTest extends TestCase
 {
 
     /**
@@ -71,18 +71,9 @@ class CorporationMemberTest extends TestCase
     }
 
     /**
-     * Test "CorporationMember"
+     * Test "EveLogin"
      */
-    public function testCorporationMember()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "player"
-     */
-    public function testPropertyPlayer()
+    public function testEveLogin()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -107,81 +98,27 @@ class CorporationMemberTest extends TestCase
     }
 
     /**
-     * Test attribute "location"
+     * Test attribute "description"
      */
-    public function testPropertyLocation()
+    public function testPropertyDescription()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "logoff_date"
+     * Test attribute "esi_scopes"
      */
-    public function testPropertyLogoffDate()
+    public function testPropertyEsiScopes()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "logon_date"
+     * Test attribute "eve_roles"
      */
-    public function testPropertyLogonDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "ship_type"
-     */
-    public function testPropertyShipType()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "start_date"
-     */
-    public function testPropertyStartDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "character"
-     */
-    public function testPropertyCharacter()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "missing_character_mail_sent_date"
-     */
-    public function testPropertyMissingCharacterMailSentDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "missing_character_mail_sent_result"
-     */
-    public function testPropertyMissingCharacterMailSentResult()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "missing_character_mail_sent_number"
-     */
-    public function testPropertyMissingCharacterMailSentNumber()
+    public function testPropertyEveRoles()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**int[][]**](../Model/array.md)
+**int[][]**
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * CharacterGroups
+ * EveLogin
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * CharacterGroups Class Doc Comment
+ * EveLogin Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
@@ -42,7 +42,7 @@ use \Brave\NeucoreApi\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
+class EveLogin implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CharacterGroups';
+    protected static $openAPIModelName = 'EveLogin';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,11 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'character' => '\Brave\NeucoreApi\Model\Character',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]'
+        'id' => 'int',
+        'name' => 'string',
+        'description' => 'string',
+        'esi_scopes' => 'string',
+        'eve_roles' => 'string[]'
     ];
 
     /**
@@ -71,8 +74,11 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'character' => null,
-        'groups' => null
+        'id' => null,
+        'name' => null,
+        'description' => null,
+        'esi_scopes' => null,
+        'eve_roles' => null
     ];
 
     /**
@@ -102,8 +108,11 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'character' => 'character',
-        'groups' => 'groups'
+        'id' => 'id',
+        'name' => 'name',
+        'description' => 'description',
+        'esi_scopes' => 'esiScopes',
+        'eve_roles' => 'eveRoles'
     ];
 
     /**
@@ -112,8 +121,11 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'character' => 'setCharacter',
-        'groups' => 'setGroups'
+        'id' => 'setId',
+        'name' => 'setName',
+        'description' => 'setDescription',
+        'esi_scopes' => 'setEsiScopes',
+        'eve_roles' => 'setEveRoles'
     ];
 
     /**
@@ -122,8 +134,11 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'character' => 'getCharacter',
-        'groups' => 'getGroups'
+        'id' => 'getId',
+        'name' => 'getName',
+        'description' => 'getDescription',
+        'esi_scopes' => 'getEsiScopes',
+        'eve_roles' => 'getEveRoles'
     ];
 
     /**
@@ -183,8 +198,11 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['character'] = $data['character'] ?? null;
-        $this->container['groups'] = $data['groups'] ?? null;
+        $this->container['id'] = $data['id'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['esi_scopes'] = $data['esi_scopes'] ?? null;
+        $this->container['eve_roles'] = $data['eve_roles'] ?? null;
     }
 
     /**
@@ -196,11 +214,36 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['character'] === null) {
-            $invalidProperties[] = "'character' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['groups'] === null) {
-            $invalidProperties[] = "'groups' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 20)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 20.";
+        }
+
+        if (!preg_match("/^[-._a-zA-Z0-9]+$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[-._a-zA-Z0-9]+$/.";
+        }
+
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ((mb_strlen($this->container['description']) > 1024)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 1024.";
+        }
+
+        if ($this->container['esi_scopes'] === null) {
+            $invalidProperties[] = "'esi_scopes' can't be null";
+        }
+        if ((mb_strlen($this->container['esi_scopes']) > 8192)) {
+            $invalidProperties[] = "invalid value for 'esi_scopes', the character length must be smaller than or equal to 8192.";
+        }
+
+        if ($this->container['eve_roles'] === null) {
+            $invalidProperties[] = "'eve_roles' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +261,136 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets character
+     * Gets id
      *
-     * @return \Brave\NeucoreApi\Model\Character
+     * @return int
      */
-    public function getCharacter()
+    public function getId()
     {
-        return $this->container['character'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets character
+     * Sets id
      *
-     * @param \Brave\NeucoreApi\Model\Character $character character
+     * @param int $id id
      *
      * @return self
      */
-    public function setCharacter($character)
+    public function setId($id)
     {
-        $this->container['character'] = $character;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets groups
+     * Gets name
      *
-     * @return \Brave\NeucoreApi\Model\Group[]
+     * @return string
      */
-    public function getGroups()
+    public function getName()
     {
-        return $this->container['groups'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets groups
+     * Sets name
      *
-     * @param \Brave\NeucoreApi\Model\Group[] $groups groups
+     * @param string $name Names starting with 'core.' are reserved for internal use.
      *
      * @return self
      */
-    public function setGroups($groups)
+    public function setName($name)
     {
-        $this->container['groups'] = $groups;
+        if ((mb_strlen($name) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling EveLogin., must be smaller than or equal to 20.');
+        }
+        if ((!preg_match("/^[-._a-zA-Z0-9]+$/", $name))) {
+            throw new \InvalidArgumentException("invalid value for $name when calling EveLogin., must conform to the pattern /^[-._a-zA-Z0-9]+$/.");
+        }
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if ((mb_strlen($description) > 1024)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling EveLogin., must be smaller than or equal to 1024.');
+        }
+
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets esi_scopes
+     *
+     * @return string
+     */
+    public function getEsiScopes()
+    {
+        return $this->container['esi_scopes'];
+    }
+
+    /**
+     * Sets esi_scopes
+     *
+     * @param string $esi_scopes esi_scopes
+     *
+     * @return self
+     */
+    public function setEsiScopes($esi_scopes)
+    {
+        if ((mb_strlen($esi_scopes) > 8192)) {
+            throw new \InvalidArgumentException('invalid length for $esi_scopes when calling EveLogin., must be smaller than or equal to 8192.');
+        }
+
+        $this->container['esi_scopes'] = $esi_scopes;
+
+        return $this;
+    }
+
+    /**
+     * Gets eve_roles
+     *
+     * @return string[]
+     */
+    public function getEveRoles()
+    {
+        return $this->container['eve_roles'];
+    }
+
+    /**
+     * Sets eve_roles
+     *
+     * @param string[] $eve_roles Maximum length of all roles separated by comma: 1024.
+     *
+     * @return self
+     */
+    public function setEveRoles($eve_roles)
+    {
+        $this->container['eve_roles'] = $eve_roles;
 
         return $this;
     }

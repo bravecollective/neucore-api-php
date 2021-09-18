@@ -1,6 +1,6 @@
 <?php
 /**
- * CharacterGroups
+ * EsiToken
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * CharacterGroups Class Doc Comment
+ * EsiToken Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
@@ -42,7 +42,7 @@ use \Brave\NeucoreApi\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
+class EsiToken implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CharacterGroups';
+    protected static $openAPIModelName = 'EsiToken';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,10 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'character' => '\Brave\NeucoreApi\Model\Character',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]'
+        'eve_login_id' => 'int',
+        'valid_token' => 'bool',
+        'valid_token_time' => '\DateTime',
+        'has_roles' => 'bool'
     ];
 
     /**
@@ -71,8 +73,10 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'character' => null,
-        'groups' => null
+        'eve_login_id' => null,
+        'valid_token' => null,
+        'valid_token_time' => 'date-time',
+        'has_roles' => null
     ];
 
     /**
@@ -102,8 +106,10 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'character' => 'character',
-        'groups' => 'groups'
+        'eve_login_id' => 'eveLoginId',
+        'valid_token' => 'validToken',
+        'valid_token_time' => 'validTokenTime',
+        'has_roles' => 'hasRoles'
     ];
 
     /**
@@ -112,8 +118,10 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'character' => 'setCharacter',
-        'groups' => 'setGroups'
+        'eve_login_id' => 'setEveLoginId',
+        'valid_token' => 'setValidToken',
+        'valid_token_time' => 'setValidTokenTime',
+        'has_roles' => 'setHasRoles'
     ];
 
     /**
@@ -122,8 +130,10 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'character' => 'getCharacter',
-        'groups' => 'getGroups'
+        'eve_login_id' => 'getEveLoginId',
+        'valid_token' => 'getValidToken',
+        'valid_token_time' => 'getValidTokenTime',
+        'has_roles' => 'getHasRoles'
     ];
 
     /**
@@ -183,8 +193,10 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['character'] = $data['character'] ?? null;
-        $this->container['groups'] = $data['groups'] ?? null;
+        $this->container['eve_login_id'] = $data['eve_login_id'] ?? null;
+        $this->container['valid_token'] = $data['valid_token'] ?? null;
+        $this->container['valid_token_time'] = $data['valid_token_time'] ?? null;
+        $this->container['has_roles'] = $data['has_roles'] ?? null;
     }
 
     /**
@@ -196,11 +208,17 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['character'] === null) {
-            $invalidProperties[] = "'character' can't be null";
+        if ($this->container['eve_login_id'] === null) {
+            $invalidProperties[] = "'eve_login_id' can't be null";
         }
-        if ($this->container['groups'] === null) {
-            $invalidProperties[] = "'groups' can't be null";
+        if ($this->container['valid_token'] === null) {
+            $invalidProperties[] = "'valid_token' can't be null";
+        }
+        if ($this->container['valid_token_time'] === null) {
+            $invalidProperties[] = "'valid_token_time' can't be null";
+        }
+        if ($this->container['has_roles'] === null) {
+            $invalidProperties[] = "'has_roles' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +236,97 @@ class CharacterGroups implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets character
+     * Gets eve_login_id
      *
-     * @return \Brave\NeucoreApi\Model\Character
+     * @return int
      */
-    public function getCharacter()
+    public function getEveLoginId()
     {
-        return $this->container['character'];
+        return $this->container['eve_login_id'];
     }
 
     /**
-     * Sets character
+     * Sets eve_login_id
      *
-     * @param \Brave\NeucoreApi\Model\Character $character character
+     * @param int $eve_login_id ID of EveLogin
      *
      * @return self
      */
-    public function setCharacter($character)
+    public function setEveLoginId($eve_login_id)
     {
-        $this->container['character'] = $character;
+        $this->container['eve_login_id'] = $eve_login_id;
 
         return $this;
     }
 
     /**
-     * Gets groups
+     * Gets valid_token
      *
-     * @return \Brave\NeucoreApi\Model\Group[]
+     * @return bool
      */
-    public function getGroups()
+    public function getValidToken()
     {
-        return $this->container['groups'];
+        return $this->container['valid_token'];
     }
 
     /**
-     * Sets groups
+     * Sets valid_token
      *
-     * @param \Brave\NeucoreApi\Model\Group[] $groups groups
+     * @param bool $valid_token Shows if the refresh token is valid or not.  This is null if there is no refresh token (EVE SSOv1 only) or a valid token but without scopes (SSOv2).
      *
      * @return self
      */
-    public function setGroups($groups)
+    public function setValidToken($valid_token)
     {
-        $this->container['groups'] = $groups;
+        $this->container['valid_token'] = $valid_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets valid_token_time
+     *
+     * @return \DateTime
+     */
+    public function getValidTokenTime()
+    {
+        return $this->container['valid_token_time'];
+    }
+
+    /**
+     * Sets valid_token_time
+     *
+     * @param \DateTime $valid_token_time Date and time when the valid token property was last changed.
+     *
+     * @return self
+     */
+    public function setValidTokenTime($valid_token_time)
+    {
+        $this->container['valid_token_time'] = $valid_token_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_roles
+     *
+     * @return bool
+     */
+    public function getHasRoles()
+    {
+        return $this->container['has_roles'];
+    }
+
+    /**
+     * Sets has_roles
+     *
+     * @param bool $has_roles Shows if the EVE character has all required roles for the login.  Null if the login does not require any roles or if the token is invalid.
+     *
+     * @return self
+     */
+    public function setHasRoles($has_roles)
+    {
+        $this->container['has_roles'] = $has_roles;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * RoleTest
+ * EsiTokenTest
  *
  * PHP version 7.3
  *
@@ -31,15 +31,15 @@ namespace Brave\NeucoreApi\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RoleTest Class Doc Comment
+ * EsiTokenTest Class Doc Comment
  *
  * @category    Class
- * @description Roles are used to determined player permissions.
+ * @description EsiToken
  * @package     Brave\NeucoreApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RoleTest extends TestCase
+class EsiTokenTest extends TestCase
 {
 
     /**
@@ -71,9 +71,45 @@ class RoleTest extends TestCase
     }
 
     /**
-     * Test "Role"
+     * Test "EsiToken"
      */
-    public function testRole()
+    public function testEsiToken()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "eve_login_id"
+     */
+    public function testPropertyEveLoginId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "valid_token"
+     */
+    public function testPropertyValidToken()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "valid_token_time"
+     */
+    public function testPropertyValidTokenTime()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "has_roles"
+     */
+    public function testPropertyHasRoles()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

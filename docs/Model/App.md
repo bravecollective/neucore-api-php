@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **name** | **string** | App name |
 **roles** | [**\Brave\NeucoreApi\Model\Role[]**](Role.md) | Roles for authorization. | [optional]
 **groups** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Groups the app can see. | [optional]
+**eve_logins** | [**\Brave\NeucoreApi\Model\EveLogin[]**](EveLogin.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
