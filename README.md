@@ -5,6 +5,8 @@ a new version may break backwards compatibility.
 
 **Breaking changes**
 
+- 1.26.0
+  Need ^7.3 || ^8.0
 - 1.21.0
   Needs PHP 7.2+
 - 1.14.0
