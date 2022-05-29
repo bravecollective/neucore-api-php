@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **player** | [**\Brave\NeucoreApi\Model\Player**](Player.md) |  | [optional]
 **character_id** | **int** | EVE character ID. |
 **character_name** | **string** | EVE character name. |
-**removed_date** | [**\DateTime**](\DateTime.md) | Date of removal. |
+**removed_date** | **\DateTime** | Date of removal. |
 **reason** | **string** | How it was removed (deleted or moved to another account). |
 **deleted_by** | [**\Brave\NeucoreApi\Model\Player**](Player.md) |  | [optional]
 
