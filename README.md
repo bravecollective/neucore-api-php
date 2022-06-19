@@ -5,15 +5,15 @@ a new version may break backwards compatibility.
 
 **Breaking changes**
 
-- 1.33.0
+- 1.33.0  
   Needs PHP ^7.4 || ^8.0
-- 1.31.1
+- 1.31.1  
   Updated guzzlehttp/guzzle to ^7.3 (from ^6.2 || ^7.2)
-- 1.26.0
+- 1.26.0  
   Needs PHP ^7.3 || ^8.0
-- 1.21.0
+- 1.21.0  
   Needs PHP 7.2+
-- 1.14.0
+- 1.14.0  
   The API is now split into several tags. This means that there are now several Api PHP classes instead of just one,
   the methods remain the same, but they have moved to other classes.
 - 1.4.0  
