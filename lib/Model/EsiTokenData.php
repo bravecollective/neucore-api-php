@@ -1,6 +1,6 @@
 <?php
 /**
- * Corporation
+ * EsiTokenData
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * Corporation Class Doc Comment
+ * EsiTokenData Class Doc Comment
  *
  * @category Class
- * @description EVE corporation.
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
+class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Corporation';
+    protected static $openAPIModelName = 'EsiTokenData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +57,11 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'ticker' => 'string',
-        'alliance' => '\Brave\NeucoreApi\Model\Alliance',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]',
-        'tracking_last_update' => '\DateTime',
-        'auto_allowlist' => 'bool'
+        'last_checked' => 'string',
+        'character_id' => 'int',
+        'character_name' => 'string',
+        'corporation_id' => 'int',
+        'alliance_id' => 'int'
     ];
 
     /**
@@ -75,13 +72,11 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'name' => null,
-        'ticker' => null,
-        'alliance' => null,
-        'groups' => null,
-        'tracking_last_update' => 'date-time',
-        'auto_allowlist' => null
+        'last_checked' => null,
+        'character_id' => null,
+        'character_name' => null,
+        'corporation_id' => null,
+        'alliance_id' => null
     ];
 
     /**
@@ -90,13 +85,11 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-		'name' => true,
-		'ticker' => true,
-		'alliance' => false,
-		'groups' => false,
-		'tracking_last_update' => true,
-		'auto_allowlist' => false
+        'last_checked' => true,
+		'character_id' => false,
+		'character_name' => false,
+		'corporation_id' => true,
+		'alliance_id' => true
     ];
 
     /**
@@ -175,13 +168,11 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'ticker' => 'ticker',
-        'alliance' => 'alliance',
-        'groups' => 'groups',
-        'tracking_last_update' => 'trackingLastUpdate',
-        'auto_allowlist' => 'autoAllowlist'
+        'last_checked' => 'lastChecked',
+        'character_id' => 'characterId',
+        'character_name' => 'characterName',
+        'corporation_id' => 'corporationId',
+        'alliance_id' => 'allianceId'
     ];
 
     /**
@@ -190,13 +181,11 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'ticker' => 'setTicker',
-        'alliance' => 'setAlliance',
-        'groups' => 'setGroups',
-        'tracking_last_update' => 'setTrackingLastUpdate',
-        'auto_allowlist' => 'setAutoAllowlist'
+        'last_checked' => 'setLastChecked',
+        'character_id' => 'setCharacterId',
+        'character_name' => 'setCharacterName',
+        'corporation_id' => 'setCorporationId',
+        'alliance_id' => 'setAllianceId'
     ];
 
     /**
@@ -205,13 +194,11 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'ticker' => 'getTicker',
-        'alliance' => 'getAlliance',
-        'groups' => 'getGroups',
-        'tracking_last_update' => 'getTrackingLastUpdate',
-        'auto_allowlist' => 'getAutoAllowlist'
+        'last_checked' => 'getLastChecked',
+        'character_id' => 'getCharacterId',
+        'character_name' => 'getCharacterName',
+        'corporation_id' => 'getCorporationId',
+        'alliance_id' => 'getAllianceId'
     ];
 
     /**
@@ -271,13 +258,11 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('ticker', $data ?? [], null);
-        $this->setIfExists('alliance', $data ?? [], null);
-        $this->setIfExists('groups', $data ?? [], null);
-        $this->setIfExists('tracking_last_update', $data ?? [], null);
-        $this->setIfExists('auto_allowlist', $data ?? [], null);
+        $this->setIfExists('last_checked', $data ?? [], null);
+        $this->setIfExists('character_id', $data ?? [], null);
+        $this->setIfExists('character_name', $data ?? [], null);
+        $this->setIfExists('corporation_id', $data ?? [], null);
+        $this->setIfExists('alliance_id', $data ?? [], null);
     }
 
     /**
@@ -307,14 +292,20 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['last_checked'] === null) {
+            $invalidProperties[] = "'last_checked' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['character_id'] === null) {
+            $invalidProperties[] = "'character_id' can't be null";
         }
-        if ($this->container['ticker'] === null) {
-            $invalidProperties[] = "'ticker' can't be null";
+        if ($this->container['character_name'] === null) {
+            $invalidProperties[] = "'character_name' can't be null";
+        }
+        if ($this->container['corporation_id'] === null) {
+            $invalidProperties[] = "'corporation_id' can't be null";
+        }
+        if ($this->container['alliance_id'] === null) {
+            $invalidProperties[] = "'alliance_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -332,232 +323,167 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets last_checked
+     *
+     * @return string
+     */
+    public function getLastChecked()
+    {
+        return $this->container['last_checked'];
+    }
+
+    /**
+     * Sets last_checked
+     *
+     * @param string $last_checked last_checked
+     *
+     * @return self
+     */
+    public function setLastChecked($last_checked)
+    {
+
+        if (is_null($last_checked)) {
+            array_push($this->openAPINullablesSetToNull, 'last_checked');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_checked', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['last_checked'] = $last_checked;
+
+        return $this;
+    }
+
+    /**
+     * Gets character_id
      *
      * @return int
      */
-    public function getId()
+    public function getCharacterId()
     {
-        return $this->container['id'];
+        return $this->container['character_id'];
     }
 
     /**
-     * Sets id
+     * Sets character_id
      *
-     * @param int $id EVE corporation ID.
+     * @param int $character_id character_id
      *
      * @return self
      */
-    public function setId($id)
+    public function setCharacterId($character_id)
     {
 
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($character_id)) {
+            throw new \InvalidArgumentException('non-nullable character_id cannot be null');
         }
 
-        $this->container['id'] = $id;
+        $this->container['character_id'] = $character_id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets character_name
      *
      * @return string
      */
-    public function getName()
+    public function getCharacterName()
     {
-        return $this->container['name'];
+        return $this->container['character_name'];
     }
 
     /**
-     * Sets name
+     * Sets character_name
      *
-     * @param string $name EVE corporation name.
+     * @param string $character_name character_name
      *
      * @return self
      */
-    public function setName($name)
+    public function setCharacterName($character_name)
     {
 
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($character_name)) {
+            throw new \InvalidArgumentException('non-nullable character_name cannot be null');
+        }
+
+        $this->container['character_name'] = $character_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets corporation_id
+     *
+     * @return int
+     */
+    public function getCorporationId()
+    {
+        return $this->container['corporation_id'];
+    }
+
+    /**
+     * Sets corporation_id
+     *
+     * @param int $corporation_id corporation_id
+     *
+     * @return self
+     */
+    public function setCorporationId($corporation_id)
+    {
+
+        if (is_null($corporation_id)) {
+            array_push($this->openAPINullablesSetToNull, 'corporation_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('corporation_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
 
-        $this->container['name'] = $name;
+        $this->container['corporation_id'] = $corporation_id;
 
         return $this;
     }
 
     /**
-     * Gets ticker
+     * Gets alliance_id
      *
-     * @return string
+     * @return int
      */
-    public function getTicker()
+    public function getAllianceId()
     {
-        return $this->container['ticker'];
+        return $this->container['alliance_id'];
     }
 
     /**
-     * Sets ticker
+     * Sets alliance_id
      *
-     * @param string $ticker Corporation ticker.
+     * @param int $alliance_id alliance_id
      *
      * @return self
      */
-    public function setTicker($ticker)
+    public function setAllianceId($alliance_id)
     {
 
-        if (is_null($ticker)) {
-            array_push($this->openAPINullablesSetToNull, 'ticker');
+        if (is_null($alliance_id)) {
+            array_push($this->openAPINullablesSetToNull, 'alliance_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ticker', $nullablesSetToNull);
+            $index = array_search('alliance_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
 
-        $this->container['ticker'] = $ticker;
-
-        return $this;
-    }
-
-    /**
-     * Gets alliance
-     *
-     * @return \Brave\NeucoreApi\Model\Alliance|null
-     */
-    public function getAlliance()
-    {
-        return $this->container['alliance'];
-    }
-
-    /**
-     * Sets alliance
-     *
-     * @param \Brave\NeucoreApi\Model\Alliance|null $alliance alliance
-     *
-     * @return self
-     */
-    public function setAlliance($alliance)
-    {
-
-        if (is_null($alliance)) {
-            throw new \InvalidArgumentException('non-nullable alliance cannot be null');
-        }
-
-        $this->container['alliance'] = $alliance;
-
-        return $this;
-    }
-
-    /**
-     * Gets groups
-     *
-     * @return \Brave\NeucoreApi\Model\Group[]|null
-     */
-    public function getGroups()
-    {
-        return $this->container['groups'];
-    }
-
-    /**
-     * Sets groups
-     *
-     * @param \Brave\NeucoreApi\Model\Group[]|null $groups Groups for automatic assignment (API: not included by default).
-     *
-     * @return self
-     */
-    public function setGroups($groups)
-    {
-
-        if (is_null($groups)) {
-            throw new \InvalidArgumentException('non-nullable groups cannot be null');
-        }
-
-        $this->container['groups'] = $groups;
-
-        return $this;
-    }
-
-    /**
-     * Gets tracking_last_update
-     *
-     * @return \DateTime|null
-     */
-    public function getTrackingLastUpdate()
-    {
-        return $this->container['tracking_last_update'];
-    }
-
-    /**
-     * Sets tracking_last_update
-     *
-     * @param \DateTime|null $tracking_last_update Last update of corporation member tracking data (API: not included by default).
-     *
-     * @return self
-     */
-    public function setTrackingLastUpdate($tracking_last_update)
-    {
-
-        if (is_null($tracking_last_update)) {
-            array_push($this->openAPINullablesSetToNull, 'tracking_last_update');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tracking_last_update', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-        $this->container['tracking_last_update'] = $tracking_last_update;
-
-        return $this;
-    }
-
-    /**
-     * Gets auto_allowlist
-     *
-     * @return bool|null
-     */
-    public function getAutoAllowlist()
-    {
-        return $this->container['auto_allowlist'];
-    }
-
-    /**
-     * Sets auto_allowlist
-     *
-     * @param bool|null $auto_allowlist True if this corporation was automatically placed on the allowlist of a watchlist (API: not included by default).
-     *
-     * @return self
-     */
-    public function setAutoAllowlist($auto_allowlist)
-    {
-
-        if (is_null($auto_allowlist)) {
-            throw new \InvalidArgumentException('non-nullable auto_allowlist cannot be null');
-        }
-
-        $this->container['auto_allowlist'] = $auto_allowlist;
+        $this->container['alliance_id'] = $alliance_id;
 
         return $this;
     }

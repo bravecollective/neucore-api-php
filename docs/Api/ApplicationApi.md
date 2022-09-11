@@ -1,10 +1,10 @@
 # Brave\NeucoreApi\ApplicationApi
 
-All URIs are relative to https://localhost/api.
+All URIs are relative to https://localhost/api, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**showV1()**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**showV1()**](ApplicationApi.md#showV1) | **GET** /app/v1/show | Show app information. |
 
 
 ## `showV1()`

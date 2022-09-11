@@ -1,20 +1,20 @@
 # Brave\NeucoreApi\ApplicationGroupsApi
 
-All URIs are relative to https://localhost/api.
+All URIs are relative to https://localhost/api, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**allianceGroupsBulkV1()**](ApplicationGroupsApi.md#allianceGroupsBulkV1) | **POST** /app/v1/alliance-groups | Return groups of multiple alliances.
-[**allianceGroupsV1()**](ApplicationGroupsApi.md#allianceGroupsV1) | **GET** /app/v1/alliance-groups/{aid} | Return groups of the alliance.
-[**allianceGroupsV2()**](ApplicationGroupsApi.md#allianceGroupsV2) | **GET** /app/v2/alliance-groups/{aid} | Return groups of the alliance.
-[**corpGroupsBulkV1()**](ApplicationGroupsApi.md#corpGroupsBulkV1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations.
-[**corpGroupsV1()**](ApplicationGroupsApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation.
-[**corpGroupsV2()**](ApplicationGroupsApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation.
-[**groupMembersV1()**](ApplicationGroupsApi.md#groupMembersV1) | **GET** /app/v1/group-members/{groupId} | Returns the main character IDs from all group members.
-[**groupsBulkV1()**](ApplicationGroupsApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs.
-[**groupsV1()**](ApplicationGroupsApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account.
-[**groupsV2()**](ApplicationGroupsApi.md#groupsV2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account.
-[**groupsWithFallbackV1()**](ApplicationGroupsApi.md#groupsWithFallbackV1) | **GET** /app/v1/groups-with-fallback | Returns groups from the character&#39;s account, if available, or the corporation and alliance.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**allianceGroupsBulkV1()**](ApplicationGroupsApi.md#allianceGroupsBulkV1) | **POST** /app/v1/alliance-groups | Return groups of multiple alliances. |
+| [**allianceGroupsV1()**](ApplicationGroupsApi.md#allianceGroupsV1) | **GET** /app/v1/alliance-groups/{aid} | Return groups of the alliance. |
+| [**allianceGroupsV2()**](ApplicationGroupsApi.md#allianceGroupsV2) | **GET** /app/v2/alliance-groups/{aid} | Return groups of the alliance. |
+| [**corpGroupsBulkV1()**](ApplicationGroupsApi.md#corpGroupsBulkV1) | **POST** /app/v1/corp-groups | Return groups of multiple corporations. |
+| [**corpGroupsV1()**](ApplicationGroupsApi.md#corpGroupsV1) | **GET** /app/v1/corp-groups/{cid} | Return groups of the corporation. |
+| [**corpGroupsV2()**](ApplicationGroupsApi.md#corpGroupsV2) | **GET** /app/v2/corp-groups/{cid} | Return groups of the corporation. |
+| [**groupMembersV1()**](ApplicationGroupsApi.md#groupMembersV1) | **GET** /app/v1/group-members/{groupId} | Returns the main character IDs from all group members. |
+| [**groupsBulkV1()**](ApplicationGroupsApi.md#groupsBulkV1) | **POST** /app/v1/groups | Return groups of multiple players, identified by one of their character IDs. |
+| [**groupsV1()**](ApplicationGroupsApi.md#groupsV1) | **GET** /app/v1/groups/{cid} | Return groups of the character&#39;s player account. |
+| [**groupsV2()**](ApplicationGroupsApi.md#groupsV2) | **GET** /app/v2/groups/{cid} | Return groups of the character&#39;s player account. |
+| [**groupsWithFallbackV1()**](ApplicationGroupsApi.md#groupsWithFallbackV1) | **GET** /app/v1/groups-with-fallback | Returns groups from the character&#39;s account, if available, or the corporation and alliance. |
 
 
 ## `allianceGroupsBulkV1()`
@@ -56,9 +56,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request_body** | [**int[]**](../Model/int.md)| EVE alliance IDs array. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **request_body** | [**int[]**](../Model/int.md)| EVE alliance IDs array. | |
 
 ### Return type
 
@@ -116,9 +116,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **aid** | **int**| EVE alliance ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **aid** | **int**| EVE alliance ID. | |
 
 ### Return type
 
@@ -176,9 +176,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **aid** | **int**| EVE alliance ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **aid** | **int**| EVE alliance ID. | |
 
 ### Return type
 
@@ -236,9 +236,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request_body** | [**int[]**](../Model/int.md)| EVE corporation IDs array. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **request_body** | [**int[]**](../Model/int.md)| EVE corporation IDs array. | |
 
 ### Return type
 
@@ -296,9 +296,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cid** | **int**| EVE corporation ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cid** | **int**| EVE corporation ID. | |
 
 ### Return type
 
@@ -356,9 +356,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cid** | **int**| EVE corporation ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cid** | **int**| EVE corporation ID. | |
 
 ### Return type
 
@@ -417,10 +417,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **group_id** | **int**| Group ID. |
- **corporation** | **int**| Limit to characters that are a member of this corporation. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **group_id** | **int**| Group ID. | |
+| **corporation** | **int**| Limit to characters that are a member of this corporation. | [optional] |
 
 ### Return type
 
@@ -478,9 +478,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request_body** | [**int[]**](../Model/int.md)| EVE character IDs array. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **request_body** | [**int[]**](../Model/int.md)| EVE character IDs array. | |
 
 ### Return type
 
@@ -538,9 +538,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cid** | **int**| EVE character ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cid** | **int**| EVE character ID. | |
 
 ### Return type
 
@@ -598,9 +598,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cid** | **int**| EVE character ID. |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cid** | **int**| EVE character ID. | |
 
 ### Return type
 
@@ -660,11 +660,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **character** | **int**| EVE character ID. |
- **corporation** | **int**| EVE corporation ID. |
- **alliance** | **int**| EVE alliance ID. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **character** | **int**| EVE character ID. | |
+| **corporation** | **int**| EVE corporation ID. | |
+| **alliance** | **int**| EVE alliance ID. | [optional] |
 
 ### Return type
 

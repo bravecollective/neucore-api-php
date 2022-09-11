@@ -17,10 +17,12 @@ docs/Model/Corporation.md
 docs/Model/CorporationMember.md
 docs/Model/EsiLocation.md
 docs/Model/EsiToken.md
+docs/Model/EsiTokenData.md
 docs/Model/EsiType.md
 docs/Model/EveLogin.md
 docs/Model/Group.md
 docs/Model/GroupApplication.md
+docs/Model/HourlyAppRequests.md
 docs/Model/MonthlyAppRequests.md
 docs/Model/Player.md
 docs/Model/PlayerLoginStatistics.md
@@ -52,10 +54,12 @@ lib/Model/Corporation.php
 lib/Model/CorporationMember.php
 lib/Model/EsiLocation.php
 lib/Model/EsiToken.php
+lib/Model/EsiTokenData.php
 lib/Model/EsiType.php
 lib/Model/EveLogin.php
 lib/Model/Group.php
 lib/Model/GroupApplication.php
+lib/Model/HourlyAppRequests.php
 lib/Model/ModelInterface.php
 lib/Model/MonthlyAppRequests.php
 lib/Model/Player.php

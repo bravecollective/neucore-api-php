@@ -1,10 +1,10 @@
 # Brave\NeucoreApi\ApplicationTrackingApi
 
-All URIs are relative to https://localhost/api.
+All URIs are relative to https://localhost/api, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**memberTrackingV1()**](ApplicationTrackingApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**memberTrackingV1()**](ApplicationTrackingApi.md#memberTrackingV1) | **GET** /app/v1/corporation/{id}/member-tracking | Return corporation member tracking data. |
 
 
 ## `memberTrackingV1()`
@@ -49,12 +49,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| EVE corporation ID. |
- **inactive** | **int**| Limit to members who have been inactive for x days or longer. | [optional]
- **active** | **int**| Limit to members who were active in the last x days. | [optional]
- **account** | **string**| Limit to members with (true) or without (false) an account. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| EVE corporation ID. | |
+| **inactive** | **int**| Limit to members who have been inactive for x days or longer. | [optional] |
+| **active** | **int**| Limit to members who were active in the last x days. | [optional] |
+| **account** | **string**| Limit to members with (true) or without (false) an account. | [optional] |
 
 ### Return type
 

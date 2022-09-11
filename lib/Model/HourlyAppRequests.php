@@ -1,6 +1,6 @@
 <?php
 /**
- * Corporation
+ * HourlyAppRequests
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * Corporation Class Doc Comment
+ * HourlyAppRequests Class Doc Comment
  *
  * @category Class
- * @description EVE corporation.
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
+class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Corporation';
+    protected static $openAPIModelName = 'HourlyAppRequests';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +57,13 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'int',
-        'name' => 'string',
-        'ticker' => 'string',
-        'alliance' => '\Brave\NeucoreApi\Model\Alliance',
-        'groups' => '\Brave\NeucoreApi\Model\Group[]',
-        'tracking_last_update' => '\DateTime',
-        'auto_allowlist' => 'bool'
+        'app_id' => 'int',
+        'app_name' => 'string',
+        'requests' => 'int',
+        'year' => 'int',
+        'month' => 'int',
+        'day_of_month' => 'int',
+        'hour' => 'int'
     ];
 
     /**
@@ -75,13 +74,13 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'int64',
-        'name' => null,
-        'ticker' => null,
-        'alliance' => null,
-        'groups' => null,
-        'tracking_last_update' => 'date-time',
-        'auto_allowlist' => null
+        'app_id' => null,
+        'app_name' => null,
+        'requests' => null,
+        'year' => null,
+        'month' => null,
+        'day_of_month' => null,
+        'hour' => null
     ];
 
     /**
@@ -90,13 +89,13 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-		'name' => true,
-		'ticker' => true,
-		'alliance' => false,
-		'groups' => false,
-		'tracking_last_update' => true,
-		'auto_allowlist' => false
+        'app_id' => false,
+		'app_name' => false,
+		'requests' => false,
+		'year' => false,
+		'month' => false,
+		'day_of_month' => false,
+		'hour' => false
     ];
 
     /**
@@ -175,13 +174,13 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'ticker' => 'ticker',
-        'alliance' => 'alliance',
-        'groups' => 'groups',
-        'tracking_last_update' => 'trackingLastUpdate',
-        'auto_allowlist' => 'autoAllowlist'
+        'app_id' => 'app_id',
+        'app_name' => 'app_name',
+        'requests' => 'requests',
+        'year' => 'year',
+        'month' => 'month',
+        'day_of_month' => 'day_of_month',
+        'hour' => 'hour'
     ];
 
     /**
@@ -190,13 +189,13 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'ticker' => 'setTicker',
-        'alliance' => 'setAlliance',
-        'groups' => 'setGroups',
-        'tracking_last_update' => 'setTrackingLastUpdate',
-        'auto_allowlist' => 'setAutoAllowlist'
+        'app_id' => 'setAppId',
+        'app_name' => 'setAppName',
+        'requests' => 'setRequests',
+        'year' => 'setYear',
+        'month' => 'setMonth',
+        'day_of_month' => 'setDayOfMonth',
+        'hour' => 'setHour'
     ];
 
     /**
@@ -205,13 +204,13 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'ticker' => 'getTicker',
-        'alliance' => 'getAlliance',
-        'groups' => 'getGroups',
-        'tracking_last_update' => 'getTrackingLastUpdate',
-        'auto_allowlist' => 'getAutoAllowlist'
+        'app_id' => 'getAppId',
+        'app_name' => 'getAppName',
+        'requests' => 'getRequests',
+        'year' => 'getYear',
+        'month' => 'getMonth',
+        'day_of_month' => 'getDayOfMonth',
+        'hour' => 'getHour'
     ];
 
     /**
@@ -271,13 +270,13 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('ticker', $data ?? [], null);
-        $this->setIfExists('alliance', $data ?? [], null);
-        $this->setIfExists('groups', $data ?? [], null);
-        $this->setIfExists('tracking_last_update', $data ?? [], null);
-        $this->setIfExists('auto_allowlist', $data ?? [], null);
+        $this->setIfExists('app_id', $data ?? [], null);
+        $this->setIfExists('app_name', $data ?? [], null);
+        $this->setIfExists('requests', $data ?? [], null);
+        $this->setIfExists('year', $data ?? [], null);
+        $this->setIfExists('month', $data ?? [], null);
+        $this->setIfExists('day_of_month', $data ?? [], null);
+        $this->setIfExists('hour', $data ?? [], null);
     }
 
     /**
@@ -307,14 +306,26 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['app_id'] === null) {
+            $invalidProperties[] = "'app_id' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['app_name'] === null) {
+            $invalidProperties[] = "'app_name' can't be null";
         }
-        if ($this->container['ticker'] === null) {
-            $invalidProperties[] = "'ticker' can't be null";
+        if ($this->container['requests'] === null) {
+            $invalidProperties[] = "'requests' can't be null";
+        }
+        if ($this->container['year'] === null) {
+            $invalidProperties[] = "'year' can't be null";
+        }
+        if ($this->container['month'] === null) {
+            $invalidProperties[] = "'month' can't be null";
+        }
+        if ($this->container['day_of_month'] === null) {
+            $invalidProperties[] = "'day_of_month' can't be null";
+        }
+        if ($this->container['hour'] === null) {
+            $invalidProperties[] = "'hour' can't be null";
         }
         return $invalidProperties;
     }
@@ -332,232 +343,204 @@ class Corporation implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets app_id
      *
      * @return int
      */
-    public function getId()
+    public function getAppId()
     {
-        return $this->container['id'];
+        return $this->container['app_id'];
     }
 
     /**
-     * Sets id
+     * Sets app_id
      *
-     * @param int $id EVE corporation ID.
+     * @param int $app_id app_id
      *
      * @return self
      */
-    public function setId($id)
+    public function setAppId($app_id)
     {
 
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($app_id)) {
+            throw new \InvalidArgumentException('non-nullable app_id cannot be null');
         }
 
-        $this->container['id'] = $id;
+        $this->container['app_id'] = $app_id;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets app_name
      *
      * @return string
      */
-    public function getName()
+    public function getAppName()
     {
-        return $this->container['name'];
+        return $this->container['app_name'];
     }
 
     /**
-     * Sets name
+     * Sets app_name
      *
-     * @param string $name EVE corporation name.
+     * @param string $app_name app_name
      *
      * @return self
      */
-    public function setName($name)
+    public function setAppName($app_name)
     {
 
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($app_name)) {
+            throw new \InvalidArgumentException('non-nullable app_name cannot be null');
         }
 
-        $this->container['name'] = $name;
+        $this->container['app_name'] = $app_name;
 
         return $this;
     }
 
     /**
-     * Gets ticker
+     * Gets requests
      *
-     * @return string
+     * @return int
      */
-    public function getTicker()
+    public function getRequests()
     {
-        return $this->container['ticker'];
+        return $this->container['requests'];
     }
 
     /**
-     * Sets ticker
+     * Sets requests
      *
-     * @param string $ticker Corporation ticker.
+     * @param int $requests requests
      *
      * @return self
      */
-    public function setTicker($ticker)
+    public function setRequests($requests)
     {
 
-        if (is_null($ticker)) {
-            array_push($this->openAPINullablesSetToNull, 'ticker');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('ticker', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($requests)) {
+            throw new \InvalidArgumentException('non-nullable requests cannot be null');
         }
 
-        $this->container['ticker'] = $ticker;
+        $this->container['requests'] = $requests;
 
         return $this;
     }
 
     /**
-     * Gets alliance
+     * Gets year
      *
-     * @return \Brave\NeucoreApi\Model\Alliance|null
+     * @return int
      */
-    public function getAlliance()
+    public function getYear()
     {
-        return $this->container['alliance'];
+        return $this->container['year'];
     }
 
     /**
-     * Sets alliance
+     * Sets year
      *
-     * @param \Brave\NeucoreApi\Model\Alliance|null $alliance alliance
+     * @param int $year year
      *
      * @return self
      */
-    public function setAlliance($alliance)
+    public function setYear($year)
     {
 
-        if (is_null($alliance)) {
-            throw new \InvalidArgumentException('non-nullable alliance cannot be null');
+        if (is_null($year)) {
+            throw new \InvalidArgumentException('non-nullable year cannot be null');
         }
 
-        $this->container['alliance'] = $alliance;
+        $this->container['year'] = $year;
 
         return $this;
     }
 
     /**
-     * Gets groups
+     * Gets month
      *
-     * @return \Brave\NeucoreApi\Model\Group[]|null
+     * @return int
      */
-    public function getGroups()
+    public function getMonth()
     {
-        return $this->container['groups'];
+        return $this->container['month'];
     }
 
     /**
-     * Sets groups
+     * Sets month
      *
-     * @param \Brave\NeucoreApi\Model\Group[]|null $groups Groups for automatic assignment (API: not included by default).
+     * @param int $month month
      *
      * @return self
      */
-    public function setGroups($groups)
+    public function setMonth($month)
     {
 
-        if (is_null($groups)) {
-            throw new \InvalidArgumentException('non-nullable groups cannot be null');
+        if (is_null($month)) {
+            throw new \InvalidArgumentException('non-nullable month cannot be null');
         }
 
-        $this->container['groups'] = $groups;
+        $this->container['month'] = $month;
 
         return $this;
     }
 
     /**
-     * Gets tracking_last_update
+     * Gets day_of_month
      *
-     * @return \DateTime|null
+     * @return int
      */
-    public function getTrackingLastUpdate()
+    public function getDayOfMonth()
     {
-        return $this->container['tracking_last_update'];
+        return $this->container['day_of_month'];
     }
 
     /**
-     * Sets tracking_last_update
+     * Sets day_of_month
      *
-     * @param \DateTime|null $tracking_last_update Last update of corporation member tracking data (API: not included by default).
+     * @param int $day_of_month day_of_month
      *
      * @return self
      */
-    public function setTrackingLastUpdate($tracking_last_update)
+    public function setDayOfMonth($day_of_month)
     {
 
-        if (is_null($tracking_last_update)) {
-            array_push($this->openAPINullablesSetToNull, 'tracking_last_update');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tracking_last_update', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($day_of_month)) {
+            throw new \InvalidArgumentException('non-nullable day_of_month cannot be null');
         }
 
-        $this->container['tracking_last_update'] = $tracking_last_update;
+        $this->container['day_of_month'] = $day_of_month;
 
         return $this;
     }
 
     /**
-     * Gets auto_allowlist
+     * Gets hour
      *
-     * @return bool|null
+     * @return int
      */
-    public function getAutoAllowlist()
+    public function getHour()
     {
-        return $this->container['auto_allowlist'];
+        return $this->container['hour'];
     }
 
     /**
-     * Sets auto_allowlist
+     * Sets hour
      *
-     * @param bool|null $auto_allowlist True if this corporation was automatically placed on the allowlist of a watchlist (API: not included by default).
+     * @param int $hour hour
      *
      * @return self
      */
-    public function setAutoAllowlist($auto_allowlist)
+    public function setHour($hour)
     {
 
-        if (is_null($auto_allowlist)) {
-            throw new \InvalidArgumentException('non-nullable auto_allowlist cannot be null');
+        if (is_null($hour)) {
+            throw new \InvalidArgumentException('non-nullable hour cannot be null');
         }
 
-        $this->container['auto_allowlist'] = $auto_allowlist;
+        $this->container['hour'] = $hour;
 
         return $this;
     }
