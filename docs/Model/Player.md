@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_accounts** | [**\Brave\NeucoreApi\Model\ServiceAccount[]**](ServiceAccount.md) | External service accounts (API: not included by default) | [optional]
-**character_id** | **string** | ID of main character (API: not included by default) | [optional]
+**character_id** | **int** | ID of main character (API: not included by default) | [optional]
 **corporation_name** | **string** | Corporation of main character (API: not included by default) | [optional]
 **alliance_name** | **string** | Alliance of main character (API: not included by default) | [optional]
 **id** | **int** |  |

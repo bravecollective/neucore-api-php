@@ -5,7 +5,7 @@ All URIs are relative to https://localhost/api, except if the operation defines 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**esiEveLoginCharactersV1()**](ApplicationESIApi.md#esiEveLoginCharactersV1) | **GET** /app/v1/esi/eve-login/{name}/characters | Returns character IDs of characters that have an ESI token (including invalid) of an EVE login. |
-| [**esiEveLoginTokenDataV1()**](ApplicationESIApi.md#esiEveLoginTokenDataV1) | **GET** /app/v1/esi/eve-login/{name}/token-data | Returns data of valid tokens for an EVE login. |
+| [**esiEveLoginTokenDataV1()**](ApplicationESIApi.md#esiEveLoginTokenDataV1) | **GET** /app/v1/esi/eve-login/{name}/token-data | Returns data for all valid tokens (roles are also checked if applicable) for an EVE login. |
 | [**esiPostV1()**](ApplicationESIApi.md#esiPostV1) | **POST** /app/v1/esi | See POST /app/v2/esi |
 | [**esiPostV2()**](ApplicationESIApi.md#esiPostV2) | **POST** /app/v2/esi | Same as GET /app/v2/esi, but for POST requests. |
 | [**esiV1()**](ApplicationESIApi.md#esiV1) | **GET** /app/v1/esi | See GET /app/v2/esi |
@@ -78,7 +78,7 @@ try {
 esiEveLoginTokenDataV1($name): \Brave\NeucoreApi\Model\EsiTokenData[]
 ```
 
-Returns data of valid tokens for an EVE login.
+Returns data for all valid tokens (roles are also checked if applicable) for an EVE login.
 
 Needs role: app-esi.
 

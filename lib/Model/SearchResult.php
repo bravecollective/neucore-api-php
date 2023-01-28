@@ -1,6 +1,6 @@
 <?php
 /**
- * SystemVariable
+ * SearchResult
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * SystemVariable Class Doc Comment
+ * SearchResult Class Doc Comment
  *
  * @category Class
- * @description A system settings variable.  This is also used as a storage for Storage\\Variables with the prefix \&quot;__storage__\&quot; if APCu is not available.
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
+class SearchResult implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SystemVariable';
+    protected static $openAPIModelName = 'SearchResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'character_id' => 'int',
+        'character_name' => 'string',
+        'player_id' => 'int',
+        'player_name' => 'string'
     ];
 
     /**
@@ -70,8 +71,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'value' => null
+        'character_id' => null,
+        'character_name' => null,
+        'player_id' => null,
+        'player_name' => null
     ];
 
     /**
@@ -80,8 +83,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'value' => true
+        'character_id' => false,
+		'character_name' => false,
+		'player_id' => false,
+		'player_name' => false
     ];
 
     /**
@@ -170,8 +175,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'value' => 'value'
+        'character_id' => 'characterId',
+        'character_name' => 'characterName',
+        'player_id' => 'playerId',
+        'player_name' => 'playerName'
     ];
 
     /**
@@ -180,8 +187,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'character_id' => 'setCharacterId',
+        'character_name' => 'setCharacterName',
+        'player_id' => 'setPlayerId',
+        'player_name' => 'setPlayerName'
     ];
 
     /**
@@ -190,8 +199,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'character_id' => 'getCharacterId',
+        'character_name' => 'getCharacterName',
+        'player_id' => 'getPlayerId',
+        'player_name' => 'getPlayerName'
     ];
 
     /**
@@ -251,8 +262,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('character_id', $data ?? [], null);
+        $this->setIfExists('character_name', $data ?? [], null);
+        $this->setIfExists('player_id', $data ?? [], null);
+        $this->setIfExists('player_name', $data ?? [], null);
     }
 
     /**
@@ -282,15 +295,17 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['character_id'] === null) {
+            $invalidProperties[] = "'character_id' can't be null";
         }
-        if ((mb_strlen($this->container['name']) > 255)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
+        if ($this->container['character_name'] === null) {
+            $invalidProperties[] = "'character_name' can't be null";
         }
-
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['player_id'] === null) {
+            $invalidProperties[] = "'player_id' can't be null";
+        }
+        if ($this->container['player_name'] === null) {
+            $invalidProperties[] = "'player_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -308,70 +323,117 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets character_id
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getCharacterId()
     {
-        return $this->container['name'];
+        return $this->container['character_id'];
     }
 
     /**
-     * Sets name
+     * Sets character_id
      *
-     * @param string $name Variable name.
+     * @param int $character_id character_id
      *
      * @return self
      */
-    public function setName($name)
+    public function setCharacterId($character_id)
     {
-        if ((mb_strlen($name) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling SystemVariable., must be smaller than or equal to 255.');
+
+        if (is_null($character_id)) {
+            throw new \InvalidArgumentException('non-nullable character_id cannot be null');
         }
 
-
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-
-        $this->container['name'] = $name;
+        $this->container['character_id'] = $character_id;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets character_name
      *
      * @return string
      */
-    public function getValue()
+    public function getCharacterName()
     {
-        return $this->container['value'];
+        return $this->container['character_name'];
     }
 
     /**
-     * Sets value
+     * Sets character_name
      *
-     * @param string $value Variable value.
+     * @param string $character_name character_name
      *
      * @return self
      */
-    public function setValue($value)
+    public function setCharacterName($character_name)
     {
 
-        if (is_null($value)) {
-            array_push($this->openAPINullablesSetToNull, 'value');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('value', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($character_name)) {
+            throw new \InvalidArgumentException('non-nullable character_name cannot be null');
         }
 
-        $this->container['value'] = $value;
+        $this->container['character_name'] = $character_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets player_id
+     *
+     * @return int
+     */
+    public function getPlayerId()
+    {
+        return $this->container['player_id'];
+    }
+
+    /**
+     * Sets player_id
+     *
+     * @param int $player_id player_id
+     *
+     * @return self
+     */
+    public function setPlayerId($player_id)
+    {
+
+        if (is_null($player_id)) {
+            throw new \InvalidArgumentException('non-nullable player_id cannot be null');
+        }
+
+        $this->container['player_id'] = $player_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets player_name
+     *
+     * @return string
+     */
+    public function getPlayerName()
+    {
+        return $this->container['player_name'];
+    }
+
+    /**
+     * Sets player_name
+     *
+     * @param string $player_name player_name
+     *
+     * @return self
+     */
+    public function setPlayerName($player_name)
+    {
+
+        if (is_null($player_name)) {
+            throw new \InvalidArgumentException('non-nullable player_name cannot be null');
+        }
+
+        $this->container['player_name'] = $player_name;
 
         return $this;
     }

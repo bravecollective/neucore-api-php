@@ -1,6 +1,6 @@
 <?php
 /**
- * SystemVariable
+ * Plugin
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * SystemVariable Class Doc Comment
+ * Plugin Class Doc Comment
  *
  * @category Class
- * @description A system settings variable.  This is also used as a storage for Storage\\Variables with the prefix \&quot;__storage__\&quot; if APCu is not available.
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
+class Plugin implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SystemVariable';
+    protected static $openAPIModelName = 'Plugin';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'int',
         'name' => 'string',
-        'value' => 'string'
+        'configuration_database' => '\Brave\NeucoreApi\Model\PluginConfigurationDatabase',
+        'configuration_file' => '\Brave\NeucoreApi\Model\PluginConfigurationFile'
     ];
 
     /**
@@ -70,8 +71,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'name' => null,
-        'value' => null
+        'configuration_database' => null,
+        'configuration_file' => null
     ];
 
     /**
@@ -80,8 +83,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'value' => true
+        'id' => true,
+		'name' => false,
+		'configuration_database' => false,
+		'configuration_file' => false
     ];
 
     /**
@@ -170,8 +175,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'name' => 'name',
-        'value' => 'value'
+        'configuration_database' => 'configurationDatabase',
+        'configuration_file' => 'configurationFile'
     ];
 
     /**
@@ -180,8 +187,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'name' => 'setName',
-        'value' => 'setValue'
+        'configuration_database' => 'setConfigurationDatabase',
+        'configuration_file' => 'setConfigurationFile'
     ];
 
     /**
@@ -190,8 +199,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'name' => 'getName',
-        'value' => 'getValue'
+        'configuration_database' => 'getConfigurationDatabase',
+        'configuration_file' => 'getConfigurationFile'
     ];
 
     /**
@@ -251,8 +262,10 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('configuration_database', $data ?? [], null);
+        $this->setIfExists('configuration_file', $data ?? [], null);
     }
 
     /**
@@ -282,15 +295,11 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ((mb_strlen($this->container['name']) > 255)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
-        }
-
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
         }
         return $invalidProperties;
     }
@@ -308,6 +317,42 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -320,16 +365,12 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Variable name.
+     * @param string $name name
      *
      * @return self
      */
     public function setName($name)
     {
-        if ((mb_strlen($name) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling SystemVariable., must be smaller than or equal to 255.');
-        }
-
 
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
@@ -341,37 +382,59 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets value
+     * Gets configuration_database
      *
-     * @return string
+     * @return \Brave\NeucoreApi\Model\PluginConfigurationDatabase|null
      */
-    public function getValue()
+    public function getConfigurationDatabase()
     {
-        return $this->container['value'];
+        return $this->container['configuration_database'];
     }
 
     /**
-     * Sets value
+     * Sets configuration_database
      *
-     * @param string $value Variable value.
+     * @param \Brave\NeucoreApi\Model\PluginConfigurationDatabase|null $configuration_database configuration_database
      *
      * @return self
      */
-    public function setValue($value)
+    public function setConfigurationDatabase($configuration_database)
     {
 
-        if (is_null($value)) {
-            array_push($this->openAPINullablesSetToNull, 'value');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('value', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($configuration_database)) {
+            throw new \InvalidArgumentException('non-nullable configuration_database cannot be null');
         }
 
-        $this->container['value'] = $value;
+        $this->container['configuration_database'] = $configuration_database;
+
+        return $this;
+    }
+
+    /**
+     * Gets configuration_file
+     *
+     * @return \Brave\NeucoreApi\Model\PluginConfigurationFile|null
+     */
+    public function getConfigurationFile()
+    {
+        return $this->container['configuration_file'];
+    }
+
+    /**
+     * Sets configuration_file
+     *
+     * @param \Brave\NeucoreApi\Model\PluginConfigurationFile|null $configuration_file configuration_file
+     *
+     * @return self
+     */
+    public function setConfigurationFile($configuration_file)
+    {
+
+        if (is_null($configuration_file)) {
+            throw new \InvalidArgumentException('non-nullable configuration_file cannot be null');
+        }
+
+        $this->container['configuration_file'] = $configuration_file;
 
         return $this;
     }

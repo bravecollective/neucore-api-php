@@ -1,6 +1,6 @@
 <?php
 /**
- * HourlyAppRequests
+ * PluginConfigurationDatabase
  *
  * PHP version 7.4
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * HourlyAppRequests Class Doc Comment
+ * PluginConfigurationDatabase Class Doc Comment
  *
  * @category Class
+ * @description Plugin configuration stored in database.  API: The required properties are necessary for the service page where users register their account. The rest is necessary for the admin page.
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializable
+class PluginConfigurationDatabase implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'HourlyAppRequests';
+    protected static $openAPIModelName = 'PluginConfigurationDatabase';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,13 +58,15 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'app_id' => 'int',
-        'app_name' => 'string',
-        'requests' => 'int',
-        'year' => 'int',
-        'month' => 'int',
-        'day_of_month' => 'int',
-        'hour' => 'int'
+        'directory_name' => 'string',
+        'urls' => '\Brave\NeucoreApi\Model\PluginConfigurationURL[]',
+        'text_top' => 'string',
+        'text_account' => 'string',
+        'text_register' => 'string',
+        'text_pending' => 'string',
+        'configuration_data' => 'string',
+        'active' => 'bool',
+        'required_groups' => 'int[]'
     ];
 
     /**
@@ -74,13 +77,15 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'app_id' => null,
-        'app_name' => null,
-        'requests' => null,
-        'year' => null,
-        'month' => null,
-        'day_of_month' => null,
-        'hour' => null
+        'directory_name' => null,
+        'urls' => null,
+        'text_top' => null,
+        'text_account' => null,
+        'text_register' => null,
+        'text_pending' => null,
+        'configuration_data' => null,
+        'active' => null,
+        'required_groups' => null
     ];
 
     /**
@@ -89,13 +94,15 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'app_id' => false,
-		'app_name' => false,
-		'requests' => false,
-		'year' => false,
-		'month' => false,
-		'day_of_month' => false,
-		'hour' => false
+        'directory_name' => false,
+		'urls' => false,
+		'text_top' => false,
+		'text_account' => false,
+		'text_register' => false,
+		'text_pending' => false,
+		'configuration_data' => false,
+		'active' => false,
+		'required_groups' => false
     ];
 
     /**
@@ -184,13 +191,15 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'app_id' => 'app_id',
-        'app_name' => 'app_name',
-        'requests' => 'requests',
-        'year' => 'year',
-        'month' => 'month',
-        'day_of_month' => 'day_of_month',
-        'hour' => 'hour'
+        'directory_name' => 'directoryName',
+        'urls' => 'URLs',
+        'text_top' => 'textTop',
+        'text_account' => 'textAccount',
+        'text_register' => 'textRegister',
+        'text_pending' => 'textPending',
+        'configuration_data' => 'configurationData',
+        'active' => 'active',
+        'required_groups' => 'requiredGroups'
     ];
 
     /**
@@ -199,13 +208,15 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'app_id' => 'setAppId',
-        'app_name' => 'setAppName',
-        'requests' => 'setRequests',
-        'year' => 'setYear',
-        'month' => 'setMonth',
-        'day_of_month' => 'setDayOfMonth',
-        'hour' => 'setHour'
+        'directory_name' => 'setDirectoryName',
+        'urls' => 'setUrls',
+        'text_top' => 'setTextTop',
+        'text_account' => 'setTextAccount',
+        'text_register' => 'setTextRegister',
+        'text_pending' => 'setTextPending',
+        'configuration_data' => 'setConfigurationData',
+        'active' => 'setActive',
+        'required_groups' => 'setRequiredGroups'
     ];
 
     /**
@@ -214,13 +225,15 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'app_id' => 'getAppId',
-        'app_name' => 'getAppName',
-        'requests' => 'getRequests',
-        'year' => 'getYear',
-        'month' => 'getMonth',
-        'day_of_month' => 'getDayOfMonth',
-        'hour' => 'getHour'
+        'directory_name' => 'getDirectoryName',
+        'urls' => 'getUrls',
+        'text_top' => 'getTextTop',
+        'text_account' => 'getTextAccount',
+        'text_register' => 'getTextRegister',
+        'text_pending' => 'getTextPending',
+        'configuration_data' => 'getConfigurationData',
+        'active' => 'getActive',
+        'required_groups' => 'getRequiredGroups'
     ];
 
     /**
@@ -280,13 +293,15 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('app_id', $data ?? [], null);
-        $this->setIfExists('app_name', $data ?? [], null);
-        $this->setIfExists('requests', $data ?? [], null);
-        $this->setIfExists('year', $data ?? [], null);
-        $this->setIfExists('month', $data ?? [], null);
-        $this->setIfExists('day_of_month', $data ?? [], null);
-        $this->setIfExists('hour', $data ?? [], null);
+        $this->setIfExists('directory_name', $data ?? [], null);
+        $this->setIfExists('urls', $data ?? [], null);
+        $this->setIfExists('text_top', $data ?? [], null);
+        $this->setIfExists('text_account', $data ?? [], null);
+        $this->setIfExists('text_register', $data ?? [], null);
+        $this->setIfExists('text_pending', $data ?? [], null);
+        $this->setIfExists('configuration_data', $data ?? [], null);
+        $this->setIfExists('active', $data ?? [], null);
+        $this->setIfExists('required_groups', $data ?? [], null);
     }
 
     /**
@@ -316,26 +331,23 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['app_id'] === null) {
-            $invalidProperties[] = "'app_id' can't be null";
+        if ($this->container['urls'] === null) {
+            $invalidProperties[] = "'urls' can't be null";
         }
-        if ($this->container['app_name'] === null) {
-            $invalidProperties[] = "'app_name' can't be null";
+        if ($this->container['text_top'] === null) {
+            $invalidProperties[] = "'text_top' can't be null";
         }
-        if ($this->container['requests'] === null) {
-            $invalidProperties[] = "'requests' can't be null";
+        if ($this->container['text_account'] === null) {
+            $invalidProperties[] = "'text_account' can't be null";
         }
-        if ($this->container['year'] === null) {
-            $invalidProperties[] = "'year' can't be null";
+        if ($this->container['text_register'] === null) {
+            $invalidProperties[] = "'text_register' can't be null";
         }
-        if ($this->container['month'] === null) {
-            $invalidProperties[] = "'month' can't be null";
+        if ($this->container['text_pending'] === null) {
+            $invalidProperties[] = "'text_pending' can't be null";
         }
-        if ($this->container['day_of_month'] === null) {
-            $invalidProperties[] = "'day_of_month' can't be null";
-        }
-        if ($this->container['hour'] === null) {
-            $invalidProperties[] = "'hour' can't be null";
+        if ($this->container['configuration_data'] === null) {
+            $invalidProperties[] = "'configuration_data' can't be null";
         }
         return $invalidProperties;
     }
@@ -353,204 +365,262 @@ class HourlyAppRequests implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets app_id
+     * Gets directory_name
      *
-     * @return int
+     * @return string|null
      */
-    public function getAppId()
+    public function getDirectoryName()
     {
-        return $this->container['app_id'];
+        return $this->container['directory_name'];
     }
 
     /**
-     * Sets app_id
+     * Sets directory_name
      *
-     * @param int $app_id app_id
+     * @param string|null $directory_name Directory where the plugin.yml file is stored.  Only from database but always set when the data from the file is read.
      *
      * @return self
      */
-    public function setAppId($app_id)
+    public function setDirectoryName($directory_name)
     {
 
-        if (is_null($app_id)) {
-            throw new \InvalidArgumentException('non-nullable app_id cannot be null');
+        if (is_null($directory_name)) {
+            throw new \InvalidArgumentException('non-nullable directory_name cannot be null');
         }
 
-        $this->container['app_id'] = $app_id;
+        $this->container['directory_name'] = $directory_name;
 
         return $this;
     }
 
     /**
-     * Gets app_name
+     * Gets urls
+     *
+     * @return \Brave\NeucoreApi\Model\PluginConfigurationURL[]
+     */
+    public function getUrls()
+    {
+        return $this->container['urls'];
+    }
+
+    /**
+     * Sets urls
+     *
+     * @param \Brave\NeucoreApi\Model\PluginConfigurationURL[] $urls urls
+     *
+     * @return self
+     */
+    public function setUrls($urls)
+    {
+
+        if (is_null($urls)) {
+            throw new \InvalidArgumentException('non-nullable urls cannot be null');
+        }
+
+        $this->container['urls'] = $urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets text_top
      *
      * @return string
      */
-    public function getAppName()
+    public function getTextTop()
     {
-        return $this->container['app_name'];
+        return $this->container['text_top'];
     }
 
     /**
-     * Sets app_name
+     * Sets text_top
      *
-     * @param string $app_name app_name
+     * @param string $text_top text_top
      *
      * @return self
      */
-    public function setAppName($app_name)
+    public function setTextTop($text_top)
     {
 
-        if (is_null($app_name)) {
-            throw new \InvalidArgumentException('non-nullable app_name cannot be null');
+        if (is_null($text_top)) {
+            throw new \InvalidArgumentException('non-nullable text_top cannot be null');
         }
 
-        $this->container['app_name'] = $app_name;
+        $this->container['text_top'] = $text_top;
 
         return $this;
     }
 
     /**
-     * Gets requests
+     * Gets text_account
      *
-     * @return int
+     * @return string
      */
-    public function getRequests()
+    public function getTextAccount()
     {
-        return $this->container['requests'];
+        return $this->container['text_account'];
     }
 
     /**
-     * Sets requests
+     * Sets text_account
      *
-     * @param int $requests requests
+     * @param string $text_account text_account
      *
      * @return self
      */
-    public function setRequests($requests)
+    public function setTextAccount($text_account)
     {
 
-        if (is_null($requests)) {
-            throw new \InvalidArgumentException('non-nullable requests cannot be null');
+        if (is_null($text_account)) {
+            throw new \InvalidArgumentException('non-nullable text_account cannot be null');
         }
 
-        $this->container['requests'] = $requests;
+        $this->container['text_account'] = $text_account;
 
         return $this;
     }
 
     /**
-     * Gets year
+     * Gets text_register
      *
-     * @return int
+     * @return string
      */
-    public function getYear()
+    public function getTextRegister()
     {
-        return $this->container['year'];
+        return $this->container['text_register'];
     }
 
     /**
-     * Sets year
+     * Sets text_register
      *
-     * @param int $year year
+     * @param string $text_register text_register
      *
      * @return self
      */
-    public function setYear($year)
+    public function setTextRegister($text_register)
     {
 
-        if (is_null($year)) {
-            throw new \InvalidArgumentException('non-nullable year cannot be null');
+        if (is_null($text_register)) {
+            throw new \InvalidArgumentException('non-nullable text_register cannot be null');
         }
 
-        $this->container['year'] = $year;
+        $this->container['text_register'] = $text_register;
 
         return $this;
     }
 
     /**
-     * Gets month
+     * Gets text_pending
      *
-     * @return int
+     * @return string
      */
-    public function getMonth()
+    public function getTextPending()
     {
-        return $this->container['month'];
+        return $this->container['text_pending'];
     }
 
     /**
-     * Sets month
+     * Sets text_pending
      *
-     * @param int $month month
+     * @param string $text_pending text_pending
      *
      * @return self
      */
-    public function setMonth($month)
+    public function setTextPending($text_pending)
     {
 
-        if (is_null($month)) {
-            throw new \InvalidArgumentException('non-nullable month cannot be null');
+        if (is_null($text_pending)) {
+            throw new \InvalidArgumentException('non-nullable text_pending cannot be null');
         }
 
-        $this->container['month'] = $month;
+        $this->container['text_pending'] = $text_pending;
 
         return $this;
     }
 
     /**
-     * Gets day_of_month
+     * Gets configuration_data
      *
-     * @return int
+     * @return string
      */
-    public function getDayOfMonth()
+    public function getConfigurationData()
     {
-        return $this->container['day_of_month'];
+        return $this->container['configuration_data'];
     }
 
     /**
-     * Sets day_of_month
+     * Sets configuration_data
      *
-     * @param int $day_of_month day_of_month
+     * @param string $configuration_data configuration_data
      *
      * @return self
      */
-    public function setDayOfMonth($day_of_month)
+    public function setConfigurationData($configuration_data)
     {
 
-        if (is_null($day_of_month)) {
-            throw new \InvalidArgumentException('non-nullable day_of_month cannot be null');
+        if (is_null($configuration_data)) {
+            throw new \InvalidArgumentException('non-nullable configuration_data cannot be null');
         }
 
-        $this->container['day_of_month'] = $day_of_month;
+        $this->container['configuration_data'] = $configuration_data;
 
         return $this;
     }
 
     /**
-     * Gets hour
+     * Gets active
      *
-     * @return int
+     * @return bool|null
      */
-    public function getHour()
+    public function getActive()
     {
-        return $this->container['hour'];
+        return $this->container['active'];
     }
 
     /**
-     * Sets hour
+     * Sets active
      *
-     * @param int $hour hour
+     * @param bool|null $active Inactive plugins are neither updated by the cron job nor displayed to the user.  From admin UI.
      *
      * @return self
      */
-    public function setHour($hour)
+    public function setActive($active)
     {
 
-        if (is_null($hour)) {
-            throw new \InvalidArgumentException('non-nullable hour cannot be null');
+        if (is_null($active)) {
+            throw new \InvalidArgumentException('non-nullable active cannot be null');
         }
 
-        $this->container['hour'] = $hour;
+        $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_groups
+     *
+     * @return int[]|null
+     */
+    public function getRequiredGroups()
+    {
+        return $this->container['required_groups'];
+    }
+
+    /**
+     * Sets required_groups
+     *
+     * @param int[]|null $required_groups From admin UI.
+     *
+     * @return self
+     */
+    public function setRequiredGroups($required_groups)
+    {
+
+        if (is_null($required_groups)) {
+            throw new \InvalidArgumentException('non-nullable required_groups cannot be null');
+        }
+
+        $this->container['required_groups'] = $required_groups;
 
         return $this;
     }

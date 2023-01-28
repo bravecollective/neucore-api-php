@@ -1,6 +1,6 @@
 <?php
 /**
- * SystemVariable
+ * PluginConfigurationURL
  *
  * PHP version 7.4
  *
@@ -32,16 +32,15 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * SystemVariable Class Doc Comment
+ * PluginConfigurationURL Class Doc Comment
  *
  * @category Class
- * @description A system settings variable.  This is also used as a storage for Storage\\Variables with the prefix \&quot;__storage__\&quot; if APCu is not available.
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
+class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +49,7 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SystemVariable';
+    protected static $openAPIModelName = 'PluginConfigurationURL';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +57,9 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'url' => 'string',
+        'title' => 'string',
+        'target' => 'string'
     ];
 
     /**
@@ -70,8 +70,9 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'value' => null
+        'url' => null,
+        'title' => null,
+        'target' => null
     ];
 
     /**
@@ -80,8 +81,9 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-		'value' => true
+        'url' => false,
+		'title' => false,
+		'target' => false
     ];
 
     /**
@@ -170,8 +172,9 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'value' => 'value'
+        'url' => 'url',
+        'title' => 'title',
+        'target' => 'target'
     ];
 
     /**
@@ -180,8 +183,9 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'url' => 'setUrl',
+        'title' => 'setTitle',
+        'target' => 'setTarget'
     ];
 
     /**
@@ -190,8 +194,9 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'url' => 'getUrl',
+        'title' => 'getTitle',
+        'target' => 'getTarget'
     ];
 
     /**
@@ -251,8 +256,9 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('target', $data ?? [], null);
     }
 
     /**
@@ -282,15 +288,14 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
         }
-        if ((mb_strlen($this->container['name']) > 255)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 255.";
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
         }
-
-        if ($this->container['value'] === null) {
-            $invalidProperties[] = "'value' can't be null";
+        if ($this->container['target'] === null) {
+            $invalidProperties[] = "'target' can't be null";
         }
         return $invalidProperties;
     }
@@ -308,70 +313,88 @@ class SystemVariable implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets url
      *
      * @return string
      */
-    public function getName()
+    public function getUrl()
     {
-        return $this->container['name'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets name
+     * Sets url
      *
-     * @param string $name Variable name.
+     * @param string $url placeholders: {plugin_id}, {username}, {password}, {email}
      *
      * @return self
      */
-    public function setName($name)
+    public function setUrl($url)
     {
-        if ((mb_strlen($name) > 255)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling SystemVariable., must be smaller than or equal to 255.');
+
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
 
-
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-
-        $this->container['name'] = $name;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets title
      *
      * @return string
      */
-    public function getValue()
+    public function getTitle()
     {
-        return $this->container['value'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets value
+     * Sets title
      *
-     * @param string $value Variable value.
+     * @param string $title title
      *
      * @return self
      */
-    public function setValue($value)
+    public function setTitle($title)
     {
 
-        if (is_null($value)) {
-            array_push($this->openAPINullablesSetToNull, 'value');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('value', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
 
-        $this->container['value'] = $value;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets target
+     *
+     * @return string
+     */
+    public function getTarget()
+    {
+        return $this->container['target'];
+    }
+
+    /**
+     * Sets target
+     *
+     * @param string $target target
+     *
+     * @return self
+     */
+    public function setTarget($target)
+    {
+
+        if (is_null($target)) {
+            throw new \InvalidArgumentException('non-nullable target cannot be null');
+        }
+
+        $this->container['target'] = $target;
 
         return $this;
     }
