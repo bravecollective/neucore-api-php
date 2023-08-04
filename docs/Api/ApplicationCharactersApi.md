@@ -15,6 +15,7 @@ All URIs are relative to https://localhost/api, except if the operation defines 
 | [**playerCharactersV1()**](ApplicationCharactersApi.md#playerCharactersV1) | **GET** /app/v1/player-chars/{playerId} | Returns all characters from the player account. |
 | [**playerV1()**](ApplicationCharactersApi.md#playerV1) | **GET** /app/v1/player/{characterId} | Returns the player account to which the character ID belongs. |
 | [**playerWithCharactersV1()**](ApplicationCharactersApi.md#playerWithCharactersV1) | **GET** /app/v1/player-with-characters/{characterId} | Returns the player account to which the character ID belongs with all characters. |
+| [**playersV1()**](ApplicationCharactersApi.md#playersV1) | **POST** /app/v1/players | Returns player accounts identified by character IDs. |
 | [**removedCharactersV1()**](ApplicationCharactersApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Returns all characters that were removed from the player account to which the character ID                     belongs. |
 
 
@@ -672,6 +673,66 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `playersV1()`
+
+```php
+playersV1($request_body): \Brave\NeucoreApi\Model\Player[]
+```
+
+Returns player accounts identified by character IDs.
+
+Needs role: app-chars.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer authorization: BearerAuth
+$config = Brave\NeucoreApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Brave\NeucoreApi\Api\ApplicationCharactersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$request_body = array(56); // int[] | EVE character IDs array.
+
+try {
+    $result = $apiInstance->playersV1($request_body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ApplicationCharactersApi->playersV1: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **request_body** | [**int[]**](../Model/int.md)| EVE character IDs array. | |
+
+### Return type
+
+[**\Brave\NeucoreApi\Model\Player[]**](../Model/Player.md)
+
+### Authorization
+
+[BearerAuth](../../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
