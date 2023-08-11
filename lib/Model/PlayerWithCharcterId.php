@@ -1,6 +1,6 @@
 <?php
 /**
- * PluginConfigurationURL
+ * PlayerWithCharcterId
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * PluginConfigurationURL Class Doc Comment
+ * PlayerWithCharcterId Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
@@ -40,7 +40,7 @@ use \Brave\NeucoreApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerializable
+class PlayerWithCharcterId implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PluginConfigurationURL';
+    protected static $openAPIModelName = 'PlayerWithCharcterId';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'url' => 'string',
-        'title' => 'string',
-        'target' => 'string'
+        'id' => 'int',
+        'name' => 'string',
+        'character_id' => 'int'
     ];
 
     /**
@@ -70,9 +70,9 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'url' => null,
-        'title' => null,
-        'target' => null
+        'id' => null,
+        'name' => null,
+        'character_id' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'url' => false,
-		'title' => false,
-		'target' => false
+        'id' => false,
+		'name' => false,
+		'character_id' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'url' => 'url',
-        'title' => 'title',
-        'target' => 'target'
+        'id' => 'id',
+        'name' => 'name',
+        'character_id' => 'characterId'
     ];
 
     /**
@@ -183,9 +183,9 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'url' => 'setUrl',
-        'title' => 'setTitle',
-        'target' => 'setTarget'
+        'id' => 'setId',
+        'name' => 'setName',
+        'character_id' => 'setCharacterId'
     ];
 
     /**
@@ -194,9 +194,9 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'url' => 'getUrl',
-        'title' => 'getTitle',
-        'target' => 'getTarget'
+        'id' => 'getId',
+        'name' => 'getName',
+        'character_id' => 'getCharacterId'
     ];
 
     /**
@@ -256,9 +256,9 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('target', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('character_id', $data ?? [], null);
     }
 
     /**
@@ -288,14 +288,14 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['target'] === null) {
-            $invalidProperties[] = "'target' can't be null";
+        if ($this->container['character_id'] === null) {
+            $invalidProperties[] = "'character_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -313,82 +313,82 @@ class PluginConfigurationURL implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets url
+     * Gets id
      *
-     * @return string
+     * @return int
      */
-    public function getUrl()
+    public function getId()
     {
-        return $this->container['url'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets url
+     * Sets id
      *
-     * @param string $url placeholders: {plugin_id}, {username}, {password}, {email}
+     * @param int $id id
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setId($id)
     {
-        if (is_null($url)) {
-            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['url'] = $url;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets name
      *
      * @return string
      */
-    public function getTitle()
+    public function getName()
     {
-        return $this->container['title'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets title
+     * Sets name
      *
-     * @param string $title title
+     * @param string $name name
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setName($name)
     {
-        if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['title'] = $title;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets target
+     * Gets character_id
      *
-     * @return string
+     * @return int
      */
-    public function getTarget()
+    public function getCharacterId()
     {
-        return $this->container['target'];
+        return $this->container['character_id'];
     }
 
     /**
-     * Sets target
+     * Sets character_id
      *
-     * @param string $target target
+     * @param int $character_id character_id
      *
      * @return self
      */
-    public function setTarget($target)
+    public function setCharacterId($character_id)
     {
-        if (is_null($target)) {
-            throw new \InvalidArgumentException('non-nullable target cannot be null');
+        if (is_null($character_id)) {
+            throw new \InvalidArgumentException('non-nullable character_id cannot be null');
         }
-        $this->container['target'] = $target;
+        $this->container['character_id'] = $character_id;
 
         return $this;
     }

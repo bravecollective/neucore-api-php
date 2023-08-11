@@ -26,6 +26,7 @@ docs/Model/HourlyAppRequests.md
 docs/Model/MonthlyAppRequests.md
 docs/Model/Player.md
 docs/Model/PlayerLoginStatistics.md
+docs/Model/PlayerWithCharcterId.md
 docs/Model/Plugin.md
 docs/Model/PluginConfigurationDatabase.md
 docs/Model/PluginConfigurationFile.md
@@ -66,6 +67,7 @@ lib/Model/ModelInterface.php
 lib/Model/MonthlyAppRequests.php
 lib/Model/Player.php
 lib/Model/PlayerLoginStatistics.php
+lib/Model/PlayerWithCharcterId.php
 lib/Model/Plugin.php
 lib/Model/PluginConfigurationDatabase.php
 lib/Model/PluginConfigurationFile.php

@@ -15,7 +15,7 @@ All URIs are relative to https://localhost/api, except if the operation defines 
 | [**playerCharactersV1()**](ApplicationCharactersApi.md#playerCharactersV1) | **GET** /app/v1/player-chars/{playerId} | Returns all characters from the player account. |
 | [**playerV1()**](ApplicationCharactersApi.md#playerV1) | **GET** /app/v1/player/{characterId} | Returns the player account to which the character ID belongs. |
 | [**playerWithCharactersV1()**](ApplicationCharactersApi.md#playerWithCharactersV1) | **GET** /app/v1/player-with-characters/{characterId} | Returns the player account to which the character ID belongs with all characters. |
-| [**playersV1()**](ApplicationCharactersApi.md#playersV1) | **POST** /app/v1/players | Returns player accounts identified by character IDs. |
+| [**playersV1()**](ApplicationCharactersApi.md#playersV1) | **POST** /app/v1/players | Returns player accounts identified by character IDs. Can contain the same player several times. |
 | [**removedCharactersV1()**](ApplicationCharactersApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Returns all characters that were removed from the player account to which the character ID                     belongs. |
 
 
@@ -682,10 +682,10 @@ try {
 ## `playersV1()`
 
 ```php
-playersV1($request_body): \Brave\NeucoreApi\Model\Player[]
+playersV1($request_body): \Brave\NeucoreApi\Model\PlayerWithCharcterId[]
 ```
 
-Returns player accounts identified by character IDs.
+Returns player accounts identified by character IDs. Can contain the same player several times.
 
 Needs role: app-chars.
 
@@ -724,7 +724,7 @@ try {
 
 ### Return type
 
-[**\Brave\NeucoreApi\Model\Player[]**](../Model/Player.md)
+[**\Brave\NeucoreApi\Model\PlayerWithCharcterId[]**](../Model/PlayerWithCharcterId.md)
 
 ### Authorization
 
