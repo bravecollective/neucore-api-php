@@ -1,6 +1,6 @@
 <?php
 /**
- * EsiTokenData
+ * EsiAccessToken
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * EsiTokenData Class Doc Comment
+ * EsiAccessToken Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
@@ -40,7 +40,7 @@ use \Brave\NeucoreApi\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
+class EsiAccessToken implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EsiTokenData';
+    protected static $openAPIModelName = 'EsiAccessToken';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,9 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'last_checked' => 'string',
-        'character_id' => 'int',
-        'character_name' => 'string',
-        'corporation_id' => 'int',
-        'alliance_id' => 'int'
+        'token' => 'string',
+        'scopes' => 'string[]',
+        'expires' => 'int'
     ];
 
     /**
@@ -72,11 +70,9 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'last_checked' => null,
-        'character_id' => null,
-        'character_name' => null,
-        'corporation_id' => null,
-        'alliance_id' => null
+        'token' => null,
+        'scopes' => null,
+        'expires' => null
     ];
 
     /**
@@ -85,11 +81,9 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'last_checked' => true,
-		'character_id' => false,
-		'character_name' => false,
-		'corporation_id' => true,
-		'alliance_id' => true
+        'token' => false,
+		'scopes' => false,
+		'expires' => false
     ];
 
     /**
@@ -178,11 +172,9 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'last_checked' => 'lastChecked',
-        'character_id' => 'characterId',
-        'character_name' => 'characterName',
-        'corporation_id' => 'corporationId',
-        'alliance_id' => 'allianceId'
+        'token' => 'token',
+        'scopes' => 'scopes',
+        'expires' => 'expires'
     ];
 
     /**
@@ -191,11 +183,9 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'last_checked' => 'setLastChecked',
-        'character_id' => 'setCharacterId',
-        'character_name' => 'setCharacterName',
-        'corporation_id' => 'setCorporationId',
-        'alliance_id' => 'setAllianceId'
+        'token' => 'setToken',
+        'scopes' => 'setScopes',
+        'expires' => 'setExpires'
     ];
 
     /**
@@ -204,11 +194,9 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'last_checked' => 'getLastChecked',
-        'character_id' => 'getCharacterId',
-        'character_name' => 'getCharacterName',
-        'corporation_id' => 'getCorporationId',
-        'alliance_id' => 'getAllianceId'
+        'token' => 'getToken',
+        'scopes' => 'getScopes',
+        'expires' => 'getExpires'
     ];
 
     /**
@@ -268,11 +256,9 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('last_checked', $data ?? [], null);
-        $this->setIfExists('character_id', $data ?? [], null);
-        $this->setIfExists('character_name', $data ?? [], null);
-        $this->setIfExists('corporation_id', $data ?? [], null);
-        $this->setIfExists('alliance_id', $data ?? [], null);
+        $this->setIfExists('token', $data ?? [], null);
+        $this->setIfExists('scopes', $data ?? [], null);
+        $this->setIfExists('expires', $data ?? [], null);
     }
 
     /**
@@ -302,20 +288,14 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['last_checked'] === null) {
-            $invalidProperties[] = "'last_checked' can't be null";
+        if ($this->container['token'] === null) {
+            $invalidProperties[] = "'token' can't be null";
         }
-        if ($this->container['character_id'] === null) {
-            $invalidProperties[] = "'character_id' can't be null";
+        if ($this->container['scopes'] === null) {
+            $invalidProperties[] = "'scopes' can't be null";
         }
-        if ($this->container['character_name'] === null) {
-            $invalidProperties[] = "'character_name' can't be null";
-        }
-        if ($this->container['corporation_id'] === null) {
-            $invalidProperties[] = "'corporation_id' can't be null";
-        }
-        if ($this->container['alliance_id'] === null) {
-            $invalidProperties[] = "'alliance_id' can't be null";
+        if ($this->container['expires'] === null) {
+            $invalidProperties[] = "'expires' can't be null";
         }
         return $invalidProperties;
     }
@@ -333,157 +313,82 @@ class EsiTokenData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets last_checked
+     * Gets token
      *
      * @return string
      */
-    public function getLastChecked()
+    public function getToken()
     {
-        return $this->container['last_checked'];
+        return $this->container['token'];
     }
 
     /**
-     * Sets last_checked
+     * Sets token
      *
-     * @param string $last_checked last_checked
+     * @param string $token token
      *
      * @return self
      */
-    public function setLastChecked($last_checked)
+    public function setToken($token)
     {
-        if (is_null($last_checked)) {
-            array_push($this->openAPINullablesSetToNull, 'last_checked');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('last_checked', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($token)) {
+            throw new \InvalidArgumentException('non-nullable token cannot be null');
         }
-        $this->container['last_checked'] = $last_checked;
+        $this->container['token'] = $token;
 
         return $this;
     }
 
     /**
-     * Gets character_id
+     * Gets scopes
+     *
+     * @return string[]
+     */
+    public function getScopes()
+    {
+        return $this->container['scopes'];
+    }
+
+    /**
+     * Sets scopes
+     *
+     * @param string[] $scopes scopes
+     *
+     * @return self
+     */
+    public function setScopes($scopes)
+    {
+        if (is_null($scopes)) {
+            throw new \InvalidArgumentException('non-nullable scopes cannot be null');
+        }
+        $this->container['scopes'] = $scopes;
+
+        return $this;
+    }
+
+    /**
+     * Gets expires
      *
      * @return int
      */
-    public function getCharacterId()
+    public function getExpires()
     {
-        return $this->container['character_id'];
+        return $this->container['expires'];
     }
 
     /**
-     * Sets character_id
+     * Sets expires
      *
-     * @param int $character_id character_id
+     * @param int $expires expires
      *
      * @return self
      */
-    public function setCharacterId($character_id)
+    public function setExpires($expires)
     {
-        if (is_null($character_id)) {
-            throw new \InvalidArgumentException('non-nullable character_id cannot be null');
+        if (is_null($expires)) {
+            throw new \InvalidArgumentException('non-nullable expires cannot be null');
         }
-        $this->container['character_id'] = $character_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets character_name
-     *
-     * @return string
-     */
-    public function getCharacterName()
-    {
-        return $this->container['character_name'];
-    }
-
-    /**
-     * Sets character_name
-     *
-     * @param string $character_name character_name
-     *
-     * @return self
-     */
-    public function setCharacterName($character_name)
-    {
-        if (is_null($character_name)) {
-            throw new \InvalidArgumentException('non-nullable character_name cannot be null');
-        }
-        $this->container['character_name'] = $character_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets corporation_id
-     *
-     * @return int
-     */
-    public function getCorporationId()
-    {
-        return $this->container['corporation_id'];
-    }
-
-    /**
-     * Sets corporation_id
-     *
-     * @param int $corporation_id corporation_id
-     *
-     * @return self
-     */
-    public function setCorporationId($corporation_id)
-    {
-        if (is_null($corporation_id)) {
-            array_push($this->openAPINullablesSetToNull, 'corporation_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('corporation_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['corporation_id'] = $corporation_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets alliance_id
-     *
-     * @return int
-     */
-    public function getAllianceId()
-    {
-        return $this->container['alliance_id'];
-    }
-
-    /**
-     * Sets alliance_id
-     *
-     * @param int $alliance_id alliance_id
-     *
-     * @return self
-     */
-    public function setAllianceId($alliance_id)
-    {
-        if (is_null($alliance_id)) {
-            array_push($this->openAPINullablesSetToNull, 'alliance_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('alliance_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['alliance_id'] = $alliance_id;
+        $this->container['expires'] = $expires;
 
         return $this;
     }

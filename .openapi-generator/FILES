@@ -15,6 +15,7 @@ docs/Model/CharacterGroups.md
 docs/Model/CharacterNameChange.md
 docs/Model/Corporation.md
 docs/Model/CorporationMember.md
+docs/Model/EsiAccessToken.md
 docs/Model/EsiLocation.md
 docs/Model/EsiToken.md
 docs/Model/EsiTokenData.md
@@ -55,6 +56,7 @@ lib/Model/CharacterGroups.php
 lib/Model/CharacterNameChange.php
 lib/Model/Corporation.php
 lib/Model/CorporationMember.php
+lib/Model/EsiAccessToken.php
 lib/Model/EsiLocation.php
 lib/Model/EsiToken.php
 lib/Model/EsiTokenData.php
