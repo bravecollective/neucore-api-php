@@ -25,7 +25,7 @@ allianceGroupsBulkV1($request_body): \Brave\NeucoreApi\Model\Alliance[]
 
 Return groups of multiple alliances.
 
-Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips alliances that are not found in the local database.
+Needs role: app-groups.<br>Returns only groups that have been added to the app as well. Skips alliances that are not found in the local database.
 
 ### Example
 
@@ -205,7 +205,7 @@ corpGroupsBulkV1($request_body): \Brave\NeucoreApi\Model\Corporation[]
 
 Return groups of multiple corporations.
 
-Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips corporations that are not found in the local database.
+Needs role: app-groups.<br> Returns only groups that have been added to the app as well. Skips corporations that are not found in the local database.
 
 ### Example
 
@@ -447,7 +447,7 @@ groupsBulkV1($request_body): \Brave\NeucoreApi\Model\CharacterGroups[]
 
 Return groups of multiple players, identified by one of their character IDs.
 
-Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.      *                  Skips characters that are not found in the local database.
+Needs role: app-groups.<br> Returns only groups that have been added to the app as well. Skips characters that are not found in the local database.
 
 ### Example
 
@@ -627,7 +627,7 @@ groupsWithFallbackV1($character, $corporation, $alliance): \Brave\NeucoreApi\Mod
 
 Returns groups from the character's account, if available, or the corporation and alliance.
 
-Needs role: app-groups.<br>      *                  Returns only groups that have been added to the app as well.<br>      *                  It is not checked if character, corporation and alliance match.
+Needs role: app-groups.<br> Returns only groups that have been added to the app as well.<br>It is not checked if character, corporation and alliance match.
 
 ### Example
 

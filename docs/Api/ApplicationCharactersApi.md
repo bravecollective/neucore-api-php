@@ -9,14 +9,14 @@ All URIs are relative to https://localhost/api, except if the operation defines 
 | [**charactersV1()**](ApplicationCharactersApi.md#charactersV1) | **GET** /app/v1/characters/{characterId} | Returns all characters of the player account to which the character ID belongs. |
 | [**corporationCharactersV1()**](ApplicationCharactersApi.md#corporationCharactersV1) | **GET** /app/v1/corp-characters/{corporationId} | Returns a list of all known characters from the corporation. |
 | [**corporationPlayersV1()**](ApplicationCharactersApi.md#corporationPlayersV1) | **GET** /app/v1/corp-players/{corporationId} | Returns a list of all players that have a character in the corporation. |
-| [**incomingCharactersV1()**](ApplicationCharactersApi.md#incomingCharactersV1) | **GET** /app/v1/incoming-characters/{characterId} | Returns all characters that were moved from another account to the player account to which the                     ID belongs. |
+| [**incomingCharactersV1()**](ApplicationCharactersApi.md#incomingCharactersV1) | **GET** /app/v1/incoming-characters/{characterId} | Returns all characters that were moved from another account to the player account to which the ID belongs. |
 | [**mainV1()**](ApplicationCharactersApi.md#mainV1) | **GET** /app/v1/main/{cid} | Returns the main character of the player account to which the character ID belongs. |
 | [**mainV2()**](ApplicationCharactersApi.md#mainV2) | **GET** /app/v2/main/{cid} | Returns the main character of the player account to which the character ID belongs. |
 | [**playerCharactersV1()**](ApplicationCharactersApi.md#playerCharactersV1) | **GET** /app/v1/player-chars/{playerId} | Returns all characters from the player account. |
 | [**playerV1()**](ApplicationCharactersApi.md#playerV1) | **GET** /app/v1/player/{characterId} | Returns the player account to which the character ID belongs. |
 | [**playerWithCharactersV1()**](ApplicationCharactersApi.md#playerWithCharactersV1) | **GET** /app/v1/player-with-characters/{characterId} | Returns the player account to which the character ID belongs with all characters. |
 | [**playersV1()**](ApplicationCharactersApi.md#playersV1) | **POST** /app/v1/players | Returns player accounts identified by character IDs. Can contain the same player several times. |
-| [**removedCharactersV1()**](ApplicationCharactersApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Returns all characters that were removed from the player account to which the character ID                     belongs. |
+| [**removedCharactersV1()**](ApplicationCharactersApi.md#removedCharactersV1) | **GET** /app/v1/removed-characters/{characterId} | Returns all characters that were removed from the player account to which the character ID belongs. |
 
 
 ## `characterListV1()`
@@ -325,7 +325,7 @@ try {
 incomingCharactersV1($character_id): \Brave\NeucoreApi\Model\RemovedCharacter[]
 ```
 
-Returns all characters that were moved from another account to the player account to which the                     ID belongs.
+Returns all characters that were moved from another account to the player account to which the ID belongs.
 
 Needs role: app-chars.
 
@@ -745,7 +745,7 @@ try {
 removedCharactersV1($character_id): \Brave\NeucoreApi\Model\RemovedCharacter[]
 ```
 
-Returns all characters that were removed from the player account to which the character ID                     belongs.
+Returns all characters that were removed from the player account to which the character ID belongs.
 
 Needs role: app-chars.
 

@@ -223,7 +223,7 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationESIApi(
 $esi_path_query = 'esi_path_query_example'; // string
 $datasource = 'datasource_example'; // string
 $body = 'body_example'; // string | 
-$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query      *                       parameter 'datasource'
+$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query parameter 'datasource'
 $neucore_eve_login = 'neucore_eve_login_example'; // string | The EVE login name from which the token should be used, defaults to core.default.
 
 try {
@@ -241,7 +241,7 @@ try {
 | **esi_path_query** | **string**|  | |
 | **datasource** | **string**|  | |
 | **body** | **string**|  | |
-| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query      *                       parameter &#39;datasource&#39; | [optional] |
+| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query parameter &#39;datasource&#39; | [optional] |
 | **neucore_eve_login** | **string**| The EVE login name from which the token should be used, defaults to core.default. | [optional] |
 
 ### Return type
@@ -289,7 +289,7 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationESIApi(
 $esi_path_query = 'esi_path_query_example'; // string
 $datasource = 'datasource_example'; // string
 $body = 'body_example'; // string | JSON encoded data.
-$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query      *                       parameter 'datasource'
+$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query parameter 'datasource'
 $neucore_eve_login = 'neucore_eve_login_example'; // string | The EVE login name from which the token should be used, defaults to core.default.
 
 try {
@@ -307,7 +307,7 @@ try {
 | **esi_path_query** | **string**|  | |
 | **datasource** | **string**|  | |
 | **body** | **string**| JSON encoded data. | |
-| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query      *                       parameter &#39;datasource&#39; | [optional] |
+| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query parameter &#39;datasource&#39; | [optional] |
 | **neucore_eve_login** | **string**| The EVE login name from which the token should be used, defaults to core.default. | [optional] |
 
 ### Return type
@@ -354,7 +354,7 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationESIApi(
 );
 $esi_path_query = 'esi_path_query_example'; // string
 $datasource = 'datasource_example'; // string
-$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query      *                       parameter 'datasource'
+$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query parameter 'datasource'
 $neucore_eve_login = 'neucore_eve_login_example'; // string | The EVE login name from which the token should be used, defaults to core.default.
 
 try {
@@ -371,7 +371,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **esi_path_query** | **string**|  | |
 | **datasource** | **string**|  | |
-| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query      *                       parameter &#39;datasource&#39; | [optional] |
+| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query parameter &#39;datasource&#39; | [optional] |
 | **neucore_eve_login** | **string**| The EVE login name from which the token should be used, defaults to core.default. | [optional] |
 
 ### Return type
@@ -399,7 +399,7 @@ esiV2($esi_path_query, $neucore_eve_character, $neucore_eve_login, $datasource):
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi-proxy<br>      *         Either the header 'Neucore-EveCharacter' and optionally 'Neucore-EveLogin' or the query parameter                'datasource' is required.<br>      *         Public ESI routes are not allowed.<br>      *         The following headers from ESI are passed through to the response if they exist:                Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning, Warning<br>      *         The HTTP status code from ESI is also passed through, so there may be more than the documented ones.<br>      *         The ESI path and query parameters can alternatively be appended to the path of this endpoint,                this allows to use OpenAPI clients that were generated for the ESI API,                see doc/api-examples for more.
+Needs role: app-esi-proxy<br>Either the header 'Neucore-EveCharacter' and optionally 'Neucore-EveLogin' or the query parameter 'datasource' is required.<br> Public ESI routes are not allowed.<br>The following headers from ESI are passed through to the response if they exist: Content-Type Expires X-Esi-Error-Limit-Remain X-Esi-Error-Limit-Reset X-Pages warning, Warning<br>The HTTP status code from ESI is also passed through, so there may be more than the documented ones.<br>The ESI path and query parameters can alternatively be appended to the path of this endpoint, this allows to use OpenAPI clients that were generated for the ESI API, see doc/api-examples for more.
 
 ### Example
 
@@ -419,9 +419,9 @@ $apiInstance = new Brave\NeucoreApi\Api\ApplicationESIApi(
     $config
 );
 $esi_path_query = 'esi_path_query_example'; // string | The ESI path and query string (without the datasource parameter).
-$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query                             parameter 'datasource'
+$neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query parameter 'datasource'
 $neucore_eve_login = 'neucore_eve_login_example'; // string | The EVE login name from which the token should be used, defaults to core.default.
-$datasource = 'datasource_example'; // string | The EVE character ID those token should be used from the default login to make the ESI                             request. Optionally followed by a colon and the name of an EVE login to use an alternative                             ESI token.
+$datasource = 'datasource_example'; // string | The EVE character ID those token should be used from the default login to make the ESI request. Optionally followed by a colon and the name of an EVE login to use an alternative ESI token.
 
 try {
     $result = $apiInstance->esiV2($esi_path_query, $neucore_eve_character, $neucore_eve_login, $datasource);
@@ -436,9 +436,9 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **esi_path_query** | **string**| The ESI path and query string (without the datasource parameter). | |
-| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query                             parameter &#39;datasource&#39; | [optional] |
+| **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query parameter &#39;datasource&#39; | [optional] |
 | **neucore_eve_login** | **string**| The EVE login name from which the token should be used, defaults to core.default. | [optional] |
-| **datasource** | **string**| The EVE character ID those token should be used from the default login to make the ESI                             request. Optionally followed by a colon and the name of an EVE login to use an alternative                             ESI token. | [optional] |
+| **datasource** | **string**| The EVE character ID those token should be used from the default login to make the ESI request. Optionally followed by a colon and the name of an EVE login to use an alternative ESI token. | [optional] |
 
 ### Return type
 

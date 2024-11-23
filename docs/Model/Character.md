@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**valid_token** | **bool** | Shows if character&#39;s default refresh token is valid or not.                         This is null if there is no refresh token (EVE SSOv1 only)                         or a valid token but without scopes (SSOv2). | [optional]
+**valid_token** | **bool** | Shows if character&#39;s default refresh token is valid or not. This is null if there is no refresh token (EVE SSOv1 only) or a valid token but without scopes (SSOv2). | [optional]
 **valid_token_time** | **\DateTime** | Date and time when the valid token property of the default token was last changed. | [optional]
 **token_last_checked** | **\DateTime** | Date and time when the default token was last checked. | [optional]
 **id** | **int** | EVE character ID. |
