@@ -5,7 +5,7 @@ a new version may break backwards compatibility.
 
 **Breaking changes**
 
-- 2.7.3
+- 2.7.3  
   Needs PHP ^8.1
 - 1.43.0  
   Player.character_id is now an integer instead of string.
