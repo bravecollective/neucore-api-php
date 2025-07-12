@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **visibility** | **string** |  | [optional]
 **auto_accept** | **bool** |  | [optional]
 **is_default** | **bool** |  | [optional]
+**is_auto_managed** | **bool** | API: The value of this property is not always set. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

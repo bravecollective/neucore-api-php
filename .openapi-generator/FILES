@@ -48,6 +48,7 @@ lib/Api/ApplicationGroupsApi.php
 lib/Api/ApplicationTrackingApi.php
 lib/ApiException.php
 lib/Configuration.php
+lib/FormDataProcessor.php
 lib/HeaderSelector.php
 lib/Model/Alliance.php
 lib/Model/App.php
