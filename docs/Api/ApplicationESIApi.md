@@ -264,7 +264,7 @@ try {
 ## `esiPostV2()`
 
 ```php
-esiPostV2($esi_path_query, $datasource, $body, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date): string
+esiPostV2($esi_path_query, $datasource, $body, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date, $accept_language): string
 ```
 
 Same as GET /app/v2/esi, but for POST requests.
@@ -292,9 +292,10 @@ $body = 'body_example'; // string | JSON encoded data.
 $neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query parameter 'datasource'
 $neucore_eve_login = 'neucore_eve_login_example'; // string | The EVE login name from which the token should be used, defaults to core.default.
 $x_compatibility_date = 'x_compatibility_date_example'; // string | The ESI compatibility date.
+$accept_language = 'accept_language_example'; // string
 
 try {
-    $result = $apiInstance->esiPostV2($esi_path_query, $datasource, $body, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date);
+    $result = $apiInstance->esiPostV2($esi_path_query, $datasource, $body, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationESIApi->esiPostV2: ', $e->getMessage(), PHP_EOL;
@@ -311,6 +312,7 @@ try {
 | **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query parameter &#39;datasource&#39; | [optional] |
 | **neucore_eve_login** | **string**| The EVE login name from which the token should be used, defaults to core.default. | [optional] |
 | **x_compatibility_date** | **string**| The ESI compatibility date. | [optional] |
+| **accept_language** | **string**|  | [optional] |
 
 ### Return type
 
@@ -396,12 +398,12 @@ try {
 ## `esiV2()`
 
 ```php
-esiV2($esi_path_query, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date, $datasource): string
+esiV2($esi_path_query, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date, $accept_language, $datasource): string
 ```
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi-proxy<br>Either the header 'Neucore-EveCharacter' and optionally 'Neucore-EveLogin' or the query parameter 'datasource' is required.<br> Public ESI routes are not allowed.<br>The following headers from ESI are passed through to the response if they exist: Content-Type, Expires, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset, X-Pages, X-Compatibility-Date, warning, Warning.<br>The HTTP status code from ESI is also passed through, so there may be more than the documented ones.<br>The ESI path and query parameters can alternatively be appended to the path of this endpoint, this allows using OpenAPI clients generated for the ESI API, see doc/api-examples for more.
+Needs role: app-esi-proxy<br>Either the header 'Neucore-EveCharacter' and optionally 'Neucore-EveLogin' or the query parameter 'datasource' is required.<br> Public ESI routes are not allowed.<br>The following headers from ESI are passed through to the response if they exist: Content-Type, Expires, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset, X-Pages, X-Compatibility-Date, warning, Warning.<br>The HTTP status code from ESI is also passed through, so there may be more than the documented ones.<br>The ESI path and query parameters can alternatively be appended to the path of this endpoint, this allows using OpenAPI clients generated for the EVE API (ESI), see doc/api-examples for more.
 
 ### Example
 
@@ -424,10 +426,11 @@ $esi_path_query = 'esi_path_query_example'; // string | The ESI path and query s
 $neucore_eve_character = 'neucore_eve_character_example'; // string | The EVE character ID those token should be used. Has priority over the query parameter 'datasource'
 $neucore_eve_login = 'neucore_eve_login_example'; // string | The EVE login name from which the token should be used, defaults to core.default.
 $x_compatibility_date = 'x_compatibility_date_example'; // string | The ESI compatibility date.
+$accept_language = 'accept_language_example'; // string
 $datasource = 'datasource_example'; // string | The EVE character ID those token should be used from the default login to make the ESI request. Optionally followed by a colon and the name of an EVE login to use an alternative ESI token.
 
 try {
-    $result = $apiInstance->esiV2($esi_path_query, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date, $datasource);
+    $result = $apiInstance->esiV2($esi_path_query, $neucore_eve_character, $neucore_eve_login, $x_compatibility_date, $accept_language, $datasource);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ApplicationESIApi->esiV2: ', $e->getMessage(), PHP_EOL;
@@ -442,6 +445,7 @@ try {
 | **neucore_eve_character** | **string**| The EVE character ID those token should be used. Has priority over the query parameter &#39;datasource&#39; | [optional] |
 | **neucore_eve_login** | **string**| The EVE login name from which the token should be used, defaults to core.default. | [optional] |
 | **x_compatibility_date** | **string**| The ESI compatibility date. | [optional] |
+| **accept_language** | **string**|  | [optional] |
 | **datasource** | **string**| The EVE character ID those token should be used from the default login to make the ESI request. Optionally followed by a colon and the name of an EVE login to use an alternative ESI token. | [optional] |
 
 ### Return type
