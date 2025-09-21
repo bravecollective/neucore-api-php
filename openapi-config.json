@@ -1,7 +1,7 @@
 {
     "invokerPackage" : "Brave\\NeucoreApi",
     "gitUserId" : "bravecollective",
-    "gitRepoId" : "neucore-api",
+    "gitRepoId" : "neucore-api-php",
     "disallowAdditionalPropertiesIfNotPresent" : false,
     "licenseName" : "MIT"
 }
