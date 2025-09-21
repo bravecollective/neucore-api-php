@@ -16,3 +16,5 @@ composer.lock
 .phpunit.result.cache
 
 /.idea
+/openapi-generator-cli-*.jar
+/application-api-3.yml
