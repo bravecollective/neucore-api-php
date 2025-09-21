@@ -1,3 +1,7 @@
+# Neucore API Client (PHP)
+
+Client library for the [Neucore](https://github.com/tkhamez/neucore) API for applications.
+
 The version numbers correspond to the Neucore version numbers.
 
 When updating, check the generator version in .openapi-generator/VERSION, 
