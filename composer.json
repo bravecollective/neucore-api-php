@@ -1,6 +1,6 @@
 {
     "name": "bravecollective/neucore-api",
-    "description": "Client library of Neucore API",
+    "description": "Client library for the Neucore API for applications.",
     "keywords": [
         "openapitools",
         "openapi-generator",
@@ -8,7 +8,9 @@
         "php",
         "sdk",
         "rest",
-        "api"
+        "api",
+        "eve-online",
+        "neucore"
     ],
     "homepage": "https://openapi-generator.tech",
     "license": "MIT",

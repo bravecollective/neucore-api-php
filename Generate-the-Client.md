@@ -27,9 +27,9 @@
   git add lib docs
   ```
 
-- Revert changes in `.gitignore`:
+- Revert changes in `.gitignore` and `composer.json`:
   ```shell
-  git checkout .gitignore
+  git checkout .gitignore composer.json
   ```
 
 - In `.openapi-generator/FILES`, delete any new lines that starts with `test/`.
