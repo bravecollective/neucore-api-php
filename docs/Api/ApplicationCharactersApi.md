@@ -684,7 +684,7 @@ try {
 ## `playersV1()`
 
 ```php
-playersV1($request_body): \Brave\NeucoreApi\Model\PlayerWithCharcterId[]
+playersV1($request_body): \Brave\NeucoreApi\Model\PlayerWithCharacterId[]
 ```
 
 Returns player accounts identified by character IDs. Can contain the same player several times.
@@ -726,7 +726,7 @@ try {
 
 ### Return type
 
-[**\Brave\NeucoreApi\Model\PlayerWithCharcterId[]**](../Model/PlayerWithCharcterId.md)
+[**\Brave\NeucoreApi\Model\PlayerWithCharacterId[]**](../Model/PlayerWithCharacterId.md)
 
 ### Authorization
 

@@ -9,9 +9,9 @@ Name | Type | Description | Notes
 **corporation_name** | **string** | Corporation of main character (API: not included by default) | [optional]
 **alliance_name** | **string** | Alliance of main character (API: not included by default) | [optional]
 **id** | **int** |  |
-**name** | **string** | A name for the player.  This is the EVE character name of the current main character or of the last main character if there is currently none. |
+**name** | **string** | A name for the player.  This is the EVE character name of the current main character or the most recent main character, if there isn&#39;t one at the moment. |
 **status** | **string** | Player account status. | [optional]
-**roles** | [**\Brave\NeucoreApi\Model\Role[]**](Role.md) | Roles for authorization. | [optional]
+**roles** | [**\Brave\NeucoreApi\Model\Role[]**](Role.md) | Roles for authorisation. | [optional]
 **characters** | [**\Brave\NeucoreApi\Model\Character[]**](Character.md) |  | [optional]
 **groups** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Group membership. | [optional]
 **manager_groups** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Manager of groups. | [optional]

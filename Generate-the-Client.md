@@ -39,5 +39,5 @@
 
 - Commit everything, adjust the version in the commit message:
   ```shell
-  git commit -a -m "Update client to Neucore version 2.9.0, generated with OpenAPI Generator $GENERATOR_VERSION."
+  git commit -a -m "Update client to Neucore version 3.0.0, generated with OpenAPI Generator $GENERATOR_VERSION."
   ```

@@ -8,7 +8,7 @@ All URIs are relative to https://localhost/api, except if the operation defines 
 | ------------- | ------------- | ------------- |
 | [**esiAccessTokenV1()**](ApplicationESIApi.md#esiAccessTokenV1) | **GET** /app/v1/esi/access-token/{characterId} | Returns an access token for a character and EVE login that is valid for at least 60 seconds. |
 | [**esiEveLoginCharactersV1()**](ApplicationESIApi.md#esiEveLoginCharactersV1) | **GET** /app/v1/esi/eve-login/{name}/characters | Returns character IDs of characters that have an ESI token (including invalid) of an EVE login. |
-| [**esiEveLoginTokenDataV1()**](ApplicationESIApi.md#esiEveLoginTokenDataV1) | **GET** /app/v1/esi/eve-login/{name}/token-data | Returns data for all valid tokens (roles are also checked if applicable) for an EVE login. |
+| [**esiEveLoginTokenDataV1()**](ApplicationESIApi.md#esiEveLoginTokenDataV1) | **GET** /app/v1/esi/eve-login/{name}/token-data | Returns data for all valid tokens (roles are also checked if applicable) for an EVE login. This returns cached data, it does not check if the token is still valid. |
 | [**esiPostV1()**](ApplicationESIApi.md#esiPostV1) | **POST** /app/v1/esi | See POST /app/v2/esi. The only difference are the return values in case of errors. |
 | [**esiPostV2()**](ApplicationESIApi.md#esiPostV2) | **POST** /app/v2/esi | Same as GET /app/v2/esi, but for POST requests. |
 | [**esiV1()**](ApplicationESIApi.md#esiV1) | **GET** /app/v1/esi | See GET /app/v2/esi. The only difference are the return values in case of errors. |
@@ -143,7 +143,7 @@ try {
 esiEveLoginTokenDataV1($name): \Brave\NeucoreApi\Model\EsiTokenData[]
 ```
 
-Returns data for all valid tokens (roles are also checked if applicable) for an EVE login.
+Returns data for all valid tokens (roles are also checked if applicable) for an EVE login. This returns cached data, it does not check if the token is still valid.
 
 Needs role: app-esi-login.
 
@@ -405,7 +405,7 @@ esiV2($esi_path_query, $neucore_eve_character, $neucore_eve_login, $x_compatibil
 
 Makes an ESI GET request on behalf on an EVE character and returns the result.
 
-Needs role: app-esi-proxy<br>Either the header 'Neucore-EveCharacter' and optionally 'Neucore-EveLogin' or the query parameter 'datasource' is required.<br> Public ESI routes are not allowed.<br>The following headers from ESI are passed through to the response if they exist: Content-Type, Expires, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset, X-Pages, X-Compatibility-Date, warning, Warning.<br>The HTTP status code from ESI is also passed through, so there may be more than the documented ones.<br>The ESI path and query parameters can alternatively be appended to the path of this endpoint, this allows using OpenAPI clients generated for the EVE API (ESI), see doc/api-examples for more.
+Needs role: app-esi-proxy<br>Either the header 'Neucore-EveCharacter' and optionally 'Neucore-EveLogin' or the query parameter 'datasource' is required.<br> Public ESI routes are not allowed.<br>The following headers from ESI are passed through to the response if they exist: Content-Type, Expires, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset, X-Ratelimit-Group, X-Ratelimit-Limit, X-Ratelimit-Remaining, X-Ratelimit-Used, Retry-After, X-Pages, before, after, X-Compatibility-Date, Warning. <br>The HTTP status code from ESI is also passed through, so there may be more than the documented ones.<br>The ESI path and query parameters can alternatively be appended to the path of this endpoint, this allows using OpenAPI clients generated for the EVE API (ESI), see doc/api-examples for more.
 
 ### Example
 

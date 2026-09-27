@@ -1,6 +1,6 @@
 <?php
 /**
- * ApplicationApi
+ * ApplicationMCPApi
  * PHP version 8.1
  *
  * @category Class
@@ -43,14 +43,14 @@ use Brave\NeucoreApi\HeaderSelector;
 use Brave\NeucoreApi\ObjectSerializer;
 
 /**
- * ApplicationApi Class Doc Comment
+ * ApplicationMCPApi Class Doc Comment
  *
  * @category Class
  * @package  Brave\NeucoreApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ApplicationApi
+class ApplicationMCPApi
 {
     /**
      * @var ClientInterface
@@ -74,7 +74,7 @@ class ApplicationApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'showV1' => [
+        'mcpV1' => [
             'application/json',
         ],
     ];
@@ -126,36 +126,44 @@ class ApplicationApi
     }
 
     /**
-     * Operation showV1
+     * Operation mcpV1
      *
-     * Show app information.
+     * The Neucore MCP server.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showV1'] to see the possible values for this operation
+     * @param  string $mcp_protocol_version The MCP protocol version for this request (e.g., \&quot;2026-07-28\&quot;). (required)
+     * @param  string $mcp_method Must mirror the JSON-RPC method in the request body (e.g., \&quot;tools/list\&quot;, \&quot;tools/call\&quot;, \&quot;server/discover\&quot;). (required)
+     * @param  string|null $mcp_name Required for tools/call and prompts/get: mirrors the tool or prompt name from the body. (optional)
+     * @param  mixed|null $body JSON encoded MCP request body. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcpV1'] to see the possible values for this operation
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Brave\NeucoreApi\Model\App|string
+     * @return string|string|string
      */
-    public function showV1(string $contentType = self::contentTypes['showV1'][0])
+    public function mcpV1($mcp_protocol_version, $mcp_method, $mcp_name = null, $body = null, string $contentType = self::contentTypes['mcpV1'][0])
     {
-        list($response) = $this->showV1WithHttpInfo($contentType);
+        list($response) = $this->mcpV1WithHttpInfo($mcp_protocol_version, $mcp_method, $mcp_name, $body, $contentType);
         return $response;
     }
 
     /**
-     * Operation showV1WithHttpInfo
+     * Operation mcpV1WithHttpInfo
      *
-     * Show app information.
+     * The Neucore MCP server.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showV1'] to see the possible values for this operation
+     * @param  string $mcp_protocol_version The MCP protocol version for this request (e.g., \&quot;2026-07-28\&quot;). (required)
+     * @param  string $mcp_method Must mirror the JSON-RPC method in the request body (e.g., \&quot;tools/list\&quot;, \&quot;tools/call\&quot;, \&quot;server/discover\&quot;). (required)
+     * @param  string|null $mcp_name Required for tools/call and prompts/get: mirrors the tool or prompt name from the body. (optional)
+     * @param  mixed|null $body JSON encoded MCP request body. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcpV1'] to see the possible values for this operation
      *
      * @throws \Brave\NeucoreApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Brave\NeucoreApi\Model\App|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|string|string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function showV1WithHttpInfo(string $contentType = self::contentTypes['showV1'][0])
+    public function mcpV1WithHttpInfo($mcp_protocol_version, $mcp_method, $mcp_name = null, $body = null, string $contentType = self::contentTypes['mcpV1'][0])
     {
-        $request = $this->showV1Request($contentType);
+        $request = $this->mcpV1Request($mcp_protocol_version, $mcp_method, $mcp_name, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -183,7 +191,13 @@ class ApplicationApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\Brave\NeucoreApi\Model\App',
+                        'string',
+                        $request,
+                        $response,
+                    );
+                case 429:
+                    return $this->handleResponseWithDataType(
+                        'string',
                         $request,
                         $response,
                     );
@@ -211,7 +225,7 @@ class ApplicationApi
             }
 
             return $this->handleResponseWithDataType(
-                '\Brave\NeucoreApi\Model\App',
+                'string',
                 $request,
                 $response,
             );
@@ -220,7 +234,15 @@ class ApplicationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Brave\NeucoreApi\Model\App',
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 429:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -241,18 +263,22 @@ class ApplicationApi
     }
 
     /**
-     * Operation showV1Async
+     * Operation mcpV1Async
      *
-     * Show app information.
+     * The Neucore MCP server.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showV1'] to see the possible values for this operation
+     * @param  string $mcp_protocol_version The MCP protocol version for this request (e.g., \&quot;2026-07-28\&quot;). (required)
+     * @param  string $mcp_method Must mirror the JSON-RPC method in the request body (e.g., \&quot;tools/list\&quot;, \&quot;tools/call\&quot;, \&quot;server/discover\&quot;). (required)
+     * @param  string|null $mcp_name Required for tools/call and prompts/get: mirrors the tool or prompt name from the body. (optional)
+     * @param  mixed|null $body JSON encoded MCP request body. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcpV1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function showV1Async(string $contentType = self::contentTypes['showV1'][0])
+    public function mcpV1Async($mcp_protocol_version, $mcp_method, $mcp_name = null, $body = null, string $contentType = self::contentTypes['mcpV1'][0])
     {
-        return $this->showV1AsyncWithHttpInfo($contentType)
+        return $this->mcpV1AsyncWithHttpInfo($mcp_protocol_version, $mcp_method, $mcp_name, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,19 +287,23 @@ class ApplicationApi
     }
 
     /**
-     * Operation showV1AsyncWithHttpInfo
+     * Operation mcpV1AsyncWithHttpInfo
      *
-     * Show app information.
+     * The Neucore MCP server.
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showV1'] to see the possible values for this operation
+     * @param  string $mcp_protocol_version The MCP protocol version for this request (e.g., \&quot;2026-07-28\&quot;). (required)
+     * @param  string $mcp_method Must mirror the JSON-RPC method in the request body (e.g., \&quot;tools/list\&quot;, \&quot;tools/call\&quot;, \&quot;server/discover\&quot;). (required)
+     * @param  string|null $mcp_name Required for tools/call and prompts/get: mirrors the tool or prompt name from the body. (optional)
+     * @param  mixed|null $body JSON encoded MCP request body. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcpV1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function showV1AsyncWithHttpInfo(string $contentType = self::contentTypes['showV1'][0])
+    public function mcpV1AsyncWithHttpInfo($mcp_protocol_version, $mcp_method, $mcp_name = null, $body = null, string $contentType = self::contentTypes['mcpV1'][0])
     {
-        $returnType = '\Brave\NeucoreApi\Model\App';
-        $request = $this->showV1Request($contentType);
+        $returnType = 'string';
+        $request = $this->mcpV1Request($mcp_protocol_version, $mcp_method, $mcp_name, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,18 +342,38 @@ class ApplicationApi
     }
 
     /**
-     * Create request for operation 'showV1'
+     * Create request for operation 'mcpV1'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['showV1'] to see the possible values for this operation
+     * @param  string $mcp_protocol_version The MCP protocol version for this request (e.g., \&quot;2026-07-28\&quot;). (required)
+     * @param  string $mcp_method Must mirror the JSON-RPC method in the request body (e.g., \&quot;tools/list\&quot;, \&quot;tools/call\&quot;, \&quot;server/discover\&quot;). (required)
+     * @param  string|null $mcp_name Required for tools/call and prompts/get: mirrors the tool or prompt name from the body. (optional)
+     * @param  mixed|null $body JSON encoded MCP request body. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['mcpV1'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function showV1Request(string $contentType = self::contentTypes['showV1'][0])
+    public function mcpV1Request($mcp_protocol_version, $mcp_method, $mcp_name = null, $body = null, string $contentType = self::contentTypes['mcpV1'][0])
     {
 
+        // verify the required parameter 'mcp_protocol_version' is set
+        if ($mcp_protocol_version === null || (is_array($mcp_protocol_version) && count($mcp_protocol_version) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $mcp_protocol_version when calling mcpV1'
+            );
+        }
 
-        $resourcePath = '/app/v1/show';
+        // verify the required parameter 'mcp_method' is set
+        if ($mcp_method === null || (is_array($mcp_method) && count($mcp_method) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $mcp_method when calling mcpV1'
+            );
+        }
+
+
+
+
+        $resourcePath = '/app/v1/mcp';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -331,6 +381,18 @@ class ApplicationApi
         $multipart = false;
 
 
+        // header params
+        if ($mcp_protocol_version !== null) {
+            $headerParams['MCP-Protocol-Version'] = ObjectSerializer::toHeaderValue($mcp_protocol_version);
+        }
+        // header params
+        if ($mcp_method !== null) {
+            $headerParams['Mcp-Method'] = ObjectSerializer::toHeaderValue($mcp_method);
+        }
+        // header params
+        if ($mcp_name !== null) {
+            $headerParams['Mcp-Name'] = ObjectSerializer::toHeaderValue($mcp_name);
+        }
 
 
 
@@ -341,7 +403,18 @@ class ApplicationApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                try {
+                    $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($body), JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -388,7 +461,7 @@ class ApplicationApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

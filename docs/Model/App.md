@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** | App ID |
 **name** | **string** | App name |
-**roles** | [**\Brave\NeucoreApi\Model\Role[]**](Role.md) | Roles for authorization. | [optional]
+**roles** | [**\Brave\NeucoreApi\Model\Role[]**](Role.md) | Roles for authorisation. | [optional]
 **groups** | [**\Brave\NeucoreApi\Model\Group[]**](Group.md) | Groups the app can see. | [optional]
 **eve_logins** | [**\Brave\NeucoreApi\Model\EveLogin[]**](EveLogin.md) |  | [optional]
 

@@ -7,6 +7,7 @@ docs/Api/ApplicationApi.md
 docs/Api/ApplicationCharactersApi.md
 docs/Api/ApplicationESIApi.md
 docs/Api/ApplicationGroupsApi.md
+docs/Api/ApplicationMCPApi.md
 docs/Api/ApplicationTrackingApi.md
 docs/Model/Alliance.md
 docs/Model/App.md
@@ -27,7 +28,7 @@ docs/Model/HourlyAppRequests.md
 docs/Model/MonthlyAppRequests.md
 docs/Model/Player.md
 docs/Model/PlayerLoginStatistics.md
-docs/Model/PlayerWithCharcterId.md
+docs/Model/PlayerWithCharacterId.md
 docs/Model/Plugin.md
 docs/Model/PluginConfigurationDatabase.md
 docs/Model/PluginConfigurationFile.md
@@ -45,6 +46,7 @@ lib/Api/ApplicationApi.php
 lib/Api/ApplicationCharactersApi.php
 lib/Api/ApplicationESIApi.php
 lib/Api/ApplicationGroupsApi.php
+lib/Api/ApplicationMCPApi.php
 lib/Api/ApplicationTrackingApi.php
 lib/ApiException.php
 lib/Configuration.php
@@ -70,7 +72,7 @@ lib/Model/ModelInterface.php
 lib/Model/MonthlyAppRequests.php
 lib/Model/Player.php
 lib/Model/PlayerLoginStatistics.php
-lib/Model/PlayerWithCharcterId.php
+lib/Model/PlayerWithCharacterId.php
 lib/Model/Plugin.php
 lib/Model/PluginConfigurationDatabase.php
 lib/Model/PluginConfigurationFile.php
