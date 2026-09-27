@@ -9,6 +9,8 @@ a new version may break backwards compatibility.
 
 **Breaking changes**
 
+- 3.0.0
+  See [Neucore changelog version 3.0.0](https://github.com/tkhamez/neucore/blob/main/CHANGELOG.md#300)
 - 2.7.3  
   Needs PHP ^8.1
 - 1.43.0  
