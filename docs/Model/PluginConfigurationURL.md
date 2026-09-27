@@ -1,4 +1,4 @@
-# # PluginConfigurationURL
+# PluginConfigurationURL
 
 ## Properties
 

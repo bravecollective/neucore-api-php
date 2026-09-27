@@ -1,4 +1,4 @@
-# # Alliance
+# Alliance
 
 ## Properties
 

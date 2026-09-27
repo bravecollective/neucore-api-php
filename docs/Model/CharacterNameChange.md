@@ -1,4 +1,4 @@
-# # CharacterNameChange
+# CharacterNameChange
 
 ## Properties
 

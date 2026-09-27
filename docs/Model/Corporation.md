@@ -1,4 +1,4 @@
-# # Corporation
+# Corporation
 
 ## Properties
 

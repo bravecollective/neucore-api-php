@@ -1,4 +1,4 @@
-# # MonthlyAppRequests
+# MonthlyAppRequests
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # RemovedCharacter
+# RemovedCharacter
 
 ## Properties
 

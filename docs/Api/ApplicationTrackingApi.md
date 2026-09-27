@@ -1,5 +1,7 @@
 # Brave\NeucoreApi\ApplicationTrackingApi
 
+
+
 All URIs are relative to https://localhost/api, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

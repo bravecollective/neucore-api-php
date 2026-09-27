@@ -1,4 +1,4 @@
-# # PlayerLoginStatistics
+# PlayerLoginStatistics
 
 ## Properties
 

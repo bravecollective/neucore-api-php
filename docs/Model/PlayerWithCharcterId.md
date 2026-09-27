@@ -1,4 +1,4 @@
-# # PlayerWithCharcterId
+# PlayerWithCharcterId
 
 ## Properties
 

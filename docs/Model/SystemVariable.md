@@ -1,4 +1,4 @@
-# # SystemVariable
+# SystemVariable
 
 ## Properties
 

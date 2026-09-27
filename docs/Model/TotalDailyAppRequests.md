@@ -1,4 +1,4 @@
-# # TotalDailyAppRequests
+# TotalDailyAppRequests
 
 ## Properties
 

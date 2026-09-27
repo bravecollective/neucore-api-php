@@ -1,4 +1,4 @@
-# # ServiceAccount
+# ServiceAccount
 
 ## Properties
 

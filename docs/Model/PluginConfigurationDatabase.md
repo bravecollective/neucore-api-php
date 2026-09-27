@@ -1,4 +1,4 @@
-# # PluginConfigurationDatabase
+# PluginConfigurationDatabase
 
 ## Properties
 

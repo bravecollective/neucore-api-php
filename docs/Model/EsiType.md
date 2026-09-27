@@ -1,4 +1,4 @@
-# # EsiType
+# EsiType
 
 ## Properties
 

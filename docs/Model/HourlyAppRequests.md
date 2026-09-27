@@ -1,4 +1,4 @@
-# # HourlyAppRequests
+# HourlyAppRequests
 
 ## Properties
 

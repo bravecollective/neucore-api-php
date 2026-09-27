@@ -1,4 +1,4 @@
-# # EsiToken
+# EsiToken
 
 ## Properties
 

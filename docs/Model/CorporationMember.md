@@ -1,4 +1,4 @@
-# # CorporationMember
+# CorporationMember
 
 ## Properties
 
